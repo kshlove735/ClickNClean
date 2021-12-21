@@ -1,0 +1,79 @@
+
+    div{
+        box-sizing: border-box ;
+    }
+        .contentBody {
+        border: 1px solid black;
+        width: 1116px;
+        height: 418px;
+        border-radius: 10px;
+        margin: 0 auto;
+    }
+    #left{
+        width: 35%;
+        height: 100%;
+        float: left;
+        padding: 30px;
+    }
+    #right{
+        width: 65%;
+        height: 100%;
+        padding: 30px;
+        float: left;
+    }
+    #logoArea{
+        width: 100%;
+        height: 60%;
+    }
+    #toInfoArea{
+        width: 100%;
+        height: 40%;
+        
+    }
+    #logo{
+        border: 1px solid black;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    #toInfoBtn{
+        width: 100%;
+        margin-top: 50px;
+    }
+    #reviewArea{
+        width: 100%;
+        height: 15%;
+        padding-bottom: 10px;  
+        padding-left: 10px;
+        padding-right: 10px;  
+    }
+    #infoArea{
+        width: 100%;
+        height: 45%;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #sideArea{
+        width: 100%;
+        height: 40%;
+        padding-top: 50px;
+        padding-bottom: 25px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #review{
+        border: 1px solid black;
+        width: 100%;
+        height: 100%;
+    }
+    #info{
+        border: 1px solid black;
+        width: 100%;
+        height: 100%;
+    }
+    #side{
+        border: 1px solid black;
+        width: 100%;
+        height: 100%;
+    }

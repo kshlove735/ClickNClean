@@ -6,7 +6,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+	div{
+		border:1px red solid;
+		width: 400px;
+		height: 200px;
+	}
+</style>
 <body>
-	아아아 화이팅!
+	<a href="/company/selectAllCompanyList.do">업체리스트</a>
 </body>
 </html>
