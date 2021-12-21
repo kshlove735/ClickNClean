@@ -15,5 +15,7 @@
 </style>
 <body>
 	<a href="/company/selectAllCompanyList.do">업체리스트</a>
+	<a href="/contract/selectAllCompanyList.do">견적내기</a>
+	<a href="/views/info/cleanType.jsp">청소종류</a>
 </body>
 </html>

@@ -1,5 +1,8 @@
+<%@page import="kr.or.iei.company.model.vo.Company"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,6 +12,7 @@
     <link href="/assets/css/selectAllCompany.css" rel="stylesheet" type="text/css"/>
 </head>
 <style>
+	
     #bodycss {
         font-family: "나눔스퀘어"
     }
@@ -83,6 +87,11 @@
 </style>
 
 <body id="bodycss">
+	
+	<%
+		ArrayList<Company> list=(ArrayList<Company>)request.getAttribute("list");
+	%>
+	
     <div id="header">
 
     </div>
@@ -91,6 +100,8 @@
             <span id="contentTitle">클릭N클린의 청소 업체 리스트</span>
             <div id="category">
                 <span id="categoryTitle">카테고리</span>
+                
+               
                 
                 <form id=categoryForm>
                     <table>
@@ -129,14 +140,15 @@
                             </td>
                         </tr>
                     </table>
-
-
                 </form>
+                
+                
             </div>
         </div>
+       
         <span id="bodyTitle"></span>
-
-            <div class="contentBody">
+		<%for(Company com:list){ %>
+		<div class="contentBody">
             <div id=left>
                <div id=logoArea>
                    <img id=logo src="img/%EB%B6%80%EB%B6%84%EC%B2%AD%EC%86%8C2.JPG">
@@ -151,12 +163,12 @@
             <div id=right>
                 <div id=reviewArea>
                     <div id=review>
-                        
+                        <%=com.getCoName() %>
                     </div>
                 </div>
                 <div id=infoArea>
                     <div id=info>
-                        
+                        <%=com.getCoInfo() %>
                     </div>
                 </div>
                 <div id=sideArea>
@@ -167,6 +179,8 @@
                 </div>
             </div>
         </div>
+		<%} %>
+            
 
     </div>
 
