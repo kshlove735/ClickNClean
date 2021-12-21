@@ -1,11 +1,19 @@
 package kr.or.iei.contract.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import kr.or.iei.company.model.service.CompanyService;
+import kr.or.iei.company.model.vo.Company;
+import kr.or.iei.contract.model.service.ContractService;
+import kr.or.iei.contract.model.service.ContractServiceImpl;
 
 /**
  * Servlet implementation class SelectConditionCompanyServlet
@@ -26,8 +34,27 @@ public class SelectConditionCompanyServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		request.setCharacterEncoding("utf-8");
+		String cleanType=request.getParameter("cleanType");
+		String houseType=request.getParameter("houseType");
+		String houseSize=request.getParameter("houseSize");
+		String area1=request.getParameter("area1");
+		String area2=request.getParameter("area2");
+		String cleanDate=request.getParameter("cleanDate");
+		
+		String area=area1+" "+area2;
+		
+		System.out.println(cleanType);
+		System.out.println(houseType);
+		
+		ContractService conService=new ContractServiceImpl();
+		ArrayList<Company> list= conService.selectConditionCompany(area);
+		
+		RequestDispatcher view=request.getRequestDispatcher("/views/contract/conditionCompany.jsp");
+		request.setAttribute("list", list);
+		request.setAttribute("cleanType", cleanType);
+		view.forward(request, response);
 	}
 
 	/**
