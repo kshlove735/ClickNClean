@@ -271,15 +271,16 @@
                 $("#datepicker").datepicker();
             });
 
-            $('#sandbox-container').datepicker({});
-            format: "mm/dd/yyyy",
-                weekStart: 0,
-                startDate: "-infinity",
-                endDate: "+infinity",
-                maxViewMode: 0,
-                todayBtn: "linked",
-                multidate: false,
-                multidateSeparator: ","
+            $('#sandbox-container').datepicker({
+            format: "MM/dd/yyyy",
+                weekStart :  0,
+                startDate : "-infinity",
+                endDate : "+infinity",
+                maxViewMode : 0,
+                todayBtn : "linked",
+                multidate : false,
+                multidateSeparator : ","
+            });
         </script>
     </div>
     <div id="footer">
