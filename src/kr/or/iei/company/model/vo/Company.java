@@ -23,6 +23,7 @@ public class Company {
 	private String meetHour;
 	private String workHour;
 	private String area;
+	private String cleanType;
 	private int price;
 	
 	
@@ -54,6 +55,18 @@ public class Company {
 	
 	
 	
+	public String getCleanType() {
+		return cleanType;
+	}
+
+
+
+	public void setCleanType(String cleanType) {
+		this.cleanType = cleanType;
+	}
+
+
+
 	public String getAddress() {
 		return address;
 	}
