@@ -24,6 +24,7 @@
 	<!-- css -->
  	<link href="/assets/css/index.css" rel="stylesheet" type="text/css" />
 </head>
+<body>
 
 
 <body>
