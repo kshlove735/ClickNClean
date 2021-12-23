@@ -17,5 +17,6 @@
 	<a href="/company/selectAllCompanyList.do">업체리스트</a>
 	<a href="/contract/selectCondition.do">견적내기</a>
 	<a href="/views/info/cleanType.jsp">청소종류</a>
+	하나수정하고 보내기
 </body>
 </html>
