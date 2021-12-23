@@ -20,6 +20,7 @@
 
 	<div>연습한번해볼께욤.....</div>
 	
+	
 	<h5>관리자 페이지 연습</h5>
 	<a href="/views/admin/boardWrite.jsp">관리자</a>
 
