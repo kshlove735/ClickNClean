@@ -25,12 +25,16 @@ public class Company {
 	private String area;
 	private String cleanType;
 	private int price;
+	private String tel;
+	
+	
 	
 	
 	
 	public Company(int coNo, String coId, String coName, String coPwd, String phone, String ceoName, String email,
-			String busNum, int team, int career, String grade, char sign_YN, char end_YN, String logo, String coInfo,
-			String meetHour, String workHour, String area, int price) {
+			String busNum, String address, Date enrollDate, int team, int career, String grade, char sign_YN,
+			char end_YN, String logo, String coInfo, String meetHour, String workHour, String area, String cleanType,
+			int price, String tel) {
 		super();
 		this.coNo = coNo;
 		this.coId = coId;
@@ -40,6 +44,8 @@ public class Company {
 		this.ceoName = ceoName;
 		this.email = email;
 		this.busNum = busNum;
+		this.address = address;
+		this.enrollDate = enrollDate;
 		this.team = team;
 		this.career = career;
 		this.grade = grade;
@@ -50,13 +56,27 @@ public class Company {
 		this.meetHour = meetHour;
 		this.workHour = workHour;
 		this.area = area;
+		this.cleanType = cleanType;
 		this.price = price;
+		this.tel = tel;
+	}
+
+
+
+	public String getCleanType() {
+		return cleanType;
 	}
 	
 	
-	
-	public String getCleanType() {
-		return cleanType;
+
+	public String getTel() {
+		return tel;
+	}
+
+
+
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 
 

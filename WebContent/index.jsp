@@ -18,7 +18,7 @@
 	<a href="/contract/selectCondition.do">견적내기</a>
 	<a href="/views/info/cleanType.jsp">청소종류</a>
 
-	<div>연습한번해볼께욤.....</div>
+
 	
 	<h5>관리자 페이지 연습</h5>
 	<a href="/views/admin/boardWrite.jsp">관리자</a>
