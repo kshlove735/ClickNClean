@@ -18,7 +18,5 @@
 	<a href="/contract/selectCondition.do">견적내기</a>
 	<a href="/views/info/cleanType.jsp">청소종류</a>
 
-	<div>연습한번해볼께욤.....</div>
-
 </body>
 </html>

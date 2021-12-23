@@ -9,81 +9,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
  <link href="/assets/css/footer.css" rel="stylesheet" type="text/css"/>
+ <link href="/assets/css/cleanType.css" rel="stylesheet" type="text/css"/>
 <style>
-    #bodycss {
-        font-family: "나눔스퀘어"
-    }
-
-    div {
-        
-        box-sizing: border-box;
-    }
-
-    #header {
-        border: 1px solid #72CCFF;
-        width: 100%;
-        height: 92px;
-        box-sizing: content-box;
-    }
-
-    #contentArea {
-        width: 1344px;
-        height: 2000px;
-        margin: 0 auto;
-    }
-
-    .contentHead {
-        width: 100%;
-        height: 10%;
-    }
-
-    #contentTitle {
-        display: block;
-        width: 100%;
-        margin-top: 100px;
-        padding-left: 50px;
-        font-size: 50px;
-        color: #0E76B3;
-        font-weight: bold;
-    }
-    #content{
-        width: 100%;
-        height: 85%;
-        padding: 50px;
-    }
-    #footer{
-        width: 100%;
-        height: 300px;
-    }
-    .cleanTypeArea{
-        border: 2px solid #555;
-        width: 100%;
-        height: 400px;
-        margin-bottom: 150px;
-        margin-top: 10px;
-        border-radius: 5px;
-    }
-    .imgArea{
-        float: left;
-        width: 30%;
-        height: 100%;
-        padding: 20px;
-        
-    }
-    .textArea{
-        
-        width: 70%;
-        height: 100%;
-        float: left;
-        padding: 20px;
-    }
-    .typeName{
-        font-size: 20px
-    }
-    .cleanType{
-        font-size: 20px;
-        cursor: pointer;
-    }
 
 </style>
 
@@ -107,31 +34,34 @@
            <span class="typeName">입주청소란?</span>
             <div class=cleanTypeArea id="1">
                 <div class="imgArea">
-                    <img style="width: 100%; height: 100%;" src="/assets/img/%EC%9E%85%EC%A3%BC%EC%B2%AD%EC%86%8C.JPG"/>
+                    <img style="width: 100%; height: 100%; box-shadow: 0px 3px 6px rgb(0 0 0/ 16%);" src="/assets/img/%EC%9E%85%EC%A3%BC%EC%B2%AD%EC%86%8C.JPG"/>
                 </div>
                 <div class="textArea">
-                    
+                    <span class="typeName">입주청소란?</span><br><br>
+                    <span class="text">입주청소는 신축건물을 청소하는 상품으로 새로지어진 건물에 입주하여 들어가기전에 하는 청소를 의미합니다.</span>
                     
                 </div>
             </div>
             <span class="typeName">이사청소란?</span>
             <div class=cleanTypeArea id="2">
                 <div class="imgArea">
-                    <img style="width: 100%; height: 100%;" src="/assets/img/%EC%9E%85%EC%A3%BC%EC%B2%AD%EC%86%8C.JPG"/>
+                    <img style="width: 100%; height: 100%; box-shadow: 0px 3px 6px rgb(0 0 0/ 16%);" src="/assets/img/이사청소.JPG"/>
                 </div>
                 <div class="textArea">
-                    
-                    
+                     <span class="typeName">이사청소란?</span><br><br>
+                     <span class="text">이사청소는 구축건물을 청소하는 상품으로 지어진지 어느정도 지난 건물에 입주하여 들어가기전에 하는 청소를 의미합니다.
+                     
+                     </span>
                 </div>
             </div>
             <span class="typeName">부분청소란?</span>
             <div class=cleanTypeArea id="3">
                 <div class="imgArea">
-                    <img style="width: 100%; height: 100%;" src="/assets/img/%EC%9E%85%EC%A3%BC%EC%B2%AD%EC%86%8C.JPG"/>
+                    <img style="width: 100%; height: 100%; box-shadow: 0px 3px 6px rgb(0 0 0/ 16%);" src="/assets/img/부분청소1.JPG"/>
                 </div>
                 <div class="textArea">
-                    
-                    
+                    <span class="typeName">부분청소란?</span><br><br>
+                     <span class="text">부분청소는 건물의 한부분을 청소하는 상품으로 화장실,문틈,주방 등 어느 한부분을 정하여 하는 청소를 의미합니다.</span>
                 </div>
             </div>
         

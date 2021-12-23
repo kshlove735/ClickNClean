@@ -1,6 +1,8 @@
 package kr.or.iei.company.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class SelectProfileServlet
  */
-@WebServlet("/profile/selectProfile.do")
+@WebServlet("/company/selectProfile.do")
 public class SelectProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,6 +29,9 @@ public class SelectProfileServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String coId=request.getParameter("coId");
+		
+		RequestDispatcher view =request.getRequestDispatcher("/views/company/companyProfile.jsp");
+		view.forward(request, response);
 	}
 
 	/**

@@ -14,6 +14,7 @@ import kr.or.iei.company.model.service.CompanyService;
 import kr.or.iei.company.model.vo.Company;
 import kr.or.iei.contract.model.service.ContractService;
 import kr.or.iei.contract.model.service.ContractServiceImpl;
+import kr.or.iei.contract.model.vo.Contract;
 
 /**
  * Servlet implementation class SelectConditionCompanyServlet
@@ -45,11 +46,19 @@ public class SelectConditionCompanyServlet extends HttpServlet {
 		
 		String area=area1+" "+area2;
 		
-		System.out.println(cleanType);
-		System.out.println(houseType);
-		
+		int size=Integer.parseInt(houseSize.substring(0, 2));
+		System.out.println(size);
 		ContractService conService=new ContractServiceImpl();
-		ArrayList<Company> list= conService.selectConditionCompany(area);
+		ArrayList<Company> list= conService.selectConditionCompany(area,cleanType);
+		Contract con=new Contract();
+		//con.setCleanType(cleanType);
+	//	con.setHouseType(houseType);
+		//con.setHouseSize(houseSize);
+	//setArea(area);
+	//	con.setCleanDate(cleanDate);
+		
+		
+		int result =conService.insertCondition(con);
 		
 		RequestDispatcher view=request.getRequestDispatcher("/views/contract/conditionCompany.jsp");
 		request.setAttribute("list", list);
