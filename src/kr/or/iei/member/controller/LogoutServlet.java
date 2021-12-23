@@ -1,25 +1,25 @@
-package kr.or.iei.company.controller;
+package kr.or.iei.member.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class SelectProfileServlet
+ * Servlet implementation class LogoutServlet
  */
-@WebServlet("/company/selectProfile.do")
-public class SelectProfileServlet extends HttpServlet {
+@WebServlet("/member/logout.do")
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectProfileServlet() {
+    public LogoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,10 +28,14 @@ public class SelectProfileServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String coId=request.getParameter("coId");
+	
+		HttpSession session = request.getSession();
 		
-		RequestDispatcher view =request.getRequestDispatcher("/views/company/companyProfile.jsp");
-		view.forward(request, response);
+		session.invalidate();
+		
+		response.sendRedirect("/");
+		
+		
 	}
 
 	/**

@@ -1,3 +1,6 @@
+<%@page import="kr.or.iei.contract.model.vo.Contract"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -55,8 +58,9 @@
     }
 
     .logoImg {
-        width: 100%;
-        height: 100%;
+         width: 200px;
+        height: 44px;
+        margin: 13px 0 0 7.5px;
     }
 
     #estimate {
@@ -176,7 +180,7 @@
         /* 콘텐트 부분 */
           #content{
             width: 1344px;
-            height: 620px;
+            height: 640px;
             margin: 0 auto;
         }
            #content1{
@@ -232,10 +236,10 @@
             color: #555;
         }
     #pageNavi{
-            width: 100%;
-            height: 50px;
-            top: -20px;
-            background-color: aquamarine;
+            width: 37%;
+            height: 70px;
+            margin: 0 auto;
+
         }
      
         .line{
@@ -348,6 +352,19 @@
     </style>
 </head>
 <body>
+
+<%
+	HashMap<String,Object> map = (HashMap<String,Object>)request.getAttribute("map");
+	
+	ArrayList<Contract> list = (ArrayList<Contract>)map.get("list");
+	
+	String pageNavi = (String)map.get("pageNavi");
+	
+	int currentPage = (int)request.getAttribute("currentPage");
+
+%>
+
+
  <div id="wrap">
         <div id="header">
               <div id="header">
@@ -364,7 +381,7 @@
                     <div id="menu">
                         <div id="login">
                             <ul>
-                                <li><a href="">로그아웃</a></li>
+                                <li><a href="/member/logout.do">로그아웃</a></li>
                             </ul>
                         </div>
                     </div>
@@ -405,31 +422,34 @@
                 </div>
                 </div>
                 <div id="content-2">
-                    <!--견적서 for문 돌리기 로직-->
+                    
+                    <%for(Contract c : list){ %>
+                    
                     <div  class="rounded estimate">
                         <form>
                             <table>
                                 <tr>
-                                    <td class="part"><h5>이사청소 / </h5></td>
-                                    <td class="part"><h5>아파트 25평형 / </h5></td>
-                                    <td class="part"><h5>서울시 강남구 / </h5></td>
-                                    <td class="part"><h5>2021.10.01</h5></td>
+                                    <td class="part"><h5><%=c.getCleanType() %> /</h5></td>
+                                    <td class="part"><h5><%=c.getHouseType() %> <%=c.getHouseSize() %> / </h5></td>
+                                    <td class="part"><h5><%=c.getArea() %> / </h5></td>
+                                    <td class="part"><h5><%=c.getReqDate() %></h5></td>
                                     <td style="color: white">sssss</td>
                                     <!-- 견적 리스트 페이지 연결 로직-->
-                                    <td> <input type="button" id="list" class="btn rounded " style="background-color:#0E76B3; color: white" value="견적리스트"></td>
+                                    <td> <input type="button" id="list" onclick="location.replace('/views/contract/conditionCompany.jsp');" class="btn rounded " style="background-color:#0E76B3; color: white" value="견적리스트"></td>
                                 </tr>
                                 
                             </table>
                         </form>
                     </div>
+                    <%} %>
                     
                 </div>
                 <!--페이지 네비 로직-->
-                <div id="pageNavi">페이지 네비 들어갈 곳</div>
+                <div id="pageNavi"><%=pageNavi %></div>
              </div>
          </div>
           <div class="line"></div>
-          <!-- 풋터 영역 -->
+         
           <div id="footer-1"></div>
                 <div id="footer">
                <div id="caution">

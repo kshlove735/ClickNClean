@@ -42,6 +42,7 @@ public class CompanyDAO {
 				com.setWorkHour(rset.getString("WorkHour"));
 				com.setArea(rset.getString("Area"));
 				com.setCleanType(rset.getString("cleanType"));
+				com.setTel(rset.getString("tel"));
 				com.setPrice(rset.getInt("Price"));
 				list.add(com);
 			}

@@ -1,7 +1,9 @@
 package kr.or.iei.contract.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.iei.contract.model.service.ContractService;
 import kr.or.iei.contract.model.service.ContractServiceImpl;
+import kr.or.iei.member.model.vo.Member;
 
 /**
  * Servlet implementation class MemberChoiceServlet
@@ -31,7 +34,7 @@ public class MemberChoiceServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String userId = ((Member)session.getAttribute("member")).getUserId();
+		String userId = ((Member)request.getSession().getAttribute("member")).getUserId();
 		
 		int currentPage;
 		
@@ -45,7 +48,12 @@ public class MemberChoiceServlet extends HttpServlet {
 		}
 		
 		ContractService cService = new ContractServiceImpl();
-		cService.MemberChoice(currentPage,userId);
+		HashMap<String, Object> map = cService.MemberChoice(currentPage,userId);
+		
+		RequestDispatcher view = request.getRequestDispatcher("/views/member/myEstimate.jsp");
+		request.setAttribute("map", map);
+		request.setAttribute("currentPage", currentPage);
+		view.forward(request, response);
 		
 	}
 

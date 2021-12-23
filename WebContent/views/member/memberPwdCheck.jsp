@@ -53,8 +53,9 @@
     }
 
     .logoImg {
-        width: 100px;
-        height: 55px;
+        width: 200px;
+        height: 44px;
+        margin: 13px 0 0 7.5px;
     }
 
     #estimate {
@@ -326,6 +327,12 @@
     </style>
 </head>
 <body>
+
+<%
+		Member m = 
+%>
+
+
  <div id="wrap">
         <div id="header">
             <div id="header">
@@ -342,7 +349,7 @@
                     <div id="menu">
                         <div id="login">
                             <ul>
-                                <li><a href="">로그아웃</a></li>
+                                <li><a href="/member/logout.do">로그아웃</a></li>
                             </ul>
                         </div>
                     </div>
@@ -379,7 +386,7 @@
                                     <td class="mypage-td">아이디</td>
                                     <td>
                                         <input type="text" name="userId" 
-                                        size="35" class="input rounded border border-primary"/>
+                                        size="35" class="input rounded border border-primary" style="background-color: #72CCFF; text-align: center;" disabled="true"/>
                                     </td>
                                 </tr> 
                                 <tr>

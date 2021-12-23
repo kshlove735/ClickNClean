@@ -55,8 +55,9 @@
     }
 
     .logoImg {
-        width: 100%;
-        height: 100%;
+        width: 200px;
+        height: 44px;
+        margin: 13px 0 0 7.5px;
     }
 
     #estimate {
@@ -170,7 +171,7 @@
         /* 콘텐트 부분 */
           #content{
             width: 1344px;
-            height: 790px;
+            height: 810px;
             margin: 0 auto;
         }
         #content1{
@@ -260,10 +261,11 @@
             border-radius: 5px;
             border: 2px solid #0E76B3;
         }
-        #pageNavi{
-            width: 100%;
-            height: 50px;
-            background-color: aquamarine;
+         #pageNavi{
+            width: 37%;
+            height: 70px;
+            margin: 0 auto;
+           
         }
         .cleanType{
             width: 100%;

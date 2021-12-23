@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <style>
+body {
+        font-family: "나눔스퀘어";
+        background-color: #fafafa;
+    }
     div {
         box-sizing: border-box;
     }
