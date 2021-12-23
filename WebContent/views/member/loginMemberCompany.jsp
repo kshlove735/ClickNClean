@@ -37,8 +37,8 @@
                        <!--개인 회원 로그인-->
                         <form action="/member/loginMember.do" method="post" id="input_form_center_type1">
                         
-                            <input type="text" name="userId" class="input" placeholder="아이디를 입력해주세요."><br><br>
-                            <input type="password" name="userPwd" class="input" placeholder="비밀번호를 입력해주세요."><br>
+                            <input type="text" name="userId" class="input" placeholder="아이디를 입력해주세요."/><br><br>
+                            <input type="password" name="userPwd" class="input" placeholder="비밀번호를 입력해주세요."/><br>
                             <div id="checkbox_search">
                                 <div id="checkbox">
                                     <input type="checkbox" name="secureConnect" id="cb1"> <label for="cb1">보안접속</label>
