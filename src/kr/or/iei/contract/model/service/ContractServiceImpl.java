@@ -20,7 +20,10 @@ public class ContractServiceImpl implements ContractService{
 	public int insertCondition(Contract con) {
 		Connection conn=JDBCTemplate.getConnection();
 		int result =conDAO.insertCondtion(con,conn);
-		return 0;
+		if(result>0) JDBCTemplate.commit(conn);
+		else JDBCTemplate.rollback(conn);
+		JDBCTemplate.close(conn);
+		return result;
 	}
 
 }

@@ -58,6 +58,7 @@ body {
 	height: 418px;
 	border-radius: 10px;
 	margin: 0 auto;
+	background-color:white;
 	box-shadow: 0px 3px 6px rgb(0 0 0/ 16%);
 }
 
@@ -114,7 +115,7 @@ body {
 					<table>
 						<tr>
 							<td><select class="option"
-								aria-label="Default select example">
+								aria-label="Default select example" name="area">
 									<option selected>지역</option>
 									<option>서울</option>
 									<option>인천</option>
@@ -133,29 +134,25 @@ body {
 									<option>경상남도</option>
 							</select></td>
 							<td><select class="option"
-								aria-label="Default select example">
+								aria-label="Default select example" name="cleanType">
 									<option selected>분야</option>
 									<option>입주청소</option>
 									<option>이사청소</option>
 									<option>부분청소</option>
 							</select></td>
 							<td><select class="option"
-								aria-label="Default select example">
+								aria-label="Default select example" name="etc">
 									<option selected>순</option>
 									<option>평점순</option>
 									<option>리뷰순</option>
 							</select></td>
-							<td><select class="option"
-								aria-label="Default select example">
-									<option selected>지역</option>
-									<option value="1">one</option>
-									<option value="2">Two</option>
-									<option value="3">Three</option>
-							</select></td>
+							
 						</tr>
 					</table>
 				</form>
-
+			<script>
+				
+			</script>
 
 			</div>
 		</div>

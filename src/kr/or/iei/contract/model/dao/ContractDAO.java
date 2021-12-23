@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import kr.or.iei.common.JDBCTemplate;
 import kr.or.iei.company.model.vo.Company;
+import kr.or.iei.contract.model.vo.Contract;
 
 public class ContractDAO {
 
@@ -59,6 +60,29 @@ public class ContractDAO {
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
+	}
+
+	public int insertCondtion(Contract con, Connection conn) {
+		PreparedStatement pstmt=null;
+		int result=0;
+		String query="insert into condition values(condition_seq.nextval,?,?,?,?,?,?)";
+		try {
+			pstmt=conn.prepareStatement(query);
+			//pstmt.setString(1, userId);
+			//pstmt.setString(2,con.getCleanType);
+			//pstmt.setString(3,con.getHouseType);
+			//pstmt.setString(4,con.getArea);
+			//pstmt.setString(5,con.getHouseSize);
+			//pstmt.setString(6,con.getreqDate);
+			result=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
 	}
 
 }
