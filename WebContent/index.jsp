@@ -24,7 +24,7 @@
 	<!-- css -->
  	<link href="/assets/css/index.css" rel="stylesheet" type="text/css" />
 </head>
-<<<<<<< HEAD
+
 
 <body>
 	
@@ -34,7 +34,7 @@
             <div id="headerFixed">
                 <div id="headerInner">
                     <div id="logo">
-                        <a href=""><img src="/assets/img/logo_icon.png" class="logoImg"></a>
+                        <a href="/"><img src="/assets/img/logo_icon.png" class="logoImg"></a>
                     </div>
 
                     <div id="estimate">
@@ -447,24 +447,7 @@
 
 
     </div>
-=======
-<style>
-	div{
-		border:1px red solid;				       
-		width: 400px;
-		height: 200px;
-	}
-</style>
-<body>
-	<a href="/company/selectAllCompanyList.do">업체리스트</a>
-	<a href="/contract/selectCondition.do">견적내기</a>
-	<a href="/views/info/cleanType.jsp">청소종류</a>
 
-
-	
-	<h5>관리자 페이지 연습</h5>
-	<a href="/views/admin/boardWrite.jsp">관리자</a>
->>>>>>> 880d849c8284ccc0abc10ed7ab0fb303acd84eed
 
 </body>
 </html>
