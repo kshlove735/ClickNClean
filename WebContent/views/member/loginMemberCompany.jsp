@@ -18,7 +18,8 @@
  	<link href="/assets/css/loginMemberCompany.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-  <div id="wrap">
+ 
+    <div id="wrap">
         <div id="header">
 
         </div>
@@ -32,8 +33,10 @@
                         <li class="co">사업자 회원 </li>
                     </ul>
                     <div id="input_form">
-                        <form action="" method="post" id="input_form_center">
-                            <input type="hidden" name="roll" value="ur-1">
+                       
+                       <!--개인 회원 로그인-->
+                        <form action="/member/loginMember.do" method="post" id="input_form_center_type1">
+                        
                             <input type="text" name="userId" class="input" placeholder="아이디를 입력해주세요."><br><br>
                             <input type="password" name="userPwd" class="input" placeholder="비밀번호를 입력해주세요."><br>
                             <div id="checkbox_search">
@@ -46,24 +49,40 @@
                             </div>
                             <input type="submit" value="로그인" class="input"><br><br>
                             <input type="button" value="회원가입" class="input">
-                            <input type="button" value="입점신청" class="input" style="display: none;">
+                            
                         </form>
+                        
+                        <!--사업자 회원 로그인-->
+                        <form action="/member/loginCompany.do" method="post" id="input_form_center_type2" style="display: none;">
+                            
+                            <input type="text" name="userId" class="input" placeholder="아이디를 입력해주세요."><br><br>
+                            <input type="password" name="userPwd" class="input" placeholder="비밀번호를 입력해주세요."><br>
+                            <div id="checkbox_search">
+                                <div id="checkbox">
+                                    <input type="checkbox" name="secureConnect" id="cb1"> <label for="cb1">보안접속</label>
+                                </div>
+                                <div id="login_search">
+                                    <a href="">아이디 찾기</a><span> | </span><a href="">비밀번호 찾기</a>
+                                </div>
+                            </div>
+                            <input type="submit" value="로그인" class="input"><br><br>
+                            <input type="button" value="입점신청" class="input" >
+                        </form>
+                        
 
                         <script>
                             $('.ur').click(function() {
-                                $('input[name=roll]').val('ur-1');
                                 $(this).attr('class', 'ur');
                                 $(this).next().attr('class', 'co');
-                                $('input[value=입점신청]').css('display', 'none');
-                                $('input[value=회원가입]').css('display', 'inline-block');
+                                $('#input_form_center_type2').css('display', 'none');
+                                $('#input_form_center_type1').css('display', 'block');
                             });
 
                             $('.co').click(function() {
-                                $('input[name=roll]').val('co-1');
                                 $(this).attr('class', 'ur');
                                 $(this).prev().attr('class', 'co');
-                                $('input[value=회원가입]').css('display', 'none');
-                                $('input[value=입점신청]').css('display', 'inline-block');
+                                $('#input_form_center_type1').css('display', 'none');
+                                $('#input_form_center_type2').css('display', 'block');
                             });
                         </script>
 
@@ -77,5 +96,6 @@
         </div>
 
     </div>
+
 </body>
 </html>
