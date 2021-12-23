@@ -11,8 +11,9 @@
     <link href="/assets/css/footer.css" rel="stylesheet" type="text/css" />
 </head>
 <style>
-    #bodycss {
-        font-family: "나눔스퀘어"
+body {
+        font-family: "나눔스퀘어";
+        background-color: #fafafa;
     }
 
     #header {
@@ -41,7 +42,7 @@
         color: #0E76B3;
         font-weight: bold;
         text-align: center;
-
+		
     }
 
     .contentBody {
@@ -50,6 +51,7 @@
         height: 418px;
         border-radius: 10px;
         margin: 0 auto;
+        box-shadow: 0px 3px 6px rgb(0 0 0/ 16%);
     }
 
     #category {

@@ -10,8 +10,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
  <link href="/assets/css/footer.css" rel="stylesheet" type="text/css"/>
 <style>
-    #bodycss {
-        font-family: "나눔스퀘어"
+    body {
+        font-family: "나눔스퀘어";
+        background-color: #fafafa;
     }
 
     div {
@@ -62,6 +63,8 @@
         margin-bottom: 150px;
         margin-top: 10px;
         border-radius: 5px;
+        box-shadow: 0px 3px 6px rgb(0 0 0/ 16%);
+        background-color: white;
     }
     .imgArea{
         float: left;

@@ -16,159 +16,11 @@
 	crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 <link href="/assets/css/footer.css" rel="stylesheet" type="text/css" />
+<link href="/assets/css/selectCondition.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <style>
-div {
-	box-sizing: border-box;
-}
 
-#bodycss {
-	font-family: "나눔스퀘어"
-}
-
-#header {
-	border: 1px solid #72CCFF;
-	width: 100%;
-	height: 92px;
-	box-sizing: content-box;
-}
-
-#contentArea {
-	width: 1344px;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.contentHead {
-	width: 100%;
-	height: 300px;
-}
-
-#contentBody {
-	width: 100%;
-	height: 85%;
-	padding-left: 130px;
-	padding-right: 130px;
-	padding-bottom: 80px;
-}
-
-#contentTitle {
-	display: block;
-	width: 100%;
-	margin-top: 100px;
-	font-size: 50px;
-	color: #0E76B3;
-	font-weight: bold;
-	text-align: center;
-}
-
-#condition1 {
-	width: 100%;
-	margin-bottom: 100px;
-	padding: 50px;
-	border-radius: 10px;
-	border: 1px solid #B6E3FC;
-}
-
-#condition2 {
-	width: 100%;
-	margin-bottom: 100px;
-	padding: 50px;
-	border-radius: 10px;
-	border: 1px solid #B6E3FC;
-}
-
-#condition3 {
-	width: 100%;
-	height: 400px;
-	margin-bottom: 100px;
-	padding: 50px;
-	border-radius: 10px;
-	border: 1px solid #B6E3FC;
-}
-
-#condition4 {
-	width: 100%;
-	margin-bottom: 100px;
-	padding: 50px;
-	border-radius: 10px;
-	border: 1px solid #B6E3FC;
-}
-
-#footer {
-	width: 100%;
-	height: 300px;
-}
-
-.conditionName {
-	width: 100%;
-	height: 20%;
-	text-align: center;
-	font-size: 40px;
-	margin-bottom: 10px;
-}
-
-#bodycss {
-	font-family: "나눔스퀘어 ";
-}
-
-#toInfoBtn {
-	background-color: #72CCFF;
-	font-size: 25px;
-	color: white;
-	border-radius: 10px;
-	border: 1px solid #B6E3FC;
-}
-
-.cleanTypeArea {
-	height: 120px;
-	margin-bottom: 20px;
-	border: 1px solid #707070;
-	font-size: 40px;
-	padding-top: 10px;
-}
-
-.cleanType {
-	width: 60px;
-	height: 60px;
-	position: relative;
-	right: -200px;
-	top: 13px;
-}
-
-.houseTypeSize {
-	width: 100%;
-	height: 20%;
-	margin-bottom: 70px;
-}
-
-.areaArea {
-	float: left;
-	width: 450px;
-	position: relative;
-	left: 40px;
-	top: 20px;
-}
-
-#datepicker {
-	text-align: center;
-	padding: 50px;
-}
-
-table {
-	margin: 0 auto;
-	border: 1px solid black;
-	width: 400px;
-	height: 400px;
-}
-
-table td:hover {
-	background-color: gray;
-}
-
-.ui-datepicker-next {
-	
-}
 </style>
 
 <body id="bodycss">
@@ -198,7 +50,8 @@ table td:hover {
 					<div class="conditionName">청소 장소/평수</div>
 					<div class="houseTypeSize">
 						<select name="houseType"
-							style="width: 70%; height: 120px; font-size: 50px; text-align: center;">
+							style="width: 70%; height: 120px; font-size: 30px; text-align: center;
+							border-radius: 5px;">
 							<option>아파트</option>
 							<option>빌라</option>
 							<option>전원주택</option>
@@ -208,7 +61,8 @@ table td:hover {
 					</div>
 					<div class="houseTypeSize">
 						<select name="houseSize"
-							style="width: 70%; height: 120px; font-size: 50px; text-align: center;">
+							style="width: 70%; height: 120px; font-size: 30px; text-align: center;
+							border-radius: 5px;">
 							<option>10평이하</option>
 							<%
 								for (int i = 11; i < 71; i++) {
@@ -228,7 +82,8 @@ table td:hover {
 					<div class="conditionName">청소 지역</div>
 					<div class="areaArea">
 						<select name="area1"
-							style="width: 70%; height: 120px; font-size: 50px; text-align: center; " onchange="categoryChange(this)">
+							style="width: 90%; height: 100px; font-size: 30px; text-align: center; 
+							border-radius: 5px;" onchange="categoryChange(this)">
 							<option value>시/도 선택</option>
 							<option value="서울">서울</option>
 							<option value="경기">경기</option>
@@ -251,7 +106,8 @@ table td:hover {
 					</div>
 					<div class="areaArea">
 						<select name="area2"
-							style="width: 70%; height: 120px; font-size: 50px; text-align: center;" id="area2">
+							style="width: 90%; height: 100px; font-size: 30px; text-align: center;
+							border-radius: 5px;" id="area2">
 							<option>군/구 선택</option>
 						</select>
 					</div>
@@ -346,7 +202,7 @@ table td:hover {
 
 					<div id="datepicker"></div>
 
-					<input id="date" type="text" style="margin-bottom: 50px;" />
+					<input name="cleanDate" id="date" type="text" style="margin-bottom: 50px;" />
 
 				</div>
 
@@ -387,6 +243,9 @@ table td:hover {
 									}
 								});
 			});
+			$('table>tr>td').click(function(){
+				alert();
+			})
 		</script>
 	</div>
 	<div id="footer">
