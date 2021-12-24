@@ -5,112 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="/assets/css/footer.css" rel="stylesheet" type="text/css" />
 </head>
 <style>
-body {
-        font-family: "나눔스퀘어";
-        background-color: #fafafa;
-    }
-    div {
-        box-sizing: border-box;
-    }
 
-    #bodycss {
-        font-family: "나눔스퀘어"
-    }
-
-    #header {
-        border: 1px solid #72CCFF;
-        width: 100%;
-        height: 92px;
-        box-sizing: content-box;
-    }
-
-    #contentArea {
-        border: 1px solid black;
-        width: 1344px;
-        height: 2000px;
-        margin: 0 auto;
-    }
-
-    .contentHead {
-        border: 1px solid black;
-        width: 100%;
-        height: 15%;
-    }
-
-    #contentBody {
-        width: 100%;
-        height: 85%;
-        padding: 50px;
-    }
-
-    #contentTitle {
-        width: 100%;
-        font-size: 50px;
-        color: #0E76B3;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 50px;
-    }
-
-    #logoArea {
-        float: left;
-        height: 100%;
-        width: 100%;
-        text-align: center;
-    }
-
-    #companyGrade {
-        text-align: center;
-        font-size: 30px;
-
-    }
-
-    #companyInfo {
-        border: 1px solid black;
-        height: 200px;
-        font-size: 40px;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        width: 100%;
-    }
-    #companyCleanType{
-        font-size: 40px;
-        margin-bottom: 100px;
-        text-align: center;
-        
-    }
-    .companyCleanType{
-        border: 1px solid black;
-        float: left;
-        width: 30%;
-        height: 50px;
-        margin-left: 25px;
-        margin-top: 30px;
-        
-    }
-   
-    #companyCleanArea{
-        border: 1px solid black;
-        margin-top: 50px;
-        font-size: 30px;
-        margin-bottom: 50px;
-    }
-    #etcInfo{
-        margin-top: 50px;
-        font-size: 25px;
-        text-align: center;
-    }
-     #companyReview{
-        padding: 40px;
-        
-    }
-    .reviewArea{
-        border: 1px solid black;
-        padding: 20px;
-        margin-top: 20px;
-    }
 </style>
 
 <body id="bodycss">
@@ -120,7 +18,7 @@ body {
     <div id="contentArea">
         <div class="contentHead">
             <div id="logoArea">
-                <img src="img/%EB%A1%9C%EA%B3%A03.png" style="width: 30%; height: 100%;" />
+                <img src="/assets/img/%EB%A1%9C%EA%B3%A03.png" style="width: 30%; height: 100%;" />
             </div>
 
         </div>
@@ -141,19 +39,19 @@ body {
             </div>
             <div id="companyCleanType">
             가능한 청소 종류<br>
-            <div class="companyCleanType" style="margin-left: 35px"></div>
-            <div class="companyCleanType"></div>
-            <div class="companyCleanType"></div>
+            <div class="companyCleanType" style="margin-left: 35px">입주청소</div>
+            <div class="companyCleanType">이사청소</div>
+            <div class="companyCleanType">부분청소</div>
             </div>
             
             
             
             
             <div id="companyReview">
-                리뷰
+                <span id="review">리뷰</span>
                 <div class="reviewArea">
-                서울시 동작구 / 이사청소 / 별점
-                <hr><br>
+                <span style="font-weight:bold;">서울시 동작구 / 이사청소 / 별점</span>
+                <hr>
                 너무 너무 좋았습니다.<br>
                 전문가 짱!
                 </div>
@@ -162,4 +60,35 @@ body {
         </div>
 
     </div>
+    	<div id="footer">
+		<div id="caution">
+			<p>클릭N클린은 통신판매중개자로서 청소서비스의 주거래 당사자가 아니며, 청소서비스의 분쟁과 계약사항은 회원사와
+				당사자간에 있습니다.</p>
+		</div>
+		<div id="footer_inner">
+			<div id="footer_inner_center">
+				<div id="footer_inner_left">
+					<span>클릭N클린 고객센터</span> <br> <a href="tel:010-3306-6303">010-3306-6303</a>
+					<br> 영업시간 : 09:00 ~ 18:00 <br> (공휴일 휴무)
+				</div>
+				<div id="footer_inner_right">
+					<div id="busyInfo">
+						<p>클릭N클린(주)</p>
+						<address>
+							대표: 김승현 <br> 주소 : 서울특별시 중구 세종대로 136 파이낸스빌딩 3층 저스트코 S3119
+							(태평로1가) <br> 사업자등록번호 : 585-86-00882 <br> 통신판매업번호 :
+							2017-인천계양-0583호 <br> E-mail : help@clickNclean.co.kr <br>
+							FAX : 070-5165-8603
+						</address>
+						<p>Copyright © 클릭N클린</p>
+					</div>
+					<ul>
+						<li><a href="">개인정보취급방침</a></li>
+						<li><a href="">이용약관</a></li>
+						<li><a href="">관리자 페이지</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </body></html>
