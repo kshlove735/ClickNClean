@@ -221,6 +221,10 @@
             height : 80px;
             text-align : center;
         }
+         .mypage-td>span{
+           	
+           	font-size : 15px;
+        }
         
          #phone>input{
             font-size: 13px;
@@ -417,45 +421,39 @@
          <div id="content">
              <div id="content1">
                <div id="content-1">
-                <form>
+                <form action="/member/memberUpdate.do" method="post">
                    <table id="table">
                     <tr>
-                        <td class="mypage-td">아이디</td>
+                        <td class="mypage-td"><span>아이디</span></td>
                         <td>
-                            <input type="text" name="userId" 
-                            size="35" class="input rounded border border-primary"  value="<%=m.getUserId() %>"
-                            style="background-color: #72CCFF; text-align: center;" disabled="true"/>
+                            <input type="text" name="userId" size="35" class="input rounded border border-primary"  value="<%=m.getUserId() %>" style="background-color: #72CCFF; text-align: center;"/>
                         </td>
                     </tr> 
                     <tr>
-                        <td class="mypage-td ico srcreen_out">현재 비밀번호</td>
+                        <td class="mypage-td ico srcreen_out"><span>현재 비밀번호</span></td>
                         <td>
-                            <input type="text" name="userPwd"
-                            size="35" height="50px"
-                            class="input border border-primary rounded" style="text-align: center"/>
+                            <input type="password" name="userPwd" size="35" height="50px" class="input border border-primary rounded" style="text-align: center"/>
                         </td>
                     </tr>
                     <tr>
-                        <td class="mypage-td">새 비밀번호</td>
+                        <td class="mypage-td"><span>새 비밀번호</span></td>
                         <td>
-                            <input type="text" name="newPwd" size="35" onclick="guideCheck()"
-                            class="input border border-primary rounded" style="text-align: center"/>
+                            <input type="password" name="newPwd" size="35" onclick="guideCheck()" class="input border border-primary rounded" style="text-align: center"/>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
                          <p class="txt_guide">
-                            <span>* 10자 이상 입력</span><br>
-                            <span>* 영문/숫자/특수문자(공백 제외)만 허용하며, 2개 이상 조합</span><br>
-                            <span>* 동일한 숫자 3개 이상 연속 사용 불가</span>
+                            <span id="pwdCount">* 10자 이상 입력</span><br>
+                            <span id="combi">* 영문/숫자/특수문자(공백 제외)만 허용하며, 2개 이상 조합</span><br>
+                            <span id="three">* 동일한 숫자 3개 이상 연속 사용 불가</span>
                         </p>
                         </td>
                     </tr>
                     <tr>
-                        <td class="mypage-td" style="text-align: left">새 비밀번호 확인</td>
+                        <td class="mypage-td" style="text-align: center"><span>새 비밀번호 확인</span></td>
                         <td>
-                            <input type="text" name="newPwd_re" size="35" onclick="guideCheckRE()"
-                            class="input border border-primary rounded" style="text-align: center"/>
+                            <input type="password" name="newPwd_re" size="35" onclick="guideCheckRE()" class="input border border-primary rounded" style="text-align: center" />
                         </td>
                     </tr>
                     <tr>
@@ -466,24 +464,21 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="mypage-td">이름</td>
+                  	  <td class="mypage-td" style="text-align: center"><span>이름</span></td>
                         <td>
-                            <input type="text" name="userName" size="35"
-                            class="input border border-primary rounded"/>
+                            <input type="text" name="userName" value="<%=m.getUserName() %>" size="35" class="input border border-primary rounded" style="text-align:center; font-size:15px;"/>
                         </td>
                     </tr>
                     <tr>
-                        <td class="mypage-td">이메일</td>
+                        <td class="mypage-td"><span>이메일</span></td>
                          <td>
-                            <input type="text" name="userName" size="35"
-                            class="input border border-primary rounded"/>
+                            <input type="text" name="email" value="<%=m.getEmail() %>" size="35" class="input border border-primary rounded" style="text-align:center; font-size:15px;"/>
                         </td>
                     </tr>
                     <tr>
-                        <td class="mypage-td">휴대폰 번호</td>
+                        <td class="mypage-td"><span>휴대폰 번호</span></td>
                         <td>
-                            <input type="text" name="phone" size="35"
-                            class="input border border-primary rounded"/>
+                            <input type="text" name="phone" value="<%=m.getPhone() %>" size="35" class="input border border-primary rounded" style="text-align:center; font-size:15px;"/>
                         </td>
                         <td id="phone">
                             <input type="button" value="다른 번호 인증" class="btn btn-outline-primary" />
@@ -491,7 +486,7 @@
                     </tr>
                     <tr id="btnPart">
                         <td id="withBtn" colspan="4"> <input type="button" id="withdraw" class="btn rounded " style="border: 1px solid #0E76B3; color: #0E76B3;" value="계정탈퇴">
-                       <input type="button" id="mypageReset" class="btn rounded " style="background-color:#0E76B3; color: white" value="회원정보수정">
+                       <input type="submit" id="mypageReset" class="btn rounded " style="background-color:#0E76B3; color: white" value="회원정보수정">
                         <input type="button" id="cancle" class="btn rounded " style="border: 1px solid #0E76B3; color: #0E76B3;" value="취소"></td>
                     </tr>
                 </table>
@@ -555,6 +550,13 @@
         function guideCheck(){
           
             $('.txt_guide').css('display','block');
+            
+            var pwd = $('.newPwd').val();
+            
+            if(pwd.length > 9){
+            	
+            	$('#pwdCount').html().css('color','#00994C');
+            }
         };
         
         function guideCheckRE(){

@@ -8,23 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.service.MemberServiceImpl;
 import kr.or.iei.member.model.vo.Member;
 
 /**
- * Servlet implementation class MemberPwdCheckServlet
+ * Servlet implementation class MemberUpdateServlet
  */
-@WebServlet("/member/memberPwdCheck.do")
-public class MemberPwdCheckServlet extends HttpServlet {
+@WebServlet("/member/memberUpdate.do")
+public class MemberUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberPwdCheckServlet() {
+    public MemberUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,27 +33,38 @@ public class MemberPwdCheckServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
+		
+		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
+		String newPwd = request.getParameter("newPwd");
+		String userName = request.getParameter("userName");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
 		
-		HttpSession session = request.getSession();
+		System.out.println(userId);
+		System.out.println(userPwd);
+		System.out.println(userName);
+		System.out.println(email);
+		System.out.println(phone);
 		
-		String userId = ((Member)session.getAttribute("member")).getUserId();
+		Member m = new Member(userId,userPwd, userName, phone, email );
 		
 		MemberService mService = new MemberServiceImpl();
-		Member m = mService.selectOneUser(userId, userPwd);
+		int result = mService.updateOneMember(m ,newPwd);
 		
+		RequestDispatcher view = request.getRequestDispatcher("/views/member/memberUpdateResult.jsp");
 		
-		if(m!=null) {
+		if(result>0) {
 			
-			session.setAttribute("member", m); 
-			RequestDispatcher view = request.getRequestDispatcher("/views/member/MemberMyPage.jsp");
-			view.forward(request, response);
+			request.setAttribute("updateResult", true);
 			
 		}else {
-			RequestDispatcher view = request.getRequestDispatcher("/views/member/myPagePasswordCheckFail.jsp");
-			view.forward(request, response);
+			
+			request.setAttribute("updateResult", false);
 		}
 		
+		view.forward(request, response);
 	}
 
 	/**

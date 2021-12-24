@@ -19,6 +19,22 @@ public class MemberServiceImpl implements MemberService{
 		
 	}
 
+	@Override
+	public int updateOneMember(Member m, String newPwd) {
+
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = mDAO.updateOneMember(conn, m, newPwd);
+		
+		System.out.println(m.getPhone());
+		
+		if(result>0) JDBCTemplate.commit(conn);
+		else JDBCTemplate.rollback(conn);
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
+
 	
 
 }

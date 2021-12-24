@@ -330,12 +330,9 @@
 </head>
 <body>
 
-<<<<<<< HEAD
 <%
 		Member m = (Member)session.getAttribute("member");
 %>
-=======
->>>>>>> 74875745efb8be881ba71691c0eb8f421fafa265
 
 <%if(m==null){ %>
 

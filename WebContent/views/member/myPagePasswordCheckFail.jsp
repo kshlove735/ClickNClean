@@ -8,8 +8,7 @@
 </head>
 <body>
 	<script>
-		alert('비밀번호가 일치하지 않습니다. 재확인해주세요');
-		location.replace('/member/memberPwdCheck.do');
+		location.replace('/views/member/memberPwdCheck.jsp');
 	</script>
 </body>
 </html>

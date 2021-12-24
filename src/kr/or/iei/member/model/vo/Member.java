@@ -32,6 +32,18 @@ public class Member {
 		this.endYN = endYN;
 		this.roll = roll;
 	}
+	
+	
+	
+	// 개인정보 업데이트 시 필요한 생성자
+	public Member(String userId, String userPwd, String userName, String phone, String email) {
+		super();
+		this.userId = userId;
+		this.userPwd = userPwd;
+		this.userName = userName;
+		this.phone = phone;
+		this.email = email;
+	}
 
 	public int getUserNo() {
 		return userNo;
