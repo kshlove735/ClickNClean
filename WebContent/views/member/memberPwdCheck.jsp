@@ -328,9 +328,6 @@
 </head>
 <body>
 
-<%
-		Member m = 
-%>
 
 
  <div id="wrap">

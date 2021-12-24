@@ -15,6 +15,7 @@ public class MemberDAO {
 		ResultSet rset = null;
 		Member m = null;
 		
+		// userId와 userPwd가 일치하고 탈퇴하지 않은 회원 검색
 		String sql = "SELECT * FROM MEMBER WHERE userId=? AND userPwd=? AND end_yn='N'";
 		
 		try {
