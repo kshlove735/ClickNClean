@@ -5,25 +5,30 @@ public class Admin {
 	private int adminNo;
 	private String adminId;
 	private String adminPwd;
+	private String adminName;
 	private String roll;
 	private char endYN;
 	private String email;
 	private String phone;
+	private String tel;
 
 	public Admin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Admin(int adminNo, String adminId, String adminPwd, String roll, char endYN, String email, String phone) {
+	public Admin(int adminNo, String adminId, String adminPwd, String adminName, String roll, char endYN, String email,
+			String phone, String tel) {
 		super();
 		this.adminNo = adminNo;
 		this.adminId = adminId;
 		this.adminPwd = adminPwd;
+		this.adminName = adminName;
 		this.roll = roll;
 		this.endYN = endYN;
 		this.email = email;
 		this.phone = phone;
+		this.tel = tel;
 	}
 
 	public int getAdminNo() {
@@ -48,6 +53,14 @@ public class Admin {
 
 	public void setAdminPwd(String adminPwd) {
 		this.adminPwd = adminPwd;
+	}
+
+	public String getAdminName() {
+		return adminName;
+	}
+
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
 	}
 
 	public String getRoll() {
@@ -80,6 +93,14 @@ public class Admin {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 
 }
