@@ -29,10 +29,12 @@ public class AdminDAO {
 				ad.setAdminNo(rset.getInt("adminNo"));
 				ad.setAdminId(rset.getString("adminId"));
 				ad.setAdminPwd(rset.getString("adminPwd"));
+				ad.setAdminName(rset.getString("adminName"));
 				ad.setRoll(rset.getString("roll"));
 				ad.setEndYN(rset.getString("end_YN").charAt(0));
 				ad.setEmail(rset.getString("email"));
 				ad.setPhone(rset.getString("phone"));
+				ad.setTel(rset.getString("tel"));
 				
 			}
 		} catch (SQLException e) {
