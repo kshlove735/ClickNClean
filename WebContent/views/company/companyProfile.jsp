@@ -6,12 +6,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="/assets/css/footer.css" rel="stylesheet" type="text/css" />
+<link href="/assets/css/companyProfile.css" rel="stylesheet" type="text/css" />
 </head>
 <style>
 
 </style>
 
 <body id="bodycss">
+	
     <div id="header">
 
     </div>
@@ -23,22 +25,22 @@
 
         </div>
         <div id="contentBody">
-            <div id="contentTitle">깨끗한 나라</div>
+            <div id="contentTitle">${com.coId }</div>
             <div id="companyGrade">
-                평점 4.0 리뷰수 50+
+              	평점: ${com.sumScore/com.reviewNum} 리뷰수: ${com.reviewNum }
             </div>
             <hr>
             <div id="etcInfo">
-                <span>보유 팀수 : </span><span>청소가능시간 : </span>  
+                <span style="margin-right:10px;">보유 팀수 : ${com.team }팀 </span>|<span style="margin-left:10px;">청소가능시간 : ${com.workHour }</span>  
                 
             </div>
             <hr>
-            <div id="companyInfo">우리는 이런 회사입니다.</div>
+            <div id="companyInfo">내용: ${com.coInfo }</div>
             <div id="companyCleanArea">
-                 청소 가능 지역 :
+                 	청소 가능 지역 :${com.area }
             </div>
             <div id="companyCleanType">
-            가능한 청소 종류<br>
+            	가능한 청소 종류<br>
             <div class="companyCleanType" style="margin-left: 35px">입주청소</div>
             <div class="companyCleanType">이사청소</div>
             <div class="companyCleanType">부분청소</div>

@@ -110,6 +110,7 @@
 							<option>군/구 선택</option>
 						</select>
 					</div>
+
 					<script>
 						function categoryChange(e) {
 
@@ -245,8 +246,7 @@
 		<script>
 			$(function() {
 				$("#datepicker")
-						.datepicker(
-								{
+						.datepicker({
 									minDate : +1,
 									dateFormat : "yy.mm.dd",
 									appendText : "yyyy-mm-dd",
@@ -274,11 +274,7 @@
 									}
 								});
 			});
-			$('table>tr>td').click(function() {
-				alert();
-			})
-	
-	</script>
+		</script>
 	</div>
 	<div id="footer">
 		<div id="caution">
@@ -311,5 +307,6 @@
 			</div>
 		</div>
 	</div>
+	<<<<<<< HEAD ======= >>>>>>> 3fdb97da530e62b7d6f79fe98166ad5275a2e9da
 </body>
 </html>
