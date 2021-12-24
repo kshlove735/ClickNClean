@@ -40,7 +40,7 @@
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	<!-- css -->
-	<link href="/assets/css/index.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/index.css?after" rel="stylesheet" type="text/css" />
 	<!-- JSTL 라이브러리 -->
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -67,24 +67,58 @@
 						</div>
 					</div>
 
+
 					<div id="menu">
 						<div id="login">
 							<ul>
-								<li><a href="">회원가입</a></li>
-								
 							
 								<c:choose>
 								
 									<%--로그인 했다면 --%>
 									<c:when test="${sessionScope.member != null || sessionScope.company != null || sessionScope.admin != null }">
 									
-										<li><a href="/member/logout.do">로그아웃</a></li>
+										
+
+										<li>
+										
+											<c:choose>
+												<c:when test="${sessionScope.member != null }">
+														<a href=""><c:out value="${sessionScope.member.userName}"></c:out> 님</a>
+												
+													<ul id="login_success">
+		                                        <li><a href="">마이페이지</a></li>
+		                                        
+												</c:when>
+												
+												
+												<c:when test="${sessionScope.company != null }">
+														<a href=""><c:out value="${sessionScope.company.coName}"></c:out> 님</a>
+														
+													<ul id="login_success">
+		                                        <li><a href="">마이페이지</a></li>												
+												</c:when>
+												<c:otherwise>
+														<a href=""><c:out value="${sessionScope.admin.adminName}"></c:out> 님</a>
+												
+													<ul id="login_success">
+		                                        <li><a href="">마이페이지</a></li>												
+												
+												</c:otherwise>											
+											</c:choose>											
+										
+										
+											
+		                                        <li><a href="/member/logout.do">로그아웃</a></li>
+                                    		</ul>
+										</li>
 									</c:when>
 									
+								
 									<%--로그인 안했다면 --%>
 									<c:otherwise>
 									
-										<li><a href="/views/member/loginMemberCompany.jsp">로그인</a></li>	
+										<li><a href="/views/member/loginMemberCompany.jsp">로그인</a></li>
+										<li><a href="">회원가입</a></li>	
 									</c:otherwise>
 								
 								</c:choose> 
@@ -112,7 +146,7 @@
 					<%-- 회원에 따라 로그인시 보일  서브 메뉴 --%>
 						
 						<%-- 개인 회원 로그인 시 --%>
-						<c:if test="${sessionScope.member !=null }">
+						<c:if test="${sessionScope.member != null }">
 							<li><a href=''>마이페이지(회원)</a></li>
 							<li><a href=''>공지사항 및 FAQ(회원)</a></li>
 							<li><a href=''>1:1 문의(회원)</a></li>
