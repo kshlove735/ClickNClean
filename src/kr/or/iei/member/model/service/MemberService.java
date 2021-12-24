@@ -14,4 +14,14 @@ public interface MemberService {
 	 */
 	public Member selectOneUser( String userId, String userPwd);
 
+	/**
+	 * @Author : Hyuna 
+	 * @Date : 2021. 12. 25
+	 * @return : int 
+	 * @subscription : 회원 정보 수정 - 업데이트
+	 */
+	public int updateOneMember(Member m, String newPwd);
+
+	
+
 }

@@ -1,3 +1,4 @@
+<%@page import="kr.or.iei.member.model.vo.Member"%>
 <%@page import="kr.or.iei.contract.model.vo.Contract"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
@@ -361,6 +362,7 @@
 	String pageNavi = (String)map.get("pageNavi");
 	
 	int currentPage = (int)request.getAttribute("currentPage");
+
 
 %>
 
