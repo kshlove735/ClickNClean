@@ -9,12 +9,6 @@ body {
         background-color: #fafafa;
     }
 
-#header {
-   border: 1px solid #72CCFF;
-   width: 100%;
-   height: 92px;
-   box-sizing: content-box;
-}
 
 #contentArea {
    width: 1344px;
@@ -102,7 +96,7 @@ body {
 	float: left;
 }
 
-#logoArea {
+#companyLogoArea {
 	width: 100%;
 	height: 60%;
 }
@@ -112,7 +106,7 @@ body {
 	height: 40%;
 }
 
-#logo {
+#companyLogo {
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;

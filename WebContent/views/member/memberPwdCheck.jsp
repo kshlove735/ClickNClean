@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="kr.or.iei.member.model.vo.Member"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,7 +7,8 @@
 <title>Insert title here</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
-    <style>
+    
+        <style>
           * {
         box-sizing: border-box;
         font-family: 'NanumSquare';
@@ -215,7 +216,7 @@
             width: 150px;
             height: 50px;
             margin: -20px 200px;
-            margin-top: -80px;
+            
         }
         .line{
             width: 800px;
@@ -325,21 +326,30 @@
     }
         
     </style>
+    
 </head>
 <body>
 
 <%
-		
+		Member m = (Member)session.getAttribute("member");
 %>
 
+<%if(m==null){ %>
+
+<script>
+
+	alert('로그인 후 이용해주세요.');
+	location.replace('/views/member/loginMemberCompany.jsp');
+</script>
+<%} %>
 
  <div id="wrap">
-        <div id="header">
-            <div id="header">
+        
+           <div id="header">
             <div id="headerFixed">
                 <div id="headerInner">
                     <div id="logo">
-                        <a href=""><img src="image/%ED%81%B4%EB%A6%ADN%ED%81%B4%EB%A6%B0_3nor.png" class="logoImg"></a>
+                        <a href=""><img src="" class="logoImg"></a>
                     </div>
 
                     <div id="estimate">
@@ -357,44 +367,43 @@
                 </div>
                   </div>
         </div>
+  
+        
          <!-- 로그인로고 -->
           <div id="mypage">
             <span id="mypageFont">마이페이지</span>
-            </div>    
-               <div id="submenu">
-                    <div id="navigator">
+          </div>    
+          <div id="submenu">
+                 <div id="navigator">
                         <ul id="gnb">
                             <li><a href="/views/member/memberPwdCheck.jsp">개인정보수정</a></li>
                             <li><a href="/member/myEstimate.do">나의 견적서</a></li>
                             <li><a href="/reiview/reviewList.do">이용내역</a></li>
                             <li><a href="">설정</a></li>
                         </ul>
-            </div>
-         </div> 
+           		 </div>
+            </div> 
          <div class="line"></div>
          
-         <!--회원 정보 수정 비밀번호 체크-->
+        
          <div id="content">
              <div id="content1">
                <div id="content2">
                      <h4 id="h4">비밀번호 재확인</h4>
                  <span id="span">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인해주세요.</span>
                    <div id="content3">
-                        <form>
+                        <form action="/member/memberPwdCheck.do" method="post">
                             <table id="table">
                                 <tr>
                                     <td class="mypage-td">아이디</td>
                                     <td>
-                                        <input type="text" name="userId" 
-                                        size="35" class="input rounded border border-primary" style="background-color: #72CCFF; text-align: center;" disabled="true"/>
+                                        <input type="text"  size="35" class="input rounded border border-primary" style="background-color: #72CCFF; text-align: center;" disabled value="<%=m.getUserId() %>"/>
                                     </td>
                                 </tr> 
                                 <tr>
                                     <td class="mypage-td ico srcreen_out" id="pwd">비밀번호</td>
                                     <td>
-                                        <input type="text" name="userPwd"
-                                        size="35" height="50px"
-                                        class="input border border-primary rounded"/>
+                                        <input type="password" name="userPwd"  size="35" height="50px" class="input border border-primary rounded" style="text-align: center;"/>
                                     </td>
                                 </tr>
                            </table>
@@ -450,7 +459,7 @@
                     </div>
                 </div>
           </div>
-        </div>
+       
     </div>
 
 

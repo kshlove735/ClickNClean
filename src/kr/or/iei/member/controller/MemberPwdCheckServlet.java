@@ -1,4 +1,4 @@
-package kr.or.iei.contract.controller;
+package kr.or.iei.member.controller;
 
 import java.io.IOException;
 
@@ -10,19 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.or.iei.member.model.service.MemberService;
+import kr.or.iei.member.model.service.MemberServiceImpl;
 import kr.or.iei.member.model.vo.Member;
 
 /**
- * Servlet implementation class selectCoditionServlet
+ * Servlet implementation class MemberPwdCheckServlet
  */
-@WebServlet("/contract/selectCondition.do")
-public class SelectCoditionServlet extends HttpServlet {
+@WebServlet("/member/memberPwdCheck.do")
+public class MemberPwdCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectCoditionServlet() {
+    public MemberPwdCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,16 +33,28 @@ public class SelectCoditionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String userPwd = request.getParameter("userPwd");
+		
 		HttpSession session = request.getSession();
-		Member m=(Member)session.getAttribute("member");
-		if(m==null) {
-			response.sendRedirect("/views/member/loginMemberCompany.jsp");
-			return;
+		
+		String userId = ((Member)session.getAttribute("member")).getUserId();
+		
+		MemberService mService = new MemberServiceImpl();
+		Member m = mService.selectOneUser(userId, userPwd);
+		
+		
+		if(m!=null) {
+			
+			session.setAttribute("member", m); 
+			RequestDispatcher view = request.getRequestDispatcher("/views/member/MemberMyPage.jsp");
+			view.forward(request, response);
+			
+		}else {
+			RequestDispatcher view = request.getRequestDispatcher("/views/member/myPagePasswordCheckFail.jsp");
+			view.forward(request, response);
 		}
 		
-		RequestDispatcher view =request.getRequestDispatcher("/views/contract/selectCondition.jsp");
-		
-		view.forward(request, response);
 	}
 
 	/**

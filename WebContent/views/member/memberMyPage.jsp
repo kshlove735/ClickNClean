@@ -1,3 +1,4 @@
+<%@page import="kr.or.iei.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -5,11 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
-     <!--JQuery CDM-->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <style>
+     <!-- jQuery 라이브러리 -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+     <style>
           * {
         box-sizing: border-box;
         font-family: 'NanumSquare';
@@ -171,149 +172,93 @@
         /* 콘텐트 부분 */
           #content{
             width: 1344px;
-            height: 810px;
+            height: 720px;
             margin: 0 auto;
         }
-        #content1{
+           #content1{
             width: 800px;
             height: 100%;
             margin: 0 auto;
         }
         #content-1{
             width: 100%;
-            height: 140px;
-    }
-     #content1-1{
-            width: 30%;
-            height: 100%;
-            float: left;
-        
-    }
-    #content1-2{
-            width: 69%;
-            height: 100%;
-           float: left;
-       
-     }
-     #content-2{
-            width: 100%;
-            height: 600px;
-         padding: 10px 40px 0 40px;
-
-    }
-     #detail{
-            display: block;
-            font-size: 35px;
-            position: relative;
-            top: 46px;
-            left: 60px;
-             color: #555;
-    }
-        #search{
-            border: none;
+            height: 640px;
         }
-        #sub{
-            width: 50%;
-            height: 30px;
-            position: relative;
-            left: 140px;
-            top: 0px;
-        }
-    #select{
-        width: 80%;
-        height: 40px;
-        margin: 33px 120px;
-    }
-        #subNavi{
-            width: 100%;
-            height: 34px;
-        }
-        #subNavi a {
-            text-decoration: none;
-            color: black;
-            width: 100%;
-            display: block;
-            position: relative;
-            top: -15px;
+         
+        #content1-gnb>li{
+            list-style-type: none;
             font-size: 15px;
         }
-        #subNavi li {
-           float: left;
-            width: 25%;
-            height: 100%;
-            list-style-type: none;
-            text-align: center;
-            line-height: 70px;
-            
+        #table{
+            width: 600px;
+            margin: 55px 85px;
         }
-        #subNavi li:hover {
-            background-color: #0E76B3;
+        .input{
+           line-height: 40px;
         }
-        #subNavi a:hover {
-            color: white;
+        .txt_guide{
+            height: 40px;
+            margin-bottom: 0px;
+            font-size: 11px;
+            display: block;
+            position: relative;
+            top: -10px;
+            left: 170px;
+            display: none;
         }
-        .reservation{
-            width: 270px;
-            height: 250px;
-            margin: 0 45px;
-            margin-bottom: 40px;
-            float: left;
-            border-radius: 5px;
-            border: 2px solid #0E76B3;
+        .re_txt_guide{
+             height: 5px;
+            margin-bottom: 0px;
+            font-size: 11px;
+            display: block;
+            position: relative;
+            top: -10px;
+            left: 170px;
+            display: none;
         }
-         #pageNavi{
-            width: 37%;
-            height: 70px;
-            margin: 0 auto;
-           
+        .mypage-td{
+            width : 170px;
+            height : 80px;
+            text-align : center;
         }
-        .cleanType{
-            width: 100%;
-            height: 53px;
-            padding-top: 10px;
+         .mypage-td>span{
+           	
+           	font-size : 15px;
         }
-        .coPart{
-            width: 100%;
-            height: 148px;
+        
+         #phone>input{
+            font-size: 13px;
+             display: block;
+             position: relative;
+             width: 100px;
+             left: 15px;
         }
-        .companyImg{
-            width: 40%;
-            height: 140px;
-            float: left;
+        #btnPart{
+           text-align: center;
         }
-        .info{
-            width: 58%;
-            height: 140px;
-            float: left;
-           padding-top: 15px;
-            padding-left: 7px;
+         #withdraw{
+            display: inline-block;
+             position: relative;
+             height: 45px;
+             width: 120px;
+             left: 20px;
+            top: 24px;
         }
-        .reservationBtn{
-            width: 100%;
+        #mypageReset{
+         display: inline-block;
+            position: relative;
             height: 45px;
+            width: 130px;
+            left: 30px;
+            top: 24px;
         }
-        .type{
-            font-size: 23px;
-            color: #555;
-            margin: 100px 80px;
-        }
-        .img{
+        #cancle{
+           display: inline-block;
+            position: relative;
+            left: 40px;
+            height: 45px;
             width: 90px;
-            height: 90px;
-            border: 1px solid black;
-            margin: 26px 5px;
-        }
-         .resBtn{
-            width: 100%;
-            height: 100%;
-            border-bottom-left-radius: 5px;
-            border-bottom-right-radius: 5px;
-            border: none;
-        }
-        .info>p{
-            width: 100%;
-            font-size: 14px;
-           height: 14px;
+            top: 24px;
         }
         
         .line{
@@ -426,7 +371,13 @@
     </style>
 </head>
 <body>
- <div id="wrap">
+
+<%
+	Member m = (Member)session.getAttribute("member");
+%>
+
+
+            <div id="wrap">
         <div id="header">
             <div id="header">
             <div id="headerFixed">
@@ -466,60 +417,84 @@
          </div> 
          <div class="line"></div>
          
-         <!--회원 정보 수정 비밀번호 체크-->
+         <!--회원 정보 수정-->
          <div id="content">
              <div id="content1">
-                 <div id="content-1">
-               <div id="content1-1">
-                    <span id="detail">리뷰작성</span>
-               </div>
-               <div id="content1-2">
-                  <div id="sub">
-                        <ul id="subNavi">
-                            <li><a href="">예약확정</a></li>
-                            <li><a href="">리뷰작성</a></li>
-                            <li><a href="">리뷰보기</a></li>
-                        </ul></div>
-                   <div id="select">
-                    <form>
-                         <input type="date" name="pastDate" min="2000-01-01" value="2020-01-01" class="rounded"/>  -  <input type="date" id="currentDate" name="sysdate" class="rounded "/>   <input type="button" id="search" value="조회" class=" rounded " style="background-color:#0E76B3; color: white; height:33px" />
-                         
-                      </form>
-                    </div>
-               </div>
+               <div id="content-1">
+                <form action="/member/memberUpdate.do" method="post">
+                   <table id="table">
+                    <tr>
+                        <td class="mypage-td"><span>아이디</span></td>
+                        <td>
+                            <input type="text" name="userId" size="35" class="input rounded border border-primary"  value="<%=m.getUserId() %>" style="background-color: #72CCFF; text-align: center;"/>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td class="mypage-td ico srcreen_out"><span>현재 비밀번호</span></td>
+                        <td>
+                            <input type="password" name="userPwd" size="35" height="50px" class="input border border-primary rounded" style="text-align: center"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage-td"><span>새 비밀번호</span></td>
+                        <td>
+                            <input type="password" name="newPwd" size="35" onclick="guideCheck()" class="input border border-primary rounded" style="text-align: center"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                         <p class="txt_guide">
+                            <span id="pwdCount">* 10자 이상 입력</span><br>
+                            <span id="combi">* 영문/숫자/특수문자(공백 제외)만 허용하며, 2개 이상 조합</span><br>
+                            <span id="three">* 동일한 숫자 3개 이상 연속 사용 불가</span>
+                        </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage-td" style="text-align: center"><span>새 비밀번호 확인</span></td>
+                        <td>
+                            <input type="password" name="newPwd_re" size="35" onclick="guideCheckRE()" class="input border border-primary rounded" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                         <p class="re_txt_guide">
+                            <span>* 동일한 비밀번호를 입력해주세요</span><br>
+                        </p>
+                        </td>
+                    </tr>
+                    <tr>
+                  	  <td class="mypage-td" style="text-align: center"><span>이름</span></td>
+                        <td>
+                            <input type="text" name="userName" value="<%=m.getUserName() %>" size="35" class="input border border-primary rounded" style="text-align:center; font-size:15px;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage-td"><span>이메일</span></td>
+                         <td>
+                            <input type="text" name="email" value="<%=m.getEmail() %>" size="35" class="input border border-primary rounded" style="text-align:center; font-size:15px;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage-td"><span>휴대폰 번호</span></td>
+                        <td>
+                            <input type="text" name="phone" value="<%=m.getPhone() %>" size="35" class="input border border-primary rounded" style="text-align:center; font-size:15px;"/>
+                        </td>
+                        <td id="phone">
+                            <input type="button" value="다른 번호 인증" class="btn btn-outline-primary" />
+                        </td>
+                    </tr>
+                    <tr id="btnPart">
+                        <td id="withBtn" colspan="4"> <input type="button" id="withdraw" class="btn rounded " style="border: 1px solid #0E76B3; color: #0E76B3;" value="계정탈퇴">
+                       <input type="submit" id="mypageReset" class="btn rounded " style="background-color:#0E76B3; color: white" value="회원정보수정">
+                        <input type="button" id="cancle" class="btn rounded " style="border: 1px solid #0E76B3; color: #0E76B3;" value="취소"></td>
+                    </tr>
+                </table>
+                 </form>
                  </div>
-                      <!-- 업체 정보 필요 이용 내역 로직-->
-              <div id="content-2">
-                 <!--for문 돌리기 -->
-                  <div class="reservation">
-                      <div class="cleanType">
-                          <span class="type">이사청소</span>
-                      </div>
-                    <div class="coPart">
-                      <div class="companyImg">
-                          <div class="img">
-                          </div>
-                      </div>
-                      <div class="info">
-                           
-                              <p>청소클라쓰</p>
-                              <p>예약확정 : 2021-10-11</p>
-                              <p>청소날짜 : 2021-11-23</p>
-                              <p>총 가격 : 110,000원</p>
-                          
-                           </div>
-                      </div>
-                      <div class="reservationBtn">
-                       <!--button 누를시 페이지 이동 script 작성하기 -->
-                        <input type="button" id="reviewBtn" onclick="winOpen()" class="resBtn"  style="background-color:#0E76B3; color: white" value="리뷰작성">
-                      </div>
+                 <div id="content-2">
+                    
                   </div>
-                 
-                  
-              </div>
-                
-                <!-- 페이지 네비 로직-->
-                 <div id="pageNavi">페이지 네이 들어갈곳</div>
              </div>
          </div>
           <div class="line"></div>
@@ -572,9 +547,22 @@
     
     
     <script>
-        function winOpen(){
-            window.open('http://127.0.0.1:61358/write.html','580px,800px','_blank()');
-        }
+        function guideCheck(){
+          
+            $('.txt_guide').css('display','block');
+            
+            var pwd = $('.newPwd').val();
+            
+            if(pwd.length > 9){
+            	
+            	$('#pwdCount').html().css('color','#00994C');
+            }
+        };
+        
+        function guideCheckRE(){
+            
+            $('.re_txt_guide').css('display','block');
+        };
     </script>
     
 </body>

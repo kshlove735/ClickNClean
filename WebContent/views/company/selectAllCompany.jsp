@@ -17,6 +17,7 @@
 <link href="/assets/css/selectAllCompany.css?after" rel="stylesheet" 
 	type="text/css" />
 <link href="/assets/css/footer.css" rel="stylesheet" type="text/css" />
+ <link href="/assets/css/header.css" rel="stylesheet" type="text/css"/>
 </head>
 <style>
 
@@ -29,7 +30,7 @@
 	%>
 	
 
-	<div id="header"></div>
+	<jsp:include page="/views/commons/header.jsp" />
 	<div id="contentArea">
 		<div class="contentHead">
 			<span id="contentTitle">클릭N클린의 청소 업체 리스트</span>
@@ -88,9 +89,9 @@
 		<%for(Company com:list){ %>
 		<div class="contentBody">
 			<div id="left">
-				<div id="logoArea">
+				<div id="companyLogoArea">
 					
-					<img id="logo"
+					<img id="companyLogo"
 						src="/assets/img/%EB%B6%80%EB%B6%84%EC%B2%AD%EC%86%8C2.JPG">
 						
 				</div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,12 +21,13 @@
 	type="text/css" />
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	 <link href="/assets/css/header.css" rel="stylesheet" type="text/css"/>
 
 <style>
 </style>
 
 <body id="bodycss">
-	<div id="header"></div>
+	<jsp:include page="/views/commons/header.jsp" />
 	<div id="contentArea">
 		<div class="contentHead">
 			<span id="contentTitle">청소 조건 선택</span> 찾으시는 청소업체에 맞는 조건을 선택해주세요.
@@ -233,7 +235,7 @@
 
 					<div id="datepicker"></div>
 
-					<input name="cleanDate" id="date" type="text"
+					<input name="reqDate" id="date" type="text"
 						style="margin-bottom: 50px;" />
 
 				</div>
@@ -307,6 +309,5 @@
 			</div>
 		</div>
 	</div>
-	<<<<<<< HEAD ======= >>>>>>> 3fdb97da530e62b7d6f79fe98166ad5275a2e9da
 </body>
 </html>

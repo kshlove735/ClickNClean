@@ -48,4 +48,36 @@ public class MemberDAO {
 	
 	}
 
+	public int updateOneMember(Connection conn, Member m, String newPwd) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = "update member set userName=?, phone=?, email=?, userPwd=? where userId=? and userPwd=? and end_YN='N'";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			
+			pstmt.setString(1, m.getUserName());
+			pstmt.setString(2, m.getPhone());
+			pstmt.setString(3, m.getEmail());
+			pstmt.setString(4, newPwd);
+			pstmt.setString(5, m.getUserId());
+			pstmt.setString(6, m.getUserPwd());
+			
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	
+
 }

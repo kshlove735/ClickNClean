@@ -18,18 +18,16 @@ public class CompanyServiceImpl implements CompanyService{
 		return list;
 	}
 	@Override
-<<<<<<< HEAD
 	public Company selectOneCompany(String coId) {
 		Connection conn=JDBCTemplate.getConnection();
 		Company com=comDAO.selectOneCompany(coId,conn);
 		JDBCTemplate.close(conn);
-		
-=======
+		return com;
+	}
 	public Company selectOneUser(String coId, String coPwd) {
 		Connection conn= JDBCTemplate.getConnection();
 		Company com = comDAO.selectOneUser(conn, coId, coPwd);
 		JDBCTemplate.close(conn);
->>>>>>> 74875745efb8be881ba71691c0eb8f421fafa265
 		return com;
 	}
 
