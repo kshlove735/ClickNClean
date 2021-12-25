@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>관리자 페이지 메인</title>
+ <!-- Title -->
+    <title>관리자 페이지 메인</title>
 
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="/assets/css/theme.min.css">
-    <link rel="stylesheet" href="/assets/css/docs.min.css">
+    <link rel="stylesheet" href="assets/css/theme.min.css">
+    <link rel="stylesheet" href="assets/css/docs.min.css">
 </head>
 <body>
 <style>
@@ -24,7 +25,7 @@
         margin: 0 auto;
         
     }
-        /*헤더 */
+        /*헤더 부분 */
         #header{
             width: 100%;
             height: 70px;
@@ -58,7 +59,7 @@
             left: 580px;
             color: #555;
         }
-        /* 메뉴 */
+        /* 메뉴 바 */
            #navigator {
             height: 67px;
             width : 1344px;
@@ -99,7 +100,7 @@
             background-color: #0E76B3;
             margin : 0 auto;
         }
-    /*content*/
+    
     #mainlistsub{
         text-align: left;
         font-size: 25px;
@@ -278,7 +279,7 @@
     }
 
 </style>
-<body> 
+
     <div id="wrap">
 <div id="header">
             <div id="logo">
@@ -294,7 +295,7 @@
                             <li><a href="">Home</a></li>
                             <li><a href="">관리자 계정</a></li>
                             <li><a href="">전체 업체 LIST</a></li>
-                            <li><a href="">전체 회원 LIST</a></li>
+                            <li><a href="/views/admin/memberAllList.jsp">전체 회원 LIST</a></li>
                             <li><a href="">게시판 관리</a>
                             <ul class="sub">
                                 <li><a href="">sub</a></li>
@@ -534,6 +535,7 @@
     </div>
            </div>     
             
+    <!-- End Table -->
             <!--푸터-->
         <div id="footer">
             <div id="caution">
@@ -577,5 +579,6 @@
                 </div>
             </div>
         </div>
+
 </body>
 </html>

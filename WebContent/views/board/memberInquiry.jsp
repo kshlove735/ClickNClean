@@ -283,8 +283,9 @@
                         <tr>
                             <th style="width: 5%;">번호</th>
                             <th style="width: 10%;">이름</th>
-                            <th style="width: 15%;">아이디</th>
-                            <th style="width: 40%;">글제목</th>
+                            <th style="width: 10%;">아이디</th>
+                            <th style="width: 35%;">글제목</th>
+                            <th style="width: 10%;">작성일</th>
                             <th style="width: 10%;">답글</th>
                             <th style="width: 10%;">수정</th>
                             <th style="width: 10%;">삭제</th>
@@ -296,6 +297,7 @@
                             <td>김승현</td>
                             <td>user11</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -305,6 +307,7 @@
                             <td>김승현</td>
                             <td>user22</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -314,6 +317,7 @@
                             <td>김지은</td>
                             <td>user33</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -323,6 +327,7 @@
                             <td>이현아</td>
                             <td>user44</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -332,6 +337,7 @@
                             <td>정두식</td>
                             <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -342,6 +348,7 @@
                             <td>정두식</td>
                             <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -351,6 +358,7 @@
                             <td>정두식</td>
                             <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -360,6 +368,7 @@
                             <td>정두식</td>
                             <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -369,6 +378,7 @@
                             <td>정두식</td>
                             <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -378,6 +388,7 @@
                             <td>정두식</td>
                             <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -387,6 +398,7 @@
                             <td>정두식</td>
                             <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -396,6 +408,7 @@
                             <td>정두식</td>
                             <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -405,6 +418,7 @@
                             <td>정두식</td>
                             <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -414,6 +428,7 @@
                             <td>정두식</td>
                             <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -423,6 +438,7 @@
                             <td>정두식</td>
                             <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
+                            <td>21/12/25</td>
                             <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
