@@ -68,13 +68,39 @@ public class CompanyDAO {
 		ResultSet rset=null;
 		Company com=null;
 		String query="select * from company " + 
-				"left join companyinfo on (company.coid=companyinfo.coid) " + 
-				"left join (select review.COID, count(*) as reviewnum,avg(score) as sumScore from review GROUP BY  COID) R "
+				" left join companyinfo on (company.coid=companyinfo.coid) " + 
+				" left join (select review.COID, count(*) as reviewnum,sum(score) as sumScore from review GROUP BY  COID) R "
 				+ " on (company.coid=R.coid) where company.coId=?";
+			try {
+				pstmt=conn.prepareStatement(query);
+				pstmt.setString(1, coId);
+				rset=pstmt.executeQuery();
+				if(rset.next()) {
+					
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return com;
+	}
+			
+			
+	public Company selectOneUser(Connection conn, String coId, String coPwd) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Company com = null;
+		
+		String sql ="SELECT * FROM COMPANY WHERE coId=? AND coPwd=? AND end_yn='N'";
+		
 		try {
-			pstmt=conn.prepareStatement(query);
+			pstmt= conn.prepareStatement(sql);
 			pstmt.setString(1, coId);
+			pstmt.setString(2, coPwd);
+			
 			rset=pstmt.executeQuery();
+			
 			if(rset.next()) {
 				com=new Company();
 				com.setCoNo(rset.getInt("cono"));
@@ -103,6 +129,11 @@ public class CompanyDAO {
 				com.setRoll(rset.getString("roll"));
 				com.setReviewNum(rset.getInt("reviewNum"));
 				com.setSumScore(rset.getInt("sumScore"));
+				com.setEnrollDate(rset.getDate("EnrollDate"));
+				com.setSign_YN(rset.getString("Sign_YN").charAt(0));
+				com.setEnd_YN(rset.getString("End_YN").charAt(0));
+				com.setTel(rset.getString("tel"));
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -115,3 +146,11 @@ public class CompanyDAO {
 	}
 
 }
+
+
+
+
+
+
+
+
