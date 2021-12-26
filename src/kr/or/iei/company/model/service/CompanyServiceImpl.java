@@ -24,5 +24,12 @@ public class CompanyServiceImpl implements CompanyService{
 		JDBCTemplate.close(conn);
 		return com;
 	}
+	@Override
+	public String searchIdUsingEmail(String roll, String userName, String email) {
+		Connection conn = JDBCTemplate.getConnection();
+		String coId = comDAO.searchIdUsingEmail(conn, roll, userName, email);
+		JDBCTemplate.close(conn);
+		return coId;
+	}
 
 }

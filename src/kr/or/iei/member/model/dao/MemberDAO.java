@@ -16,10 +16,10 @@ public class MemberDAO {
 		Member m = null;
 		
 		// userId와 userPwd가 일치하고 탈퇴하지 않은 회원 검색
-		String sql = "SELECT * FROM MEMBER WHERE userId=? AND userPwd=? AND end_yn='N'";
+		String query = "SELECT * FROM MEMBER WHERE userId=? AND userPwd=? AND end_yn='N'";
 		
 		try {
-			pstmt=conn.prepareStatement(sql);
+			pstmt=conn.prepareStatement(query);
 			pstmt.setString(1, userId);
 			pstmt.setString(2, userPwd);
 			rset=pstmt.executeQuery();
@@ -76,6 +76,38 @@ public class MemberDAO {
 			JDBCTemplate.close(pstmt);
 		}
 		return result;
+	}
+
+	public String searchIdUsingEmail(Connection conn, String roll, String userName, String email) {
+		PreparedStatement pstmt =null;
+		ResultSet rset = null;
+		String userId=null;
+		
+		String query="SELECT * FROM MEMBER WHERE userName= ? AND email=? AND roll=?";
+		
+		try {
+			pstmt=conn.prepareStatement(query);
+			
+			pstmt.setString(1, userName);
+			pstmt.setString(2, email);
+			pstmt.setString(3, roll);
+			
+			rset= pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				userId = rset.getString("userId");
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return userId;
 	}
 
 	

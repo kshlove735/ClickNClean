@@ -44,7 +44,7 @@
                                     <input type="checkbox" name="secureConnect" id="cb1"> <label for="cb1">보안접속</label>
                                 </div>
                                 <div id="login_search">
-                                    <a href="">아이디 찾기</a><span> | </span><a href="">비밀번호 찾기</a>
+                                    <a href="/views/member/MemberCompanyFindId.jsp">아이디 찾기</a><span> | </span><a href="">비밀번호 찾기</a>
                                 </div>
                             </div>
                             <input type="submit" value="로그인" class="input"><br><br>
@@ -59,7 +59,7 @@
                             <input type="password" name="coPwd" class="input" placeholder="비밀번호를 입력해주세요."><br>
                             <div id="checkbox_search">
                                 <div id="checkbox">
-                                    <input type="checkbox" name="secureConnect" id="cb1"> <label for="cb1">보안접속</label>
+                                    <input type="checkbox" name="secureConnect" id="cb2"> <label for="cb2">보안접속</label>
                                 </div>
                                 <div id="login_search">
                                     <a href="">아이디 찾기</a><span> | </span><a href="">비밀번호 찾기</a>

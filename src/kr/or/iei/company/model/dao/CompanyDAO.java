@@ -102,6 +102,38 @@ public class CompanyDAO {
 		return com;
 	}
 
+	public String searchIdUsingEmail(Connection conn, String roll, String userName, String email) {
+		PreparedStatement pstmt =null;
+		ResultSet rset = null;
+		String coId=null;
+		
+		String query="SELECT * FROM COMPANY WHERE coName= ? AND email=? AND roll=?";
+		
+		try {
+			pstmt=conn.prepareStatement(query);
+			
+			pstmt.setString(1, userName);
+			pstmt.setString(2, email);
+			pstmt.setString(3, roll);
+			
+			rset= pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				coId = rset.getString("coId");
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return coId;
+	}
+
 }
 
 

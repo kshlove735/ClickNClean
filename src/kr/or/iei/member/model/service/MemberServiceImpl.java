@@ -35,6 +35,16 @@ public class MemberServiceImpl implements MemberService{
 		return result;
 	}
 
+	@Override
+	public String searchIdUsingEmail(String roll, String userName, String email) {
+		
+		Connection conn = JDBCTemplate.getConnection();
+		String userId = mDAO.searchIdUsingEmail(conn, roll, userName, email);
+		JDBCTemplate.close(conn);
+		return userId;
+		
+	}
+
 	
 
 }

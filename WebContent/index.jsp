@@ -147,7 +147,7 @@
 						
 						<%-- 개인 회원 로그인 시 --%>
 						<c:if test="${sessionScope.member != null }">
-							<li><a href='/contract/myEstimate.do'>마이페이지(회원)</a></li>
+							<li><a href='/member/memberCheck.do'>마이페이지(회원)</a></li>
 							<li><a href='/board/memberNotice.do'>공지사항 및 FAQ(회원)</a></li>
 							<li><a href='/board/memberInquiry.do'>1:1 문의(회원)</a></li>
 						</c:if>
