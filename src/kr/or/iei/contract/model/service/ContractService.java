@@ -14,5 +14,10 @@ public interface ContractService {
 	HashMap<String, Object> MemberChoice(int currentPage, String userId);
 
 	int insertCondition(Contract con);
+
+
+	boolean checkCondition(Contract con);
+
+	int insertContract(String conditionNo, String userId, String coId, int price);
 	
 }

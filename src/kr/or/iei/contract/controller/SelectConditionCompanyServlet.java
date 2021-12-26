@@ -2,8 +2,10 @@ package kr.or.iei.contract.controller;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -61,8 +63,17 @@ public class SelectConditionCompanyServlet extends HttpServlet {
 		int size=Integer.parseInt(houseSize.substring(0, 2));
 		String condition=cleanType+" / "+houseType+" / "+houseSize+" / "+area+" / "+reqDate;
 		
+		long currentTime=Calendar.getInstance().getTimeInMillis();
+		SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+		Timestamp searchTime=Timestamp.valueOf(formatter.format(currentTime));
+		String conditionNo=searchTime+"/"+userId;
+		
+		System.out.println(conditionNo);
+		
 		ContractService conService=new ContractServiceImpl();
 		ArrayList<Company> list= conService.selectConditionCompany(area,cleanType);
+		
+		
 		Contract con=new Contract();
 		con.setUserId(userId);
 		con.setCleanType(cleanType);
@@ -70,16 +81,23 @@ public class SelectConditionCompanyServlet extends HttpServlet {
 		con.setHouseSize(size);
 		con.setArea(area);
 		con.setReqDate(date);
+		con.setConditionNo(conditionNo);
 		
-		int result =conService.insertCondition(con);
-		if(result>0) {
-			RequestDispatcher view=request.getRequestDispatcher("/views/contract/conditionCompany.jsp");
-			request.setAttribute("list", list);
-			request.setAttribute("condition", condition);
-			view.forward(request, response);
-		}else {
-			response.sendRedirect("/views/commons/error.jsp");
+		boolean result1=conService.checkCondition(con);
+		if(!result1) {
+			conService.insertCondition(con);
 		}
+		
+		
+		
+		RequestDispatcher view=request.getRequestDispatcher("/views/contract/conditionCompany.jsp");
+		request.setAttribute("list", list);
+		request.setAttribute("condition", condition);
+		request.setAttribute("size", size);
+		request.setAttribute("conditionNo", conditionNo);
+		
+		view.forward(request, response);
+		
 		
 		
 	}
