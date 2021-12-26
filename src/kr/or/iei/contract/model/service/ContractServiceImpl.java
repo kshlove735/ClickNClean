@@ -25,7 +25,7 @@ public class ContractServiceImpl implements ContractService{
 	@Override
 	public int insertCondition(Contract con) {
 		Connection conn=JDBCTemplate.getConnection();
-		int result =conDAO.insertCondtion(con,conn);
+		int result =conDAO.insertCondition(con,conn);
 		if(result>0) JDBCTemplate.commit(conn);
 		else JDBCTemplate.rollback(conn);
 		JDBCTemplate.close(conn);
@@ -53,6 +53,24 @@ public class ContractServiceImpl implements ContractService{
 		map.put("pageNavi", pageNavi);
 		
 		return map;
+	}
+
+	@Override
+	public boolean checkCondition(Contract con) {
+		Connection conn=JDBCTemplate.getConnection();
+		boolean result=conDAO.checkCondition(con,conn);
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	@Override
+	public int insertContract(String conditionNo, String userId, String coId,int price) {
+		Connection conn=JDBCTemplate.getConnection();
+		int result=conDAO.insertContract(conditionNo,userId,coId,price,conn);
+		if(result>0) JDBCTemplate.commit(conn);
+		else JDBCTemplate.rollback(conn);
+		JDBCTemplate.close(conn);
+		return result;
 	}
 
 }

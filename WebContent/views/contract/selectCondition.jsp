@@ -27,6 +27,7 @@
 </style>
 
 <body id="bodycss">
+
 	<jsp:include page="/views/commons/header.jsp" />
 	<div id="contentArea">
 		<div class="contentHead">
