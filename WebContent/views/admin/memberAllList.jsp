@@ -284,7 +284,8 @@
                         </tr>
                     </thead>
                     
-                    <tbody>
+                    <tbody>  
+                    
                     <%for(Member m : list){ %>
                         <tr>
                             <th><%=m.getUserNo() %></th>

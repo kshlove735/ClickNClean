@@ -1,5 +1,9 @@
 package kr.or.iei.board.model.service;
 
-public class BoardService {
+import java.util.HashMap;
+
+public interface BoardService {
+
+	HashMap<String, Object> memberNotice(int currentPage);
 
 }

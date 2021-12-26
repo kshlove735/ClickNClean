@@ -10,22 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.iei.admin.model.service.AdminMemberService;
-import kr.or.iei.admin.model.service.AdminMemberServiceImpl;
-import kr.or.iei.common.MemberAuthorityCheck;
-import kr.or.iei.member.model.vo.Member;
+import kr.or.iei.admin.model.service.AdminService;
+import kr.or.iei.admin.model.service.AdminServiceImpl;
+import kr.or.iei.admin.model.vo.Admin;
 
 /**
- * Servlet implementation class MemberAllListServlet
+ * Servlet implementation class AdminMainServlet
  */
-@WebServlet("/admin/memberAllList.do")
-public class MemberAllListServlet extends HttpServlet {
+@WebServlet("/admin/adminHome.do")
+public class AdminMainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberAllListServlet() {
+    public AdminMainServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,26 +34,23 @@ public class MemberAllListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-       String roll = MemberAuthorityCheck.authorityRootCheck(request, response);
+		request.setCharacterEncoding("UTF-8");
 		
-		if(roll==null) {
-			response.sendRedirect("/views/commons/error.jsp");
-			return;
-		}
+		AdminService adService = new AdminServiceImpl();
 		
-		//모든 회원의 정보를 가져오는 비즈니스 로직 처리
-		AdminMemberService adService = new AdminMemberServiceImpl();
+		String siteName = request.getParameter("siteName");
+		String siteUrl = request.getParameter("siteUrl");
+		String busNum = request.getParameter("busNum");
+		String address = request.getParameter("address");
+		/*
+		System.out.println(siteName);
+		System.out.println(siteUrl);
+		System.out.println(busNum);
+		System.out.println(address);
+		*/
 		
-		ArrayList<Member> list = adService.memberAllList();
-		
-		//가져온 회원 정보를 가지고 ,jsp(view) 페이지로 이동
-		RequestDispatcher view = request.getRequestDispatcher("/views/admin/memberAllList.jsp");
-		
-		request.setAttribute("list", list);
-		request.setAttribute("roll", roll);
-		
+		RequestDispatcher view = request.getRequestDispatcher("/views/admin/adminMain.jsp");
 		view.forward(request, response);
-		
 		
 	}
 

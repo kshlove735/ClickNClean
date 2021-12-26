@@ -1,3 +1,5 @@
+<%@page import="kr.or.iei.board.model.vo.Board"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,8 +11,16 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="/assets/css/theme.min.css">
     <link rel="stylesheet" href="/assets/css/docs.min.css">
+<!-- jQuery 라이브러리 -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
 </head>
 <body>
+
+     <%
+        ArrayList<Board> list = (ArrayList<Board>)request.getAttribute("list");
+     %>
+
 <style>
     * {
         box-sizing: border-box;
@@ -275,7 +285,7 @@
              <input type="text" placeholder="search">
               <button style="background-color: floralwhite; border-radius: 7px; color: #555">검색</button>
                 </div>
-                
+                <%if(!list.isEmpty()){ %>
                 <table class="table table-text-center">
                     <thead style="">
                         <tr>
@@ -286,114 +296,25 @@
                             <th style="width: 10%;">삭제</th>
                         </tr>
                     </thead>
+                    <%for(Board board:list) { %>
                     <tbody>
                         <tr>
-                            <th>1</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>6</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>7</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>8</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>9</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>10</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>11</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>12</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>13</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>14</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
-                        </tr>
-                        <tr>
-                            <th>15</th>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <th><%=board.getBoardNo() %></th>
+                            <td><%=board.getSubject() %></td>
+                            <td><%=board.getRegDate() %></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                     </tbody>
+                    <%} %>
                 </table>
+                
+                <%}else{ %>
+                  <!-- 게시글 목록이 없다면 -->
+     
+                   <H1>현재 게시글이 없습니다. 게시글을 작성해보세요.</H1>
+     
+                   <%} %>
                 <!-- 페이징 처리 -->
                    <div id="paging">
                     <ul class="pagination justify-content-center">
