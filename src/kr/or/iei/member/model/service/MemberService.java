@@ -22,6 +22,4 @@ public interface MemberService {
 	 */
 	public int updateOneMember(Member m, String newPwd);
 
-	
-
 }

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원 게시판 - 공지사항 및 FAQ</title>
+<title>회원 게시판 - 1:1 문의</title>
 
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="/assets/css/theme.min.css">
@@ -232,6 +232,7 @@
 <body>
     
     <div id="wrap">
+    
 <div id="header">
             <div id="logo">
           </div>
@@ -260,28 +261,32 @@
          <div class="line"></div>
 
             <div style=" width: 100%;">
-
-                <!--공지사항 및 FAQ (회원)-->
-                 <div id= "listsub">
-                  <p>공지사항 및 FAQ (회원)</p>
+               
+               <!--1:1 문의(회원)-->
+                <div id= "listsub">
+                    <p>1:1 문의(회원)</p>
                 </div>
                 
             <div id = "search">
             <select style="height: 30px">
-             <option value = "username" selected>글제목</option>
-             <option value = "userid">작성일</option>
+             <option value = "username" selected>이름</option>
+             <option value = "userid">아이디</option>
+             <option value = "phone">글제목</option>
             </select>
                    
              <input type="text" placeholder="search">
               <button style="background-color: floralwhite; border-radius: 7px; color: #555">검색</button>
                 </div>
                 
-                <table class="table table-text-center">
+                <table class="table table-text-center ">
                     <thead style="">
                         <tr>
                             <th style="width: 5%;">번호</th>
-                            <th style="width: 55%;">글제목</th>
-                            <th style="width: 20%;">작성일</th>
+                            <th style="width: 10%;">이름</th>
+                            <th style="width: 10%;">아이디</th>
+                            <th style="width: 35%;">글제목</th>
+                            <th style="width: 10%;">작성일</th>
+                            <th style="width: 10%;">답글</th>
                             <th style="width: 10%;">수정</th>
                             <th style="width: 10%;">삭제</th>
                         </tr>
@@ -289,106 +294,152 @@
                     <tbody>
                         <tr>
                             <th>1</th>
+                            <td>김승현</td>
+                            <td>user11</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>2</th>
+                            <td>김승현</td>
+                            <td>user22</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>3</th>
+                            <td>김지은</td>
+                            <td>user33</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>4</th>
+                            <td>이현아</td>
+                            <td>user44</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>5</th>
+                            <td>정두식</td>
+                            <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
+                        
                         <tr>
                             <th>6</th>
+                            <td>정두식</td>
+                            <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>7</th>
+                            <td>정두식</td>
+                            <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>8</th>
+                            <td>정두식</td>
+                            <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>9</th>
+                            <td>정두식</td>
+                            <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>10</th>
+                            <td>정두식</td>
+                            <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>11</th>
+                            <td>정두식</td>
+                            <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>12</th>
+                            <td>정두식</td>
+                            <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>13</th>
+                            <td>정두식</td>
+                            <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>14</th>
+                            <td>정두식</td>
+                            <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
                         <tr>
                             <th>15</th>
+                            <td>정두식</td>
+                            <td>user55</td>
                             <td>제목 어쩌고 청소 좋아요</td>
-                            <td>2021-12-25</td>
+                            <td>21/12/25</td>
+                            <td><button class="btn">답글</button></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
                         </tr>
@@ -408,9 +459,6 @@
                         </li>
                     </ul>
                     </div>
-                   
-                   
-
     </div>
     </div>
             <!--푸터-->
