@@ -17,10 +17,15 @@ public class BoardDAO {
 		
 		ArrayList<Board> list = new ArrayList<Board>();
 		
-		String query = "SELECT BOARDNO,SUBJECT,REGDATE FROM BOARD ORDER BY BOARDNO DESC";
+		int start = currentPage * recordCountPerPage - (recordCountPerPage-1);
+		int end = currentPage * recordCountPerPage;	
+		
+		String query = "SELECT * FROM (SELECT ROW_NUMBER() OVER(order BY BOARDNO DESC) AS NUM, BOARDNO,SUBJECT,REGDATE,BOARDTYPE FROM BOARD WHERE BOARDTYPE='user') WHERE NUM BETWEEN ? AND ?";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
 			
 			rset = pstmt.executeQuery();
 			

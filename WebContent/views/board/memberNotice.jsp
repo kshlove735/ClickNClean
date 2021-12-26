@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@page import="kr.or.iei.board.model.vo.Board"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -18,7 +19,9 @@
 <body>
 
      <%
-        ArrayList<Board> list = (ArrayList<Board>)request.getAttribute("list");
+        HashMap<String,Object> map = (HashMap<String,Object>)request.getAttribute("pageDataMap");
+        String pageNavi = (String) map.get("pageNavi");
+        ArrayList<Board> list = (ArrayList<Board>) map.get("list");   
      %>
 
 <style>

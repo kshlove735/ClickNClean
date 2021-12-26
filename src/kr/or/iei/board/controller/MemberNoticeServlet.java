@@ -33,7 +33,11 @@ public class MemberNoticeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-int currentPage;
+		
+		
+		
+		
+        int currentPage;
 		
 		if(request.getParameter("currentPage")==null)
 		{
@@ -47,7 +51,7 @@ int currentPage;
 		BoardService bService = new BoardServiceImpl();
 		HashMap<String, Object> pageDataMap = bService.memberNotice(currentPage);
 		
-		RequestDispatcher view = request.getRequestDispatcher("/views/board/boardSelectAllListPage.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/views/board/memberNotice.jsp");
 	    
 		request.setAttribute("pageDataMap", pageDataMap);
 		request.setAttribute("currentPage", currentPage);
