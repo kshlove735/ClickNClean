@@ -15,6 +15,12 @@
     <link rel="stylesheet" href="/assets/css/docs.min.css">
 </head>
 <body>
+
+     <%
+         ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+         String roll = (String)request.getAttribute("roll");
+     %>
+
 <style>
     * {
         box-sizing: border-box;
@@ -220,10 +226,6 @@
     }
 
 </style>
-<body>
-     <%
-         ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
-     %>
      
     <div id="wrap">
 <div id="header">
@@ -271,6 +273,7 @@
                 </div>
                 
                 <!--전체 회원 리스트-->
+                <%if(!list.isEmpty()){ %>
                 <table class="table table-text-center ">
                     <thead style="background-color: #B6E3FC;">
                         <tr>
@@ -296,9 +299,11 @@
                             <td><%=m.getEnrollDate() %></td>
                             <td><%=m.getEndYN() %></td>
                         </tr> 
-                        <%} %>                     
+                                             
                     </tbody>
+                    <%} %>
                 </table>
+                <%} %>
                 <!-- 페이징 처리 -->
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">

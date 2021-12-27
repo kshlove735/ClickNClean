@@ -6,7 +6,7 @@ import kr.or.iei.member.model.vo.Member;
 
 public interface AdminMemberService {
 
-	ArrayList<Member> memberAllList();
+	ArrayList<Member> memberAllList(String roll);
 
 
 }
