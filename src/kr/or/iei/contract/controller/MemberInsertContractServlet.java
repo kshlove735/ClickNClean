@@ -35,6 +35,11 @@ public class MemberInsertContractServlet extends HttpServlet {
 		String userId=request.getParameter("userId");
 		String coId=request.getParameter("coId");
 		int price=Integer.parseInt(request.getParameter("price"));
+		System.out.println(conditionNo);
+		System.out.println(userId);
+		System.out.println(coId);
+		System.out.println(price);
+		
 		ContractService conService=new ContractServiceImpl();
 		int result =conService.insertContract(conditionNo,userId,coId,price);
 		
