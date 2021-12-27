@@ -1,14 +1,14 @@
 package kr.or.iei.member.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.swing.text.View;
 
 import kr.or.iei.company.model.service.CompanyService;
 import kr.or.iei.company.model.service.CompanyServiceImpl;
@@ -16,16 +16,16 @@ import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.service.MemberServiceImpl;
 
 /**
- * Servlet implementation class MemberCompanyFindIdServlet
+ * Servlet implementation class MemberCompanyFindIdUsingPhoneServlet
  */
-@WebServlet("/member/memberCompanyFindId.do")
-public class MemberCompanyFindIdServlet extends HttpServlet {
+@WebServlet("/member/memberCompanyFindIdUsingPhone.do")
+public class MemberCompanyFindIdUsingPhoneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public MemberCompanyFindIdServlet() {
+	public MemberCompanyFindIdUsingPhoneServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -38,28 +38,26 @@ public class MemberCompanyFindIdServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-
 		String roll = request.getParameter("roll");
-
 		String userName = request.getParameter("userName");
-
-		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
 
 		String id = null;
-
 		switch (roll) {
 		case "UR-1":
 			MemberService mService = new MemberServiceImpl();
-			id = mService.searchIdUsingEmail(roll, userName, email);
+			id = mService.searchIdUsingPhone(roll, userName, phone);
 			break;
 		case "CO-1":
 			CompanyService comService = new CompanyServiceImpl();
-			id = comService.searchIdUsingEmail(roll, userName, email);
+			id = comService.searchIdUsingPhone(roll, userName, phone);
 			break;
 		}
 
-		PrintWriter out = response.getWriter();
-		out.print(id);
+		RequestDispatcher view = request.getRequestDispatcher("/views/member/memberCompanyShowId.jsp");
+		
+		request.setAttribute("id", id);
+		view.forward(request, response);
 
 	}
 

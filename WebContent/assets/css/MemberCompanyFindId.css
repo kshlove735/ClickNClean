@@ -97,6 +97,10 @@
 	margin-top: 20px;
 }
 
+#email_check_form {
+	text-align: center;
+}
+
 form {
 	text-align: center;
 }
@@ -152,7 +156,8 @@ input[type="button"] {
 	padding: 0 19px;
 	display: inline-block;
 	margin-top: 15px;
-	
+	position: relative;
+        left: -10px;
 }
 
 #verification_number_btn {

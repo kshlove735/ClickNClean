@@ -134,6 +134,117 @@ public class CompanyDAO {
 		return coId;
 	}
 
+	public String searchIdUsingPhone(Connection conn, String roll, String userName, String phone) {
+		PreparedStatement pstmt =null;
+		ResultSet rset = null;
+		String coId=null;
+		
+		String query="SELECT * FROM COMPANY WHERE coName= ? AND phone=? AND roll=?";
+		
+		try {
+			pstmt=conn.prepareStatement(query);
+			
+			pstmt.setString(1, userName);
+			pstmt.setString(2, phone);
+			pstmt.setString(3, roll);
+			
+			rset= pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				coId = rset.getString("coId");
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return coId;
+	}
+
+	public boolean searchPwdUsingEmail(Connection conn, String roll, String userId, String email) {
+		PreparedStatement pstmt =null;
+		ResultSet rset = null;
+		boolean result=false;
+		
+		String query="SELECT * FROM COMPANY WHERE coId= ? AND email=? AND roll=?";
+		
+		try {
+			pstmt=conn.prepareStatement(query);
+			
+			pstmt.setString(1, userId);
+			pstmt.setString(2, email);
+			pstmt.setString(3, roll);
+			
+			rset= pstmt.executeQuery();
+			
+			result= rset.next();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int upadateCompanyPwd(Connection conn, String roll, String userId, String userPwd) {
+		PreparedStatement pstmt =null;
+		int result=0;
+		
+		String query="UPDATE COMPANY SET coPwd=? WHERE coId=? AND roll=? AND end_YN='N'";
+		
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1, userPwd);
+			pstmt.setString(2, userId);
+			pstmt.setString(3, roll);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	
+	}
+
+	public boolean searchPwdUsingPhone(Connection conn, String roll, String userId, String phone) {
+		PreparedStatement pstmt =null;
+		ResultSet rset = null;
+		boolean result=false;
+		
+		String query="SELECT * FROM COMPANY WHERE coId= ? AND phone=? AND roll=?";
+		
+		try {
+			pstmt=conn.prepareStatement(query);
+			
+			pstmt.setString(1, userId);
+			pstmt.setString(2, phone);
+			pstmt.setString(3, roll);
+			
+			rset= pstmt.executeQuery();
+			
+			result = rset.next();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
 }
 
 

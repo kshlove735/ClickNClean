@@ -568,7 +568,7 @@
 							
 							</c:choose>
 							
-							<li><a href="/views/admin/loginAdmin.jsp" id='adminLongin'>관리자 페이지</a></li>
+							<li><a href="/admin/adminHome.do" id='adminLongin'>관리자 페이지</a></li>
 							
 							<script>
 								$('#adminLongin').click(function(){

@@ -26,7 +26,7 @@ import kr.or.iei.util.Gmail;
 /**
  * Servlet implementation class MemberCompanySendEmailUserIdServlet
  */
-@WebServlet("/member/memberCompanySendEmailUserId.co")
+@WebServlet("/member/memberCompanySendEmailUserId.do")
 public class MemberCompanySendEmailUserIdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

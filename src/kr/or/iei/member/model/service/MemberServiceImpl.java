@@ -45,6 +45,42 @@ public class MemberServiceImpl implements MemberService{
 		
 	}
 
+	@Override
+	public String searchIdUsingPhone(String roll, String userName, String phone) {
+
+		Connection conn = JDBCTemplate.getConnection();
+		String userId = mDAO.searchIdUsingPhone(conn, roll, userName, phone);
+		JDBCTemplate.close(conn);
+		return userId;
+	}
+
+	@Override
+	public boolean searchPwdUsingEmail(String roll, String userId, String email) {
+
+		Connection conn = JDBCTemplate.getConnection();
+		boolean result= mDAO.searchPwdUsingEmail(conn, roll, userId, email);
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	@Override
+	public int upadateMemberPwd(String roll, String userId, String userPwd) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = mDAO.upadateMemberPwd(conn,roll, userId,userPwd);
+		if(result>0) JDBCTemplate.commit(conn);
+		else JDBCTemplate.rollback(conn);
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	@Override
+	public boolean searchPwdUsingPhone(String roll, String userId, String phone) {
+		Connection conn = JDBCTemplate.getConnection();
+		boolean result= mDAO.searchPwdUsingPhone(conn, roll, userId, phone);
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
 	
 
 }
