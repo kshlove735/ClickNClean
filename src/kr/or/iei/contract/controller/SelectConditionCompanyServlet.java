@@ -63,17 +63,14 @@ public class SelectConditionCompanyServlet extends HttpServlet {
 		int size=Integer.parseInt(houseSize.substring(0, 2));
 		String condition=cleanType+" / "+houseType+" / "+houseSize+" / "+area+" / "+reqDate;
 		
+		String conditionNo=request.getParameter("conditionNo");
+		ContractService conService=new ContractServiceImpl();
+		if(conditionNo==null) {
+				
 		long currentTime=Calendar.getInstance().getTimeInMillis();
 		SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
 		Timestamp searchTime=Timestamp.valueOf(formatter.format(currentTime));
-		String conditionNo=searchTime+"/"+userId;
-		
-		System.out.println(conditionNo);
-		
-		ContractService conService=new ContractServiceImpl();
-		ArrayList<Company> list= conService.selectConditionCompany(area,cleanType);
-		
-		
+		conditionNo=searchTime+"/"+userId;
 		Contract con=new Contract();
 		con.setUserId(userId);
 		con.setCleanType(cleanType);
@@ -83,10 +80,13 @@ public class SelectConditionCompanyServlet extends HttpServlet {
 		con.setReqDate(date);
 		con.setConditionNo(conditionNo);
 		
-		boolean result1=conService.checkCondition(con);
-		if(!result1) {
-			conService.insertCondition(con);
+		
+		conService.insertCondition(con);
+		
 		}
+		
+		ArrayList<Company> list= conService.selectConditionCompany(area,cleanType);
+		
 		
 		
 		
