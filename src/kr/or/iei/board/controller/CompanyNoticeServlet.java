@@ -14,16 +14,16 @@ import kr.or.iei.board.model.service.BoardService;
 import kr.or.iei.board.model.service.BoardServiceImpl;
 
 /**
- * Servlet implementation class MemberNoticeServlet
+ * Servlet implementation class CompanyNoticeServlet
  */
-@WebServlet("/board/memberNotice.do")
-public class MemberNoticeServlet extends HttpServlet {
+@WebServlet("/board/companyNotice.do")
+public class CompanyNoticeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberNoticeServlet() {
+    public CompanyNoticeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +32,7 @@ public class MemberNoticeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
         int currentPage;
 		
 		if(request.getParameter("currentPage")==null)
@@ -45,14 +45,15 @@ public class MemberNoticeServlet extends HttpServlet {
 		
 		//요청한 Page값(currentPage)을 가지고 페이지에 따른 데이터 목록화를 비즈니스 로직으로 처리
 		BoardService bService = new BoardServiceImpl();
-		HashMap<String, Object> pageDataMap = bService.memberNotice(currentPage);
+		HashMap<String, Object> pageDataMap = bService.companyNotice(currentPage);
 		
-		RequestDispatcher view = request.getRequestDispatcher("/views/board/memberNotice.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/views/board/companyNotice.jsp");
 	    
 		request.setAttribute("pageDataMap", pageDataMap);
 		request.setAttribute("currentPage", currentPage);
 	   
 		view.forward(request, response);
+		
 	}
 
 	/**

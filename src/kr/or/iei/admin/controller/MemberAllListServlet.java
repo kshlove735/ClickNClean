@@ -44,8 +44,7 @@ public class MemberAllListServlet extends HttpServlet {
 		
 		//모든 회원의 정보를 가져오는 비즈니스 로직 처리
 		AdminMemberService adService = new AdminMemberServiceImpl();
-		
-		ArrayList<Member> list = adService.memberAllList();
+		ArrayList<Member> list = adService.memberAllList(roll);
 		
 		//가져온 회원 정보를 가지고 ,jsp(view) 페이지로 이동
 		RequestDispatcher view = request.getRequestDispatcher("/views/admin/memberAllList.jsp");
