@@ -80,7 +80,7 @@
                         
                     </div>
                     <div id=contractArea>
-                    	<input type="hidden" id="userId" value="${sessionScope.userId }"   />
+                    	<input type="hidden" id="userId" value="${sessionScope.member.userId }"   />
                     	<input type="hidden" id="coId" value="<%=com.getCoId() %>"   />
                     	<input type="hidden" id="conditionNo" value="${requestScope.conditionNo }"   />
                         <button id="contractBtn"
@@ -92,7 +92,7 @@
                         		var userId=$(this).prev().prev().prev().val();
                         		var coId=$(this).prev().prev().val();
                         		var conditionNo=$(this).prev().val();
-                        		var price=$('#price').val();
+                        		var price=$('#price').html();
                         		$.ajax({
                         			url:"/contract/insertContract.do",
                         			data:{userId:userId,coId:coId,conditionNo:conditionNo,price:price},
