@@ -49,7 +49,7 @@ public class LoginCompanyServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("company", com);
 
-			response.sendRedirect("/");
+			response.sendRedirect("/views/company/companyMain.jsp");
 
 
 		} else {	// 없다면
