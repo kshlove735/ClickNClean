@@ -166,7 +166,7 @@
                                 var sendEmail={verificationNumber:verificationNumber, code:code, email:email, roll:roll ,userName:userName};
                                 
                                 $.ajax({
-                                	url: "/member/memberCompanySendEmailUserId.co",
+                                	url: "/member/memberCompanySendEmailUserId.do",
                                 	type:"post",
                                 	data: sendEmail,
                                 	success: function(data){

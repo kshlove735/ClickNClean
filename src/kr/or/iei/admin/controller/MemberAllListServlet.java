@@ -1,4 +1,4 @@
-package kr.or.iei.company.controller;
+package kr.or.iei.admin.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,21 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.iei.company.model.service.CompanyService;
-import kr.or.iei.company.model.service.CompanyServiceImpl;
-import kr.or.iei.company.model.vo.Company;
+import kr.or.iei.admin.model.service.AdminMemberService;
+import kr.or.iei.admin.model.service.AdminMemberServiceImpl;
+import kr.or.iei.common.MemberAuthorityCheck;
+import kr.or.iei.member.model.vo.Member;
 
 /**
- * Servlet implementation class SelectAllCompanyListServlet
+ * Servlet implementation class MemberAllListServlet
  */
-@WebServlet("/company/selectAllCompanyList.do")
-public class SelectAllCompanyListServlet extends HttpServlet {
+@WebServlet("/admin/memberAllList.do")
+public class MemberAllListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectAllCompanyListServlet() {
+    public MemberAllListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,15 +35,26 @@ public class SelectAllCompanyListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		CompanyService comService = new CompanyServiceImpl();
+       String roll = MemberAuthorityCheck.authorityRootCheck(request, response);
 		
-		ArrayList<Company> list= comService.selectAllCompany();
+		if(roll==null) {
+			response.sendRedirect("/views/commons/error.jsp");
+			return;
+		}
 		
-		RequestDispatcher view = request.getRequestDispatcher("/views/company/selectAllCompany.jsp");
+		//모든 회원의 정보를 가져오는 비즈니스 로직 처리
+		AdminMemberService adService = new AdminMemberServiceImpl();
+		
+		ArrayList<Member> list = adService.memberAllList();
+		
+		//가져온 회원 정보를 가지고 ,jsp(view) 페이지로 이동
+		RequestDispatcher view = request.getRequestDispatcher("/views/admin/memberAllList.jsp");
 		
 		request.setAttribute("list", list);
+		request.setAttribute("roll", roll);
 		
 		view.forward(request, response);
+		
 		
 	}
 

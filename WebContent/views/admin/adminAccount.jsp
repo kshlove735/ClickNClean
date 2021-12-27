@@ -4,17 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>관리자 페이지 메인</title>
+ <!-- Title -->
+    <title>관리자 정보</title>
 
-    <link rel="stylesheet" href="/assets/css/theme.min.css">
-    <link rel="stylesheet" href="/assets/css/docs.min.css">
-</head>
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" href="assets/css/theme.min.css">
+    <link rel="stylesheet" href="assets/css/docs.min.css">
 <body>
 
 <style>
     * {
         box-sizing: border-box;
         font-family: 'NanumSquare';
+        
     }
     
     #wrap {
@@ -23,7 +25,7 @@
         margin: 0 auto;
         
     }
-        /*헤더 */
+            /*헤더 부분 */
         #header{
             width: 100%;
             height: 70px;
@@ -57,7 +59,7 @@
             left: 580px;
             color: #555;
         }
-        /* 메뉴 */
+        /* 메뉴 바 */
            #navigator {
             height: 67px;
             width : 1344px;
@@ -99,13 +101,12 @@
             margin : 0 auto;
         }
     
-    /*content*/
-    #mainlistsub{
-        text-align: left;
+    #memberlistsub{
+        text-align: center;
         font-size: 25px;
-        position: relative;
-        top: 70px;
-        left: 22px;
+        height: 50px;
+        padding: 30px;
+ 
     }
     
     #change{
@@ -114,67 +115,20 @@
     }
     #btn1{
         position: absolute;
-        top: 357px;
-        left: 980px;
+        top: 344px;
+        left: 1220px;
     }
     
     #btn2{
         position: absolute;
-        top: 580px;
-        left: 1500px;
+        top: 720px;
+        left: 1220px;
     }
     
     #table{
         width: 900px;
-        text-align: left;
-        padding: 20px;
+        margin:auto;
     }
-    
-        #listsub{
-        text-align: left;
-        font-size: 25px;
-        height: 25px;
-        width: 250px;
-        margin: 25px;
- 
-    }
-
-    .btn{
-        background-color: #0E76B3;
-        height: 35px;
-        color: #fafafa;
-        text-align: center;
-        text-decoration: none;
-        padding: 0px 15px;
-    }
-    
-     .btn:hover {
-     background: white; 
-     color: black;
-    }
-    
-    .table2{
-        width: 1344px;
-        height: 500px;
-        font-size: 15px;
-    }
-    
-     #content1 {
-        width: 50%;
-        height: 100%;
-        float: left;
-        box-sizing: border-box;
-         padding: 10px;
-      }
-      #content2 {
-        width: 50%;
-        height: 100%;
-        float: right;
-        box-sizing: border-box;
-        padding: 10px;
-        position: relative;
-        top: -449px;
-      }
     
     /*footer*/
     #footer {
@@ -278,9 +232,12 @@
     }
 
 </style>
-<body> 
+<body>
+    
+    
     <div id="wrap">
-<div id="header">
+    
+	<div id="header">
             <div id="logo">
           </div>
         </div>
@@ -294,7 +251,7 @@
                             <li><a href="">Home</a></li>
                             <li><a href="">관리자 계정</a></li>
                             <li><a href="">전체 업체 LIST</a></li>
-                            <li><a href="">전체 회원 LIST</a></li>
+                            <li><a href="/views/admin/memberAllList.jsp">전체 회원 LIST</a></li>
                             <li><a href="">게시판 관리</a>
                             <ul class="sub">
                                 <li><a href="">sub</a></li>
@@ -308,10 +265,9 @@
          <div class="line"></div>
 
             <div style=" width: 100%;">
-              
-               <!--사이트 기본 정보-->
-                <div id= "mainlistsub">
-                    <p>기본 정보</p>
+               <!--관리자 정보-->
+                <div id= "memberlistsub">
+                    <p>관리자 정보</p>
                 </div>
                 <div id="change"> 
               <button id="btn1" style="background-color: floralwhite; border-radius: 7px; color: #555">수정하기</button>
@@ -328,214 +284,76 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th>사이트 명</th>
-                            <td>클릭 N 클린</td>
+                            <th>관리자 ID</th>
+                            <td>admin11</td>
                         </tr>
                         <tr>
-                            <th>사이트 URL</th>
-                            <td>http://clicknclean.com</td>
+                            <th>관리자 이름</th>
+                            <td>김지은</td>
                         </tr>
+                        <tr>
+                            <th>관리자 이메일</th>
+                            <td>test123@kh.com</td>
+                        </tr>
+                        <tr>
+                            <th>관리자 전화번호</th>
+                            <td>02-2222-2222</td>
+                        </tr>
+                        <tr>
+                            <th>관리자 휴대폰 번호</th>
+                            <td>010-2222-2222</td>
+                        </tr>
+                  
+                    </tbody>
+                    </table></div>
+                    
+                    <!--사업자 정보-->
+                    <div id= "memberlistsub">
+                    <p>사업자 정보</p>
+                </div>
+                <div id="change"> 
+              <button id="btn2" style="background-color: floralwhite; border-radius: 7px; color: #555">수정하기</button>
+               </div>
+                </div>
+                
+                <div id="table">
+                <table class="table table-text-center">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;"> </th>
+                            <th style="width: 70%;"> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <tr>
                             <th>사업자 등록번호</th>
                             <td>585-86-00882</td>
                         </tr>
                         <tr>
-                            <th>업체 주소</th>
+                            <th>대표자 명</th>
+                            <td>김승현</td>
+                        </tr>
+                        <tr>
+                            <th>상호 명</th>
+                            <td>클릭N클린(주)</td>
+                        </tr>
+                        <tr>
+                            <th>주소</th>
                             <td>서울특별시 중구 세종대로 136 파이낸스빌딩 3층 저스트코 S3119 (태평로1가)</td>
                         </tr>
-                  
+                        <tr>
+                            <th>업태</th>
+                            <td>통신판매업</td>
+                        </tr>
+                        <tr>
+                            <th>전화번호</th>
+                            <td>010-2222-2222</td>
+                        </tr>                   
                     </tbody>
                     </table></div>
-                 
-                 <!--신규 업테 등록-->   
-                <div style=" width: 100%;">
-                <div id= "listsub">
-                    <p>신규 업체 등록</p>
-                </div>
-
-                </div>
                 
-                <table class="table table-text-center ">
-                    <thead style="">
-                        <tr>
-                            <th style="width: 5%;">번호</th>
-                            <th style="width: 20%;">업체명</th>
-                            <th style="width: 15%;">아이디</th>
-                            <th style="width: 15%;">사업자 등록번호</th>
-                            <th style="width: 15%;">가입일</th>
-                            <th style="width: 10%;">수락</th>
-                            <th style="width: 10%;">반려</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>쓱싹클린</td>
-                            <td>com11</td>
-                            <td>012345678</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수락</button></td>
-                            <td><button class="btn">반려</button></td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>쓱싹클린</td>
-                            <td>com11</td>
-                            <td>012345678</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수락</button></td>
-                            <td><button class="btn">반려</button></td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>쓱싹클린</td>
-                            <td>com11</td>
-                            <td>012345678</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수락</button></td>
-                            <td><button class="btn">반려</button></td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>쓱싹클린</td>
-                            <td>com11</td>
-                            <td>012345678</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수락</button></td>
-                            <td><button class="btn">반려</button></td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>쓱싹클린</td>
-                            <td>com11</td>
-                            <td>012345678</td>
-                            <td>2021-12-25</td>
-                            <td><button class="btn">수락</button></td>
-                            <td><button class="btn">반려</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-            <div class="table2">       
-            <div id="content1">
-            <div style=" width: 100%;">
-                <div id= "listsub">
-                <p>1:1 문의(회원)</p>
-                </div>
-
-                <table class="table table-text-center ">
-                    <thead style="">
-                        <tr>
-                            <th style="width: 10%;">번호</th>
-                            <th style="width: 15%;">이름</th>
-                            <th style="width: 15%;">아이디</th>
-                            <th style="width: 45%;">글제목</th>
-                            <th style="width: 15%;">확인하기</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>김승현</td>
-                            <td>user11</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>김승현</td>
-                            <td>user22</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>김지은</td>
-                            <td>user33</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>이현아</td>
-                            <td>user44</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>정두식</td>
-                            <td>user55</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="table2">       
-            <div id="content2">
-             <div id= "listsub">
-              <p>리뷰(회원)</p>
-             </div>
-                <table class="table table-text-center ">
-                    <thead style="">
-                        <tr>
-                            <th style="width: 10%;">번호</th>
-                            <th style="width: 15%;">이름</th>
-                            <th style="width: 15%;">아이디</th>
-                            <th style="width: 45%;">글제목</th>
-                            <th style="width: 15%;">확인하기</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                         <tr>
-                            <th>1</th>
-                            <td>김승현</td>
-                            <td>user11</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>김승현</td>
-                            <td>user22</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>김지은</td>
-                            <td>user33</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>이현아</td>
-                            <td>user44</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>정두식</td>
-                            <td>user55</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-            </div> </div>                     
-            </div>        
-    </div>
-           </div>     
             
-    <!-- End Table -->
-            <!--푸터-->
+            <!--footer-->
         <div id="footer">
             <div id="caution">
                 <p>클릭N클린은 통신판매중개자로서 청소서비스의 주거래 당사자가 아니며, 청소서비스의 분쟁과 계약사항은 회원사와 당사자간에 있습니다.</p>
@@ -580,4 +398,5 @@
         </div>
 
 </body>
+
 </html>

@@ -1,11 +1,12 @@
 package kr.or.iei.contract.model.vo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Contract {
 
 	private int contractNo;
-	private int conditionNo;
+	private String conditionNo;
 	private String userId;
 	private String coId;
 	private int price;
@@ -17,7 +18,6 @@ public class Contract {
 	private Date contractFinDate;
 	private char cleanYN;
 	private Date cleanDate;
-	
 	private String cleanType;
 	private String houseType;
 	private String area;
@@ -29,7 +29,7 @@ public class Contract {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Contract(int contractNo, int conditionNo, String userId, String coId, int price, char reqContractYN,
+	public Contract(int contractNo, String conditionNo, String userId, String coId, int price, char reqContractYN,
 			Date reqContractDate, char coCheckYN, Date coCheckDate, char contractYN, Date contractFinDate, char cleanYN,
 			Date cleanDate) {
 		super();
@@ -48,7 +48,7 @@ public class Contract {
 		this.cleanDate = cleanDate;
 	}
 
-	public Contract(int conditionNo, String userId, String cleanType, String houseType, String area, int houseSize,
+	public Contract(String conditionNo, String userId, String cleanType, String houseType, String area, int houseSize,
 			Date reqDate) {
 		super();
 		this.conditionNo = conditionNo;
@@ -60,6 +60,7 @@ public class Contract {
 		this.reqDate = reqDate;
 	}
 
+
 	public int getContractNo() {
 		return contractNo;
 	}
@@ -68,11 +69,11 @@ public class Contract {
 		this.contractNo = contractNo;
 	}
 
-	public int getConditionNo() {
+	public String getConditionNo() {
 		return conditionNo;
 	}
 
-	public void setConditionNo(int conditionNo) {
+	public void setConditionNo(String conditionNo) {
 		this.conditionNo = conditionNo;
 	}
 
@@ -160,8 +161,8 @@ public class Contract {
 		return cleanDate;
 	}
 
-	public void setCleanDate(Date cleanDate) {
-		this.cleanDate = cleanDate;
+	public void setCleanDate(Date date) {
+		this.cleanDate = date;
 	}
 
 	public String getCleanType() {

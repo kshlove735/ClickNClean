@@ -1,30 +1,28 @@
-package kr.or.iei.company.controller;
+package kr.or.iei.contract.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.iei.company.model.service.CompanyService;
-import kr.or.iei.company.model.service.CompanyServiceImpl;
-import kr.or.iei.company.model.vo.Company;
+import kr.or.iei.contract.model.service.ContractService;
+import kr.or.iei.contract.model.service.ContractServiceImpl;
 
 /**
- * Servlet implementation class SelectAllCompanyListServlet
+ * Servlet implementation class MemberInsertContractServlet
  */
-@WebServlet("/company/selectAllCompanyList.do")
-public class SelectAllCompanyListServlet extends HttpServlet {
+@WebServlet("/contract/insertContract.do")
+public class MemberInsertContractServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectAllCompanyListServlet() {
+    public MemberInsertContractServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,17 +31,20 @@ public class SelectAllCompanyListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String conditionNo=request.getParameter("conditionNo");
+		String userId=request.getParameter("userId");
+		String coId=request.getParameter("coId");
+		int price=Integer.parseInt(request.getParameter("price"));
+		ContractService conService=new ContractServiceImpl();
+		int result =conService.insertContract(conditionNo,userId,coId,price);
 		
-		CompanyService comService = new CompanyServiceImpl();
+		PrintWriter out = response.getWriter();
 		
-		ArrayList<Company> list= comService.selectAllCompany();
-		
-		RequestDispatcher view = request.getRequestDispatcher("/views/company/selectAllCompany.jsp");
-		
-		request.setAttribute("list", list);
-		
-		view.forward(request, response);
-		
+		if(result>0) {
+			out.print("success");
+		}else {
+			out.print("fail");
+		}
 	}
 
 	/**

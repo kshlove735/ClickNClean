@@ -45,7 +45,7 @@ public class ContractDAO {
 					
 					Contract cd = new Contract();
 					
-					cd.setConditionNo(rset.getInt("conditionNo"));
+					cd.setConditionNo(rset.getString("conditionNo"));
 					cd.setUserId(rset.getString("userId"));
 					cd.setCleanType(rset.getString("cleanType"));
 					cd.setHouseType(rset.getString("houseType"));
@@ -197,19 +197,22 @@ public class ContractDAO {
 
 	
 
-	public int insertCondtion(Contract con, Connection conn) {
+	public int insertCondition(Contract con, Connection conn) {
 		PreparedStatement pstmt=null;
 		int result=0;
-		String query="insert into condition values(condition_seq.nextval,?,?,?,?,?,?)";
+		String query="insert into condition values(?,?,?,?,?,?,?)";
+		
 		try {
 			pstmt=conn.prepareStatement(query);
-			//pstmt.setString(1, userId);
-			//pstmt.setString(2,con.getCleanType);
-			//pstmt.setString(3,con.getHouseType);
-			//pstmt.setString(4,con.getArea);
-			//pstmt.setString(5,con.getHouseSize);
-			//pstmt.setString(6,con.getreqDate);
+			pstmt.setString(1, con.getConditionNo());
+			pstmt.setString(2, con.getUserId());
+			pstmt.setString(3,con.getCleanType());
+			pstmt.setString(4,con.getHouseType());
+			pstmt.setString(5,con.getArea());
+			pstmt.setInt(6,con.getHouseSize());
+			pstmt.setDate(7,con.getReqDate());
 			result=pstmt.executeUpdate();
+			
 
 			
 		} catch (SQLException e) {
@@ -223,5 +226,57 @@ public class ContractDAO {
 		return result;
 
 	}
+
+
+	public boolean checkCondition(Contract con,Connection conn) {
+		PreparedStatement pstmt=null;
+		ResultSet rset=null;
+		String query="select * from condition where userId=? and cleantype=? and housetype=? and area=?";
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1, con.getUserId());
+			pstmt.setString(2, con.getCleanType());
+			pstmt.setString(3, con.getHouseType());
+			pstmt.setString(4, con.getArea());
+			rset=pstmt.executeQuery();
+			if(rset.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+		return false;
+	}
+
+
+	public int insertContract(String conditionNo, String userId, String coId, int price, Connection conn) {
+		PreparedStatement pstmt=null;
+		int result=0;
+		String query="insert into contract values(contract_seq.nextval,?,?,?,?,'Y',sysdate,'N',sysdate,'N',sysdate,'N',sysdate)";
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1, conditionNo);
+			pstmt.setString(2, userId);
+			pstmt.setString(3, coId);
+			pstmt.setInt(4, price);
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+
 
 }

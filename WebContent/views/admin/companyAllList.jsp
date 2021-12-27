@@ -1,3 +1,4 @@
+<%@page import="kr.or.iei.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,6 +10,9 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="/assets/css/theme.min.css">
     <link rel="stylesheet" href="/assets/css/docs.min.css">
+    <!-- jQuery 라이브러리 -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
 </head>
 <body>
 <style>
@@ -236,7 +240,7 @@
                             <li><a href="">Home</a></li>
                             <li><a href="">관리자 계정</a></li>
                             <li><a href="">전체 업체 LIST</a></li>
-                            <li><a href="">전체 회원 LIST</a></li>
+                            <li><a href="/views/admin/memberAllList.jsp">전체 회원 LIST</a></li>
                             <li><a href="">게시판 관리</a>
                             <ul class="sub">
                                 <li><a href="">sub</a></li>
@@ -252,8 +256,7 @@
             <div style=" width: 100%;">
                 <div id= "companylistsub">
                     <p class="">전체 업체 리스트</p>
-                </div>
-                
+                </div> 
             <!--주제별 검색-->    
             <div id = "search">
             <select style="height: 30px">
@@ -286,79 +289,8 @@
                             <td>012345678</td>
                             <td>서울시 영등포구 당산동 어쩌고</td>
                         </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>KH 청소</td>
-                            <td>com22</td>
-                            <td>032-1234-5555</td>
-                            <td>222222222</td>
-                            <td>경기도 고양시 일산동구 어쩌고</td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>MS 클린</td>
-                            <td>com33</td>
-                            <td>02-5555-9999</td>
-                            <td>565689898</td>
-                            <td>서울시 양천구 목동 어쩌고</td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>click 청소</td>
-                            <td>com44</td>
-                            <td>031-7894-6859</td>
-                            <td>987465123</td>
-                            <td>경기도 안양시 만안구 어쩌고</td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>kshlove clean</td>
-                            <td>com55</td>
-                            <td>02-1111-8888</td>
-                            <td>005563214</td>
-                            <td>부산광역시 해운대구 반손동 어쩌고</td>
-                        </tr>
-                        <tr>
-                            <th>6</th>
-                            <td>kshlove clean</td>
-                            <td>com55</td>
-                            <td>02-1111-8888</td>
-                            <td>005563214</td>
-                            <td>부산광역시 해운대구 반손동 어쩌고</td>
-                        </tr>
-                        <tr>
-                            <th>7</th>
-                            <td>kshlove clean</td>
-                            <td>com55</td>
-                            <td>02-1111-8888</td>
-                            <td>005563214</td>
-                            <td>부산광역시 해운대구 반손동 어쩌고</td>
-                        </tr>
-                        <tr>
-                            <th>8</th>
-                            <td>kshlove clean</td>
-                            <td>com55</td>
-                            <td>02-1111-8888</td>
-                            <td>005563214</td>
-                            <td>부산광역시 해운대구 반손동 어쩌고</td>
-                        </tr>
-                        <tr>
-                            <th>9</th>
-                            <td>kshlove clean</td>
-                            <td>com55</td>
-                            <td>02-1111-8888</td>
-                            <td>005563214</td>
-                            <td>부산광역시 해운대구 반손동 어쩌고</td>
-                        </tr>
-                        <tr>
-                            <th>10</th>
-                            <td>kshlove clean</td>
-                            <td>com55</td>
-                            <td>02-1111-8888</td>
-                            <td>005563214</td>
-                            <td>부산광역시 해운대구 반손동 어쩌고</td>
-                        </tr>
                     </tbody>
+
                 </table>
                 <!-- 페이징 처리 -->
                     <ul class="pagination justify-content-center">

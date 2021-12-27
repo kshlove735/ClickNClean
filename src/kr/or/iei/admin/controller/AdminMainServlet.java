@@ -1,4 +1,4 @@
-package kr.or.iei.company.controller;
+package kr.or.iei.admin.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,21 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.iei.company.model.service.CompanyService;
-import kr.or.iei.company.model.service.CompanyServiceImpl;
-import kr.or.iei.company.model.vo.Company;
+import kr.or.iei.admin.model.service.AdminService;
+import kr.or.iei.admin.model.service.AdminServiceImpl;
+import kr.or.iei.admin.model.vo.Admin;
 
 /**
- * Servlet implementation class SelectAllCompanyListServlet
+ * Servlet implementation class AdminMainServlet
  */
-@WebServlet("/company/selectAllCompanyList.do")
-public class SelectAllCompanyListServlet extends HttpServlet {
+@WebServlet("/admin/adminHome.do")
+public class AdminMainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectAllCompanyListServlet() {
+    public AdminMainServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,14 +34,22 @@ public class SelectAllCompanyListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		CompanyService comService = new CompanyServiceImpl();
+		request.setCharacterEncoding("UTF-8");
 		
-		ArrayList<Company> list= comService.selectAllCompany();
+		AdminService adService = new AdminServiceImpl();
 		
-		RequestDispatcher view = request.getRequestDispatcher("/views/company/selectAllCompany.jsp");
+		String siteName = request.getParameter("siteName");
+		String siteUrl = request.getParameter("siteUrl");
+		String busNum = request.getParameter("busNum");
+		String address = request.getParameter("address");
+		/*
+		System.out.println(siteName);
+		System.out.println(siteUrl);
+		System.out.println(busNum);
+		System.out.println(address);
+		*/
 		
-		request.setAttribute("list", list);
-		
+		RequestDispatcher view = request.getRequestDispatcher("/views/admin/adminMain.jsp");
 		view.forward(request, response);
 		
 	}

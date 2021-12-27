@@ -22,6 +22,7 @@ public interface MemberService {
 	 */
 	public int updateOneMember(Member m, String newPwd);
 
+
 	/**
 	 * @Author : SeungHyun Kim(kshlove735)
 	 * @Date : 2021. 12. 26.
@@ -62,6 +63,5 @@ public interface MemberService {
 	 */
 	public boolean searchPwdUsingPhone(String roll, String userId, String phone);
 
-	
 
 }
