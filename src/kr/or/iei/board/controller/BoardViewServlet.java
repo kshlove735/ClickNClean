@@ -18,13 +18,13 @@ import kr.or.iei.board.model.vo.Board;
  * Servlet implementation class BoardView
  */
 @WebServlet("/board/boardView.do")
-public class BoardView extends HttpServlet {
+public class BoardViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardView() {
+    public BoardViewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -12,4 +12,6 @@ public interface BoardService {
 
 	Board boardView(int currentPage);
 
+	HashMap<String, Object> selectSearchPost(int currentPage, String keyword, String type);
+
 }

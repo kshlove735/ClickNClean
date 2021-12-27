@@ -21,7 +21,10 @@
      <%
         HashMap<String,Object> map = (HashMap<String,Object>)request.getAttribute("pageDataMap");
         String pageNavi = (String) map.get("pageNavi");
-        ArrayList<Board> list = (ArrayList<Board>) map.get("list");   
+        ArrayList<Board> list = (ArrayList<Board>) map.get("list");
+        int currentPage =(int)request.getAttribute("currentPage");
+        
+        String keyword = (String)request.getAttribute("keyword");
      %>
 
 <style>
@@ -280,14 +283,16 @@
                 </div>
                 
             <div id = "search">
+            <form action="/board/boardPostSearch.do" method="get"> 
             <select style="height: 30px">
              <option value = "username" selected>글제목</option>
              <option value = "userid">작성일</option>
             </select>
                    
              <input type="text" placeholder="search">
-              <button style="background-color: floralwhite; border-radius: 7px; color: #555">검색</button>
+              <button type="submit" style="background-color: floralwhite; border-radius: 7px; color: #555">검색</button>
                 </div>
+                
                 <%if(!list.isEmpty()){ %>
                 <table class="table table-text-center">
                     <thead style="">

@@ -11,14 +11,14 @@ import kr.or.iei.member.model.vo.Member;
 
 public class AdminMemberDAO {
 
-	public ArrayList<Member> memberAllList(Connection conn) {
+	public ArrayList<Member> memberAllList(String roll,Connection conn) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		ArrayList<Member> list = new ArrayList<Member>();
 		
-		String query = "SELECT USERNO,USERNAME,USERID,PHONE,EMAIL,END_YN FROM MEMBER ORDER BY BOARDNO DESC";
+		String query = "SELECT USERNO,USERNAME,USERID,PHONE,EMAIL,END_YN FROM MEMBER ORDER BY USERNO DESC";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
