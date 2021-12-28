@@ -77,10 +77,12 @@
 .txt_guide {
 	/*border: 1px solid blue;*/
 	margin: 0 0 25px 15px;
+	display:none;
 }
 
 .txt_guide span {
 	font-size: 13px;
+	color : #b3130b;
 }
 
 input[type="submit"] {

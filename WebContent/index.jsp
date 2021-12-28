@@ -40,7 +40,7 @@
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	<!-- css -->
-	<link href="/assets/css/index.css?after" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/index.css?afeter" rel="stylesheet" type="text/css" />
 	<!-- JSTL 라이브러리 -->
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -118,7 +118,7 @@
 									<c:otherwise>
 									
 										<li><a href="/views/member/loginMemberCompany.jsp">로그인</a></li>
-										<li><a href="">회원가입</a></li>	
+										<li><a href="/views/member/memberCompanyJoinType.jsp">회원가입</a></li>	
 									</c:otherwise>
 								
 								</c:choose> 
@@ -221,8 +221,14 @@
 						</div>
 						<div class="carousel-inner h-100">
 							<div class="carousel-item active h-100">
-								<img src="/assets/img/northern-lights-g231a332cd_1920.jpg"
+								<img src="/assets/img/carousel1.jpg"
 									class="d-block w-100 h-100" alt="...">
+									 <div class="carousel-caption">
+	                                    <h3>우리동네 업체 정보</h3>
+	                                    <h3>견적 가격 까지</h3>
+	                                    <h3>바로 확인하세요</h3>
+	                                    <p>청소 업체 비교 플랫폼 클릭N클린</p>
+                                </div>
 							</div>
 							<div class="carousel-item">
 								<img src="/assets/img/northern-lights-g231a332cd_1920.jpg"
@@ -525,7 +531,7 @@
 
 		<!--입점신청하기-->
 		<div id="withClean">
-			<a href="">
+			<a href="/views/company/companyJoin.jsp">
 				<div id="withClean_inner">
 					<div id=withClean_inner_center>
 						<span>청소 잘하는 사장님! 클릭N클린과 함께 성장해 보세요</span> <span>입점 신청하기</span>

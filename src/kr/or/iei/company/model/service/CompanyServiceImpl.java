@@ -67,5 +67,14 @@ public class CompanyServiceImpl implements CompanyService{
 		JDBCTemplate.close(conn);
 		return result;
 	}
+	@Override
+	public int insertJoinMember(Company com) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result= comDAO.insertJoinMember(conn, com);
+		if(result>0) JDBCTemplate.commit(conn);
+		else JDBCTemplate.rollback(conn);
+		JDBCTemplate.close(conn);
+		return result;
+	}	
 
 }

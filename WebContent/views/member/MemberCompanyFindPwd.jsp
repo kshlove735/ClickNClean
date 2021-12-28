@@ -151,8 +151,6 @@
 	                        $('#email_check_form').submit(function(){
 	                        	var code=$('input[name=code]').val();
 		                    	var verificationNumber=$('input[name=verificationNumber]').val();
-		                    	console.log(code);
-		                    	console.log(verificationNumber);
 		                        if (code==verificationNumber) {
 		                        	return true;
 		                        }else{

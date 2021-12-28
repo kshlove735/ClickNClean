@@ -301,4 +301,37 @@ public class CompanyDAO {
 		return result;
 	}
 
+	public int insertJoinMember(Connection conn, Company com) {
+		PreparedStatement pstmt =null;
+		int result = 0;
+		
+		String sql="INSERT INTO COMPANY VALUES(CO_SEQ.NEXTVAL, ?,?,?,?,?,?,?,?,?,?,sysdate,'N','N',?,'CO-1')";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, com.getCoId());
+			pstmt.setString(2, com.getCoPwd());
+			pstmt.setString(3, com.getCoName());
+			pstmt.setString(4, com.getPhone());
+			pstmt.setString(5, com.getCeoName());
+			pstmt.setString(6, com.getEmail());
+			pstmt.setString(7, com.getBusNum());
+			pstmt.setString(8, com.getAddress());
+			pstmt.setInt(9, com.getTeam());
+			pstmt.setInt(10, com.getCareer());
+			pstmt.setString(11, com.getTel());
+			
+			result=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
+		
+	}
+
 }

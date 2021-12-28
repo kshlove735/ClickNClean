@@ -53,7 +53,7 @@ public interface MemberService {
 	 * @return : int
 	 * @subscription : 비밀번호 찾기를 통한 비밀번호 변경
 	 */
-	public int upadateMemberPwd(String roll, String userId, String userPwd);
+	public int updateMemberPwd(String roll, String userId, String userPwd);
 
 	/**
 	 * @Author : SeungHyun Kim(kshlove735)
@@ -62,6 +62,22 @@ public interface MemberService {
 	 * @subscription :  아이디, 이메일, roll 을 통해 userPwd 찾는 메소드
 	 */
 	public boolean searchPwdUsingPhone(String roll, String userId, String phone);
+
+	/**
+	 * @Author : SeungHyun Kim(kshlove735)
+	 * @Date : 2021. 12. 27.
+	 * @return : void
+	 * @subscription : 회원 가입
+	 */
+	public int insertJoinMember(Member m);
+
+	/**
+	 * @Author : SeungHyun Kim(kshlove735)
+	 * @Date : 2021. 12. 28.
+	 * @return : boolean
+	 * @subscription : ID 중복 확인
+	 */
+	public boolean checkDuplicateId(String userId);
 
 
 }

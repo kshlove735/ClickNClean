@@ -57,5 +57,13 @@ public interface CompanyService {
 	 * @subscription : 아이디, 핸드폰, roll 을 통해 userPwd 찾는 메소드
 	 */
 	boolean searchPwdUsingPhone(String roll, String userId, String phone);
+
+	/**
+	 * @Author : SeungHyun Kim(kshlove735)
+	 * @Date : 2021. 12. 27.
+	 * @return : void
+	 * @subscription : 회원 가입
+	 */
+	int insertJoinMember(Company com);
 	
 }

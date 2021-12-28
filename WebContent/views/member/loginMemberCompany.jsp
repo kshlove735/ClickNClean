@@ -84,6 +84,13 @@
                                 $('#input_form_center_type1').css('display', 'none');
                                 $('#input_form_center_type2').css('display', 'block');
                             });
+                            
+                            $('input[value=회원가입]').click(function(){
+                            	location.replace('/views/member/memberJoin.jsp');
+                            });
+                            $('input[value=입점신청]').click(function(){
+                            	location.replace('/views/company/companyJoin.jsp');
+                            });
                         </script>
 
                     </div>
