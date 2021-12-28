@@ -13,11 +13,12 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 	private AdminMemberDAO adDAO = new AdminMemberDAO();
 
 	@Override
-	public ArrayList<Member> memberAllList() {
+	public ArrayList<Member> memberAllList(String roll) {
 		Connection conn = JDBCTemplate.getConnection();
-		ArrayList<Member> list = adDAO.memberAllList(conn);
+		ArrayList<Member> list = adDAO.memberAllList(roll,conn);
 		JDBCTemplate.close(conn);
 		
 		return list;
 	}
+
 }

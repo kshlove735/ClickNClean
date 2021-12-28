@@ -1,30 +1,26 @@
 package kr.or.iei.admin.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import kr.or.iei.admin.model.service.AdminService;
-import kr.or.iei.admin.model.service.AdminServiceImpl;
 import kr.or.iei.admin.model.vo.Admin;
 
 /**
- * Servlet implementation class AdminMainServlet
+ * Servlet implementation class AdminHomeServlet
  */
 @WebServlet("/admin/adminHome.do")
-public class AdminMainServlet extends HttpServlet {
+public class AdminHomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminMainServlet() {
+    public AdminHomeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,25 +29,13 @@ public class AdminMainServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("UTF-8");
-		
-		AdminService adService = new AdminServiceImpl();
-		
-		String siteName = request.getParameter("siteName");
-		String siteUrl = request.getParameter("siteUrl");
-		String busNum = request.getParameter("busNum");
-		String address = request.getParameter("address");
-		/*
-		System.out.println(siteName);
-		System.out.println(siteUrl);
-		System.out.println(busNum);
-		System.out.println(address);
-		*/
-		
-		RequestDispatcher view = request.getRequestDispatcher("/views/admin/adminMain.jsp");
-		view.forward(request, response);
-		
+		HttpSession session =request.getSession();
+		Admin ad=(Admin)session.getAttribute("admin");
+		if(ad==null) {
+			response.sendRedirect("/views/admin/loginAdmin.jsp");
+		}else {
+			response.sendRedirect("/views/admin/adminAccount.jsp");
+		}
 	}
 
 	/**
