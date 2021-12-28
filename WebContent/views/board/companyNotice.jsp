@@ -256,15 +256,10 @@
                     <div id="navigator">
                         <ul id="gnb">
                             <li><a href="">Home</a></li>
-                            <li><a href="">관리자 계정</a></li>
-                            <li><a href="">전체 업체 LIST</a></li>
-                            <li><a href="">전체 회원 LIST</a></li>
-                            <li><a href="">게시판 관리</a>
-                            <ul class="sub">
-                                <li><a href="">sub</a></li>
-                                <li><a href="">sub</a></li>
-                                <li><a href="">sub</a></li>
-                            </ul></li>
+                            <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
+                            <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
+                            <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
+                            <li><a href="/board/memberNotice.do">게시판 관리</a>
                             
                         </ul>
             </div>
@@ -301,7 +296,7 @@
                     <tbody>
                         <tr>
                             <th><%=board.getBoardNo() %></th>
-                            <td><%=board.getSubject() %></td>
+                            <td id="subject"><%=board.getSubject() %></td>
                             <td><%=board.getRegDate() %></td>
                             <td><button class="btn">수정</button></td>
                             <td><button class="btn">삭제</button></td>
@@ -309,6 +304,13 @@
                     </tbody>
                     <%} %>
                 </table>
+                
+                <script>
+                 $('#subject').on('click', function() {
+                 $(this).css();
+                 
+                  });
+               </script>
                 
                 <%}else{ %>
                   <!-- 게시글 목록이 없다면 -->
