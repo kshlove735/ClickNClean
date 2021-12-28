@@ -79,6 +79,26 @@ public class Company {
 	}
 
 
+	
+	// 회원 가입시에 사용하는 생성자
+	public Company(String coId, String coName, String coPwd, String phone, String ceoName, String email, String busNum,
+			String address, int team, int career, String tel) {
+		super();
+		this.coId = coId;
+		this.coName = coName;
+		this.coPwd = coPwd;
+		this.phone = phone;
+		this.ceoName = ceoName;
+		this.email = email;
+		this.busNum = busNum;
+		this.address = address;
+		this.team = team;
+		this.career = career;
+		this.tel = tel;
+	}
+
+
+
 
 	public int getSumScore() {
 		return sumScore;
