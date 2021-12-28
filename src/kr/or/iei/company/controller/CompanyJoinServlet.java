@@ -42,7 +42,7 @@ public class CompanyJoinServlet extends HttpServlet {
 		String tel = request.getParameter("tel");
 		String phone = request.getParameter("phone");
 		String ceoName = request.getParameter("ceoName");
-		String address = request.getParameter("address");
+		String address= request.getParameter("address1")+" "+request.getParameter("address2");
 		int team = Integer.parseInt(request.getParameter("team"));
 		int career = Integer.parseInt(request.getParameter("career"));
 		String busNum = request.getParameter("busNum");

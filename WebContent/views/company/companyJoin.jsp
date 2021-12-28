@@ -9,6 +9,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <!-- css -->
 <link href="/assets/css/companyJoin.css?after" rel="stylesheet" type="text/css" />
+<!-- 다음주소 API -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
     <div id="wrap">
@@ -104,8 +106,10 @@
 	                        <tr>
 	                            <th>소재지<span class="ico">*</span></th>
 	                            <td>
-	                                <input type="text" name="address" class="input_txt" placeholder="주소를 검색하여 입력해주세요">
-	                                <input type="button" value="주소검색">
+	                            	<input type="text" id="sample5_address" name="address1" class="input_txt"  placeholder="주소를 입력하세요" onclick="sample5_execDaumPostcode()" ><br><br>
+	                                <!-- <input type="text" name="address" class="input_txt" placeholder="주소를 검색하여 입력해주세요"><br> -->
+	                                <input type="text" name="address2" class="input_txt"  placeholder="상세주소를 작성하세요" ><br>
+	                                
 	
 	                            </td>
 	                        </tr>
@@ -156,6 +160,19 @@
                 	</form>
                 	
                 	<script>
+                	
+                		<%-- 다음 주소 API 이용 --%>
+	                    function sample5_execDaumPostcode() {
+	                        new daum.Postcode({
+	                            oncomplete: function(data) {
+	                                var addr = data.address; // 최종 주소 변수
+	
+	                                // 주소 정보를 해당 필드에 넣는다.
+	                                document.getElementById("sample5_address").value = addr;
+	                             
+	                            }
+	                        }).open();
+	                    }
 	                	<%-- 전체 체크--%>
 	                	$('#checkAll').click(function(){
 	                		
@@ -435,7 +452,8 @@
                     		var tel = $('input[name=tel]').val();
                     		var phone = $('input[name=phone]').val();
                     		var ceoName = $('input[name=ceoName]').val();
-                    		var address = $('input[name=address]').val();
+                    		var address1 = $('input[name=address1]').val();
+                    		var address2 = $('input[name=address2]').val();
                     		var team = $('input[name=team]').val();
                     		var career = $('input[name=career]').val();
                     		var busNum = $('input[name=busNum]').val();
@@ -507,8 +525,12 @@
                     			alert('대표자명을 입력해주세요.');
                     			return false;
                     		}
-                    		if(address==""){
+                    		if(address1==""){
                     			alert('주소를 입력해주세요.');
+                    			return false;
+                    		}
+                    		if(address2==""){
+                    			alert('상세 주소를 입력해주세요.');
                     			return false;
                     		}
                     		if(team==""){
