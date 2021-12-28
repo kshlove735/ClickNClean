@@ -233,14 +233,15 @@
 
 
 .carousel-caption {
-        /* border: 1px solid white; */
+        /* border: 1px solid white; */ 
+        height:500px;
         text-align: left;
         position: absolute;
-        top: 90px;
+        top: 100px;
         left: 300x;
         color: #0E76B3;
         display: inline-block;
-        padding-left: 300px;
+        padding-left: 100px;
     }
 
     .carousel-caption h3:first-child {
@@ -256,6 +257,7 @@
     .carousel-caption p {
         font-size: 20px;
         color: black;
+        font-weight: 600;
     }
 
 
