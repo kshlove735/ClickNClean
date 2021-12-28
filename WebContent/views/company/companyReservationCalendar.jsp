@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/assets/css/calendarstyle.css">
+<link rel="stylesheet" href="/assets/css/cheader.css">
+<link rel="stylesheet" href="/assets/css/companyReservationCalendar.css">
+<link rel="stylesheet" href="/assets/css/footer.css">
 <link rel="stylesheet">
 <script
 	src=https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js></script>
@@ -25,9 +28,11 @@
 	crossorigin="anonymous">
 </head>
 <body>
+
+<jsp:include page="/views/company/cheader.jsp" />
 	<div id="allArea">
 
-		<div id="header">
+		<!-- <div id="header">
 
 			<div id="logo">
 				<a href="/views/company/companyMain.jsp"><img src="/assets/img/clicknclean.png"></a>
@@ -41,7 +46,7 @@
 				</ul>
 			</div>
 
-		</div>
+		</div> -->
 		<div id="content">
 			<div id="left-content"></div>
 			<div id="center-content">
@@ -130,6 +135,7 @@
 
 
 	<script src="/assets/js/companyReservationCalendarScript.js"></script>
+	
 
 
 </body>
