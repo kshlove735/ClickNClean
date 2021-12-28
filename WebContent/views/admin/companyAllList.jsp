@@ -1,3 +1,5 @@
+<%@page import="kr.or.iei.company.model.vo.Company"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="kr.or.iei.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -15,6 +17,10 @@
     
 </head>
 <body>
+ 
+     <%
+         ArrayList<Company> list = (ArrayList<Company>)request.getAttribute("list");
+     %>
 <style>
      
     * {
@@ -240,7 +246,7 @@
                             <li><a href="">Home</a></li>
                             <li><a href="">관리자 계정</a></li>
                             <li><a href="">전체 업체 LIST</a></li>
-                            <li><a href="/views/admin/memberAllList.jsp">전체 회원 LIST</a></li>
+                            <li><a href="">전체 회원 LIST</a></li>
                             <li><a href="">게시판 관리</a>
                             <ul class="sub">
                                 <li><a href="">sub</a></li>
@@ -268,6 +274,7 @@
                     <button style="background-color: floralwhite; border-radius: 7px; color: #555">검색</button>
                 </div>
                 <!--업체 리스트-->
+                <%if(!list.isEmpty()){ %>
                 <table class="table table-text-center ">
                     <thead style="background-color: #B6E3FC;">
                         <tr>
@@ -281,17 +288,19 @@
                     </thead>
                     
                     <tbody>
+                    <%for(Company co : list){ %>
                         <tr>
-                            <th>1</th>
-                            <td>쓱싹 클린</td>
-                            <td>com11</td>
-                            <td>02-1234-4567</td>
-                            <td>012345678</td>
-                            <td>서울시 영등포구 당산동 어쩌고</td>
+                            <th><%=co.getCoNo() %></th>
+                            <td><%=co.getCoName() %></td>
+                            <td><%=co.getCoId() %></td>
+                            <td><%=co.getTel() %></td>
+                            <td><%=co.getBusNum() %></td>
+                            <td><%=co.getAddress() %></td>
                         </tr>
                     </tbody>
-
+                     <%} %>
                 </table>
+                <%} %>
                 <!-- 페이징 처리 -->
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">

@@ -18,7 +18,6 @@
 
      <%
          ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
-         String roll = (String)request.getAttribute("roll");
      %>
 
 <style>

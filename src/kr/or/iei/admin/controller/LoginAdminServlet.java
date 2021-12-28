@@ -52,7 +52,6 @@ public class LoginAdminServlet extends HttpServlet {
 
 			response.sendRedirect("/views/admin/adminAccount.jsp");
 
-         response.sendRedirect("/");
 
       } else { // 없다면
          RequestDispatcher view = request.getRequestDispatcher("/views/commons/loginFail.jsp");

@@ -10,21 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.iei.admin.model.service.AdminService;
-import kr.or.iei.admin.model.service.AdminServiceImpl;
-import kr.or.iei.admin.model.vo.Admin;
+import kr.or.iei.admin.model.service.AdminAllListService;
+import kr.or.iei.admin.model.service.AdminAllListServiceImpl;
+import kr.or.iei.common.MemberAuthorityCheck;
+import kr.or.iei.company.model.vo.Company;
+import kr.or.iei.member.model.vo.Member;
 
 /**
- * Servlet implementation class AdminMainServlet
+ * Servlet implementation class CompanyAllListServlet
  */
-@WebServlet("/admin/adminHome.do")
-public class AdminMainServlet extends HttpServlet {
+@WebServlet("/admin/companyAllList.do")
+public class CompanyAllListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminMainServlet() {
+    public CompanyAllListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,24 +36,23 @@ public class AdminMainServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
+        String roll = MemberAuthorityCheck.authorityRootCheck(request, response);
 		
-		AdminService adService = new AdminServiceImpl();
+		if(roll==null) {
+			response.sendRedirect("/views/commons/error.jsp");
+			return;
+		}
 		
-		String siteName = request.getParameter("siteName");
-		String siteUrl = request.getParameter("siteUrl");
-		String busNum = request.getParameter("busNum");
-		String address = request.getParameter("address");
-		/*
-		System.out.println(siteName);
-		System.out.println(siteUrl);
-		System.out.println(busNum);
-		System.out.println(address);
-		*/
+		//모든 회원의 정보를 가져오는 비즈니스 로직 처리
+		AdminAllListService adService = new AdminAllListServiceImpl();
+		ArrayList<Company> list = adService.companyAllList();
 		
-		RequestDispatcher view = request.getRequestDispatcher("/views/admin/adminMain.jsp");
+		//가져온 회원 정보를 가지고 ,jsp(view) 페이지로 이동
+		RequestDispatcher view = request.getRequestDispatcher("/views/admin/companyAllList.jsp");
+		
+		request.setAttribute("list", list);
+		
 		view.forward(request, response);
-		
 	}
 
 	/**
