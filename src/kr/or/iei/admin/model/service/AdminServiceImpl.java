@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import kr.or.iei.admin.model.dao.AdminDAO;
 import kr.or.iei.admin.model.vo.Admin;
+import kr.or.iei.admin.model.vo.HeadOffice;
 import kr.or.iei.common.JDBCTemplate;
 
 
@@ -28,5 +29,14 @@ public class AdminServiceImpl implements AdminService {
 		
 		return list;
 }
+
+	@Override
+	public ArrayList<HeadOffice> headOffice() {
+		Connection conn = JDBCTemplate.getConnection();
+		ArrayList<HeadOffice> list = adDAO.headOffice(conn);
+		JDBCTemplate.close(conn);
+		
+		return list;
+	}
 
 }

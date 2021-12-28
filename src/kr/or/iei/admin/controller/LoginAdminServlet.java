@@ -50,7 +50,7 @@ public class LoginAdminServlet extends HttpServlet {
          HttpSession session =request.getSession();
          session.setAttribute("admin", ad);
 
-			response.sendRedirect("/views/admin/adminAccount.jsp");
+			response.sendRedirect("/views/admin/adminMain.jsp");
 
 
       } else { // 없다면

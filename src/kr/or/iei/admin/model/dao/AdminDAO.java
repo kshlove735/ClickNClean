@@ -88,25 +88,34 @@ public class AdminDAO {
 		
 	}
 	
-	public HeadOffice adminMain(Connection conn) {
+	public ArrayList<HeadOffice> headOffice(Connection conn) {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		HeadOffice ho = null;
 		
-		String sql = "SELECT BUSNUM,CEONAME,CONAME,ADDRESS,BUSTYPE,SITETEL FROM HEADOFFICE";
+		ArrayList<HeadOffice> list = new ArrayList<HeadOffice>();
+		
+		String query = "SELECT * FROM HEADOFFICE";
 		
 		try {
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(query);
 	        
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
+				
+				HeadOffice ho = new HeadOffice();
+				
 				ho = new HeadOffice();
+				ho.setBusNum(rset.getString("busNum"));
+				ho.setCeoName(rset.getString("ceoName"));
+				ho.setAddress(rset.getString("address"));
+				ho.setBusType(rset.getString("busType"));
 				ho.setSiteName(rset.getString("siteName"));
 				ho.setSiteUrl(rset.getString("siteUrl"));
-				ho.setBusNum(rset.getString("busNum"));
-				ho.setAddress(rset.getString("address"));
+				ho.setSiteTel(rset.getString("siteTel"));
+				
+				list.add(ho);
 			}
 			
 		} catch (SQLException e) {
@@ -116,8 +125,7 @@ public class AdminDAO {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		return ho;
-
+		return list;
 	}
 
 

@@ -120,6 +120,7 @@
  
     }
     
+    
     #search{
         text-align: right;
         padding: 15px;
@@ -244,15 +245,10 @@
                     <div id="navigator">
                         <ul id="gnb">
                             <li><a href="">Home</a></li>
-                            <li><a href="">관리자 계정</a></li>
-                            <li><a href="">전체 업체 LIST</a></li>
-                            <li><a href="">전체 회원 LIST</a></li>
-                            <li><a href="">게시판 관리</a>
-                            <ul class="sub">
-                                <li><a href="">sub</a></li>
-                                <li><a href="">sub</a></li>
-                                <li><a href="">sub</a></li>
-                            </ul></li>
+                            <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
+                            <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
+                            <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
+                            <li><a href="/board/memberNotice.do">게시판 관리</a>
                             
                         </ul>
             </div>
@@ -275,7 +271,7 @@
                 </div>
                 <!--업체 리스트-->
                 <%if(!list.isEmpty()){ %>
-                <table class="table table-text-center ">
+                <table class="table table-text-center " >
                     <thead style="background-color: #B6E3FC;">
                         <tr>
                             <th style="width: 5%;">번호</th>

@@ -1,3 +1,4 @@
+<%@page import="kr.or.iei.admin.model.vo.HeadOffice"%>
 <%@page import="kr.or.iei.admin.model.vo.Admin"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -17,7 +18,7 @@
 </head>
 <body>
      <%
-         ArrayList<Admin> list = (ArrayList<Admin>)request.getAttribute("list");
+         ArrayList<Admin> list = (ArrayList<Admin>)request.getAttribute("list");   
      %>
 <style>
     * {
@@ -110,9 +111,9 @@
     
     #memberlistsub{
         text-align: center;
-        font-size: 25px;
+        font-size: 30px;
         height: 50px;
-        padding: 30px;
+        padding: 60px;
  
     }
     
@@ -135,6 +136,7 @@
     #table{
         width: 900px;
         margin:auto;
+        padding :30px;
     }
     
     /*footer*/
@@ -256,15 +258,10 @@
                     <div id="navigator">
                         <ul id="gnb">
                             <li><a href="">Home</a></li>
-                            <li><a href="">관리자 계정</a></li>
-                            <li><a href="">전체 업체 LIST</a></li>
-                            <li><a href="">전체 회원 LIST</a></li>
-                            <li><a href="">게시판 관리</a>
-                            <ul class="sub">
-                                <li><a href="">sub</a></li>
-                                <li><a href="">sub</a></li>
-                                <li><a href="">sub</a></li>
-                            </ul></li>
+                            <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
+                            <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
+                            <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
+                            <li><a href="/board/memberNotice.do">게시판 관리</a>
                             
                         </ul>
             </div>
@@ -276,9 +273,7 @@
                 <div id= "memberlistsub">
                     <p>관리자 정보</p>
                 </div>
-                <div id="change"> 
-              <button id="btn1" style="background-color: floralwhite; border-radius: 7px; color: #555">수정하기</button>
-               </div>
+               
                 </div>
                 
                 
@@ -311,50 +306,7 @@
                 <%} %>
                 </div>
                     
-                    <!--사업자 정보-->
-                    <div id= "memberlistsub">
-                    <p>사업자 정보</p>
-                </div>
-                <div id="change"> 
-              <button id="btn2" style="background-color: floralwhite; border-radius: 7px; color: #555">수정하기</button>
-               </div>
-                </div>
-                
-                <div id="table">
-                <table class="table table-text-center">
-                    <thead>
-                        <tr>
-                            <th style="width: 30%;"> </th>
-                            <th style="width: 70%;"> </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>사업자 등록번호</th>
-                            <td>585-86-00882</td>
-                        </tr>
-                        <tr>
-                            <th>대표자 명</th>
-                            <td>김승현</td>
-                        </tr>
-                        <tr>
-                            <th>상호 명</th>
-                            <td>클릭N클린(주)</td>
-                        </tr>
-                        <tr>
-                            <th>주소</th>
-                            <td>서울특별시 중구 세종대로 136 파이낸스빌딩 3층 저스트코 S3119 (태평로1가)</td>
-                        </tr>
-                        <tr>
-                            <th>업태</th>
-                            <td>통신판매업</td>
-                        </tr>
-                        <tr>
-                            <th>전화번호</th>
-                            <td>010-2222-2222</td>
-                        </tr>                   
-                    </tbody>
-                    </table></div>
+                    
                 
             
             <!--footer-->
@@ -400,7 +352,7 @@
                 </div>
             </div>
         </div>
-
+</div>
 </body>
 
 </html>
