@@ -40,7 +40,7 @@
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	<!-- css -->
-	<link href="/assets/css/index.css?afeter" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/index.css?afqter" rel="stylesheet" type="text/css" />
 	<!-- JSTL 라이브러리 -->
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -223,20 +223,30 @@
 							<div class="carousel-item active h-100">
 								<img src="/assets/img/carousel1.jpg"
 									class="d-block w-100 h-100" alt="...">
-									 <div class="carousel-caption">
+								<div class="carousel-caption">
 	                                    <h3>우리동네 업체 정보</h3>
 	                                    <h3>견적 가격 까지</h3>
 	                                    <h3>바로 확인하세요</h3>
 	                                    <p>청소 업체 비교 플랫폼 클릭N클린</p>
                                 </div>
 							</div>
-							<div class="carousel-item">
-								<img src="/assets/img/northern-lights-g231a332cd_1920.jpg"
+							<div class="carousel-item h-100">
+								<img src="/assets/img/carousel2.jpg"
 									class="d-block w-100 h-100" alt="...">
+								<div class="carousel-caption">
+	                                    <h3>A/S 걱정없이</h3>
+	                                    <h3>청소업체를 예약해보세요 </h3>
+	                                    <p>간편하게 예약하고, 문제가 있다면 즉시 처리</p>
+                                </div>
 							</div>
-							<div class="carousel-item">
-								<img src="/assets/img/northern-lights-g231a332cd_1920.jpg"
+							<div class="carousel-item h-100">
+								<img src="/assets/img/carousel3.jpg"
 									class="d-block w-100 h-100" alt="...">
+								<div class="carousel-caption">
+	                                    <h3>청소업체 리스트로</h3>
+	                                    <h3>실패없는 청소 업체를 찾아보세요 </h3>
+	                                    <p>10,900개의 후기를 별점, 리뷰수로 분석했어요</p>
+                                </div>
 							</div>
 						</div>
 						<button class="carousel-control-prev h-100" type="button"
