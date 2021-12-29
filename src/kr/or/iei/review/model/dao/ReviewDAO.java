@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import kr.or.iei.common.JDBCTemplate;
 import kr.or.iei.contract.model.vo.Contract;
+import kr.or.iei.review.model.vo.Comments;
 import kr.or.iei.review.model.vo.Review;
 
 public class ReviewDAO {
@@ -694,5 +695,29 @@ public class ReviewDAO {
 	      
 	      return result;
 	   }
+	   
+	   public int insertReviewComment(Connection conn, Comments c) {
+			PreparedStatement pstmt = null;
+			int result = 0;
+			
+			String query = "insert into comments values(C_SEQ.NEXTVAL,?,?,?,sysdate,'N')";
+			
+			try {
+				pstmt = conn.prepareStatement(query);
+				
+				pstmt.setInt(1, c.getReviewNo());
+				pstmt.setString(2, c.getContent());
+				pstmt.setString(3, c.getUserId());
+				
+				result = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				JDBCTemplate.close(pstmt);
+			}
+			return result;
+			
+		}
 
 }

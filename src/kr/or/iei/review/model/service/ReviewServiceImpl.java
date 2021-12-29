@@ -7,6 +7,7 @@ import java.util.HashMap;
 import kr.or.iei.common.JDBCTemplate;
 import kr.or.iei.contract.model.vo.Contract;
 import kr.or.iei.review.model.dao.ReviewDAO;
+import kr.or.iei.review.model.vo.Comments;
 import kr.or.iei.review.model.vo.Review;
 
 public class ReviewServiceImpl implements ReviewService{
@@ -197,6 +198,17 @@ public class ReviewServiceImpl implements ReviewService{
 	      
 	      return result;
 	   }
+	   
+	   
+	   @Override
+		public int insertReviewComment(Comments c) {
+			Connection conn = JDBCTemplate.getConnection();
+			int result = rDAO.insertReviewComment(conn, c);
+			if(result>0) JDBCTemplate.commit(conn);
+			else JDBCTemplate.rollback(conn);
+			JDBCTemplate.close(conn);
+			return result;
+		}
 
 
 }

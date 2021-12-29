@@ -1,9 +1,8 @@
 package kr.or.iei.review.model.service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import kr.or.iei.contract.model.vo.Contract;
+import kr.or.iei.review.model.vo.Comments;
 import kr.or.iei.review.model.vo.Review;
 
 public interface ReviewService {
@@ -62,5 +61,8 @@ public interface ReviewService {
    int reviewDelete(int reviewNo, String userId);
    
    HashMap<String, Object> ReviewAllList(String coId, int currentPage);
+   
+   int insertReviewComment(Comments c);
+
 
 }
