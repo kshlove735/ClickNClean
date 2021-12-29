@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.iei.admin.model.service.AdminMemberService;
-import kr.or.iei.admin.model.service.AdminMemberServiceImpl;
+import kr.or.iei.admin.model.service.AdminAllListService;
+import kr.or.iei.admin.model.service.AdminAllListServiceImpl;
 import kr.or.iei.common.MemberAuthorityCheck;
 import kr.or.iei.member.model.vo.Member;
 
@@ -43,14 +43,13 @@ public class MemberAllListServlet extends HttpServlet {
 		}
 		
 		//모든 회원의 정보를 가져오는 비즈니스 로직 처리
-		AdminMemberService adService = new AdminMemberServiceImpl();
-		ArrayList<Member> list = adService.memberAllList(roll);
+		AdminAllListService adService = new AdminAllListServiceImpl();
+		ArrayList<Member> list = adService.memberAllList();
 		
 		//가져온 회원 정보를 가지고 ,jsp(view) 페이지로 이동
 		RequestDispatcher view = request.getRequestDispatcher("/views/admin/memberAllList.jsp");
 		
 		request.setAttribute("list", list);
-		request.setAttribute("roll", roll);
 		
 		view.forward(request, response);
 		

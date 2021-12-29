@@ -1,3 +1,4 @@
+<%@page import="kr.or.iei.company.model.vo.Company"%>
 <%@page import="kr.or.iei.contract.model.vo.Contract"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="kr.or.iei.member.model.vo.Member"%>
@@ -10,11 +11,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/assets/css/cheader.css">
-<link rel="stylesheet" href="/assets/css/companyContractMember.css">
+<link rel="stylesheet" href="/assets/css/cheader.css?after">
+<link rel="stylesheet" href="/assets/css/companyContractMember.css?after">
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    
 
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -25,6 +25,7 @@
 </head>
 <body>
 	<%
+		Company co = (Company)session.getAttribute("company");
 		HashMap<String, Object> pageDataMap = (HashMap<String, Object>)request.getAttribute("pageDataMap");
 		ArrayList<Contract> list = (ArrayList<Contract>)pageDataMap.get("list");
 		String pageNavi = (String)pageDataMap.get("pageNavi");
@@ -61,7 +62,7 @@
                             </form>
                         </div>
                         <div id="infoArea">
-                            <%if(!list.isEmpty()){ %>
+                            <%if(!list.isEmpty() && co.getCoId() != null){ %>
                             <table id="searchT">
                                 <tr>
                                     <th>계약번호</th>
@@ -73,6 +74,7 @@
                                     <th>예약일</th>
                                     <th>청소예약날짜</th>
                                     <th>청소여부</th>
+                                    <th>요청승인</th>
                                 </tr>
                                 <%for (Contract c : list){ %>
                                 <tr>
@@ -85,10 +87,12 @@
 									<td><%=c.getContractFinDate() %></td>
 									<td><%=c.getReqDate() %></td>
                                     <td><%=c.getCleanYN() %></td>  
+                                    <td><a href="/co/CoMemberCoCheckYNChange.do?contractNo=<%=c.getContractNo()%>&coCheckYN=<%=c.getCoCheckYN()%>"><button class="YNBtn"  style="width:100%; height:25px;"><%=c.getCoCheckYN() %></button></a></td>  
+                                    
                                 </tr>
                                 <%} %>
                                 <tr>
-                                <td colspan="9" align = "center"><%=pageNavi %></td>
+                                <td colspan="10" align = "center"><%=pageNavi %></td>
                             	</tr>
                             </table>
                             <%}else{%>
@@ -148,5 +152,21 @@
 
     </div>
     <link rel="stylesheet" href="/assets/css/footer.css">
+    
+    
+    <script>
+		$('.YNBtn').click(function(){
+			
+			var data = $(this).html();
+			
+			
+			if(data =='Y'){
+				return window.confirm("Y -> N 으로 변경하시겠습니까?");
+			}else{
+				return window.confirm("N -> Y 으로 변경하시겠습니까?");
+			}
+			
+		});
+	</script>
 </body>
 </html>

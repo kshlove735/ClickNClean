@@ -18,7 +18,7 @@
 		
 	
 	<%}else{ %>
-		alert('작성실패 - 지속적인 문제 발생시 관리자에 문의바압니다.')
+		alert('작성실패 - 지속적인 문제 발생시 관리자에 문의바랍니다.')
 	  	
 	<%} %>
 	location.replace('/views/company/companyMain.jsp');

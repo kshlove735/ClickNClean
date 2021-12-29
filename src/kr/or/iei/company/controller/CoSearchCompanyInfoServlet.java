@@ -8,7 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import kr.or.iei.admin.model.service.AdminService;
+import kr.or.iei.admin.model.service.AdminServiceImpl;
+import kr.or.iei.admin.model.vo.Admin;
+import kr.or.iei.common.MemberAuthorityCheck;
 import kr.or.iei.company.model.service.CompanyInfoService;
 import kr.or.iei.company.model.service.CompanyInfoServiceImpl;
 import kr.or.iei.company.model.vo.Company;
@@ -42,7 +45,7 @@ public class CoSearchCompanyInfoServlet extends HttpServlet {
 		RequestDispatcher view;
 		if(co != null) {
 			view = request.getRequestDispatcher("/views/company/companyProfileUpdate.jsp");
-			request.setAttribute("Company", co);
+			request.setAttribute("company", co);
 			
 		}else {
 			

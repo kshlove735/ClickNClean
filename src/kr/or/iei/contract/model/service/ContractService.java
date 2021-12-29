@@ -19,5 +19,8 @@ public interface ContractService {
 	boolean checkCondition(Contract con);
 
 	int insertContract(String conditionNo, String userId, String coId, int price);
+
+
+	int updateContractYN(String userId, int contractNo);
 	
 }

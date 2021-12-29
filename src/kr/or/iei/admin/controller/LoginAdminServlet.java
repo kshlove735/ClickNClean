@@ -9,11 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import kr.or.iei.admin.model.service.AdminService;
 import kr.or.iei.admin.model.service.AdminServiceImpl;
 import kr.or.iei.admin.model.vo.Admin;
-import kr.or.iei.member.model.vo.Member;
 
 /**
  * Servlet implementation class LoginAdminServlet
@@ -50,10 +48,7 @@ public class LoginAdminServlet extends HttpServlet {
          HttpSession session =request.getSession();
          session.setAttribute("admin", ad);
 
-			response.sendRedirect("/views/admin/adminAccount.jsp");
-
-         response.sendRedirect("/");
-
+		response.sendRedirect("/views/admin/adminMain.jsp");
       } else { // 없다면
          RequestDispatcher view = request.getRequestDispatcher("/views/commons/loginFail.jsp");
          view.forward(request, response);

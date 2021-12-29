@@ -104,7 +104,7 @@
                         					alert('청소 요청에 실패 하였습니다. 지속적인 오류시 관리자에게 문의해주세요.');
                         					
                         				}
-                        				location.replace('/views/');
+                        				location.replace('/contract/myEstimate.do');
                         			},
                         			error:function(){
                         				alert('오류가 발생했습니다.');

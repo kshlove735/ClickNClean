@@ -13,9 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
-import kr.or.iei.company.model.service.CoMemberService;
-import kr.or.iei.company.model.service.CoMemberServiceImpl;
 import kr.or.iei.company.model.vo.Company;
 import kr.or.iei.contract.model.vo.Contract;
 
@@ -47,9 +44,9 @@ public class CoReservationCalServlet extends HttpServlet {
 		String month = request.getParameter("month2");
 		String day = request.getParameter("day");
 		
-		
-		CoMemberService coMService = new CoMemberServiceImpl();
-		ArrayList<Contract> list = coMService.selectReservationDay(coId);
+		/*
+		//CoMemberService coMService = new CoMemberServiceImpl();
+	//	ArrayList<Contract> list = coMService.selectReservationDay(coId);
 		
 		
 		
@@ -72,7 +69,7 @@ public class CoReservationCalServlet extends HttpServlet {
 		out.print(jsonArray);
 		
 		
-		
+		*/
 		
 	}
 

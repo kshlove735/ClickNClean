@@ -1,145 +1,118 @@
+<%@page import="kr.or.iei.admin.model.vo.HeadOffice"%>
+<%@page import="kr.or.iei.admin.model.vo.Admin"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<<<<<<< HEAD
 <title>관리자 페이지 메인</title>
+     <!-- Title -->
+    <title>관리자 정보</title>
+<!-- jQuery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
+    <!-- CSS Front Template -->
     <link rel="stylesheet" href="/assets/css/theme.min.css">
     <link rel="stylesheet" href="/assets/css/docs.min.css">
-    <link rel="stylesheet" href="/assets/css/adminAccount.css">
-    <link rel="stylesheet" href="/assets/css/header.css">
+         <link rel="stylesheet" href="/assets/css/header.css">
+     <link rel="stylesheet" href="/assets/css/footer.css">
+     <link rel="stylesheet" href="/assets/css/adminAccount.css">
 </head>
 <body>
-
+     <%
+         ArrayList<Admin> list = (ArrayList<Admin>)request.getAttribute("list");   
+     %>
 <style>
-  
-</style>
+    * {
+        box-sizing: border-box;
+        font-family: 'NanumSquare';
+        
+    }
+    
+    #wrap {
 
+        width: 1344px;
+        margin: 0 auto;
+        
+    }
+   
 </style>
 <body>
+	<jsp:include page="/views/commons/header.jsp" />
+	
     <div id="wrap">
     
-	<div id="header">
-            <div id="logo">
-          </div>
-        </div>
           <div id="adminpage">
             <span id="adminpageFont">관리자 페이지</span>
             </div>    
                <div id="submenu">
                     <div id="navigator">
                         <ul id="gnb">
-                            <li><a href="">Home</a></li>
-                            <li><a href="">관리자 계정</a></li>
-                            <li><a href="">전체 업체 LIST</a></li>
-                            <li><a href="/views/admin/memberAllList.jsp">전체 회원 LIST</a></li>
-                            <li><a href="">게시판 관리</a>
+                           <li><a href="/admin/adminHome.do">Home</a></li>
+                            <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
+                            <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
+                            <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
+                            <li><a href="/board/memberNotice.do">게시판 관리</a>
                             <ul class="sub">
                                 <li><a href="">sub</a></li>
                                 <li><a href="">sub</a></li>
                                 <li><a href="">sub</a></li>
                             </ul></li>
+                            <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
+                            <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
+                            <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
+                            <li><a href="/board/memberNotice.do">게시판 관리</a>
                             
                         </ul>
             </div>
          </div> 
          <div class="line"></div>
 
-            <div style=" width: 100%;">
+           <div style=" width: 100%;">
                <!--관리자 정보-->
                 <div id= "memberlistsub">
                     <p>관리자 정보</p>
                 </div>
-                <div id="change"> 
-              <button id="btn1" style="background-color: floralwhite; border-radius: 7px; color: #555">수정하기</button>
-               </div>
+               
                 </div>
                 
-                <div id="table">
+                
+                <div id = "table">
+                <%if(!list.isEmpty()){ %>
                 <table class="table table-text-center">
                     <thead>
                         <tr>
-                            <th style="width: 30%;"> </th>
-                            <th style="width: 70%;"> </th>
+                            <th style="width: 8%;">번호</th>
+                            <th style="width: 15%;">이름</th>
+                            <th style="width: 15%;">아이디</th>
+                            <th style="width: 20%;">전화번호</th>
+                            <th style="width: 20%;">휴대폰번호</th>
+                            <th style="width: 22%;">이메일주소</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <%for(Admin ad : list){ %>
                         <tr>
-                            <th>관리자 ID</th>
-                            <td>admin11</td>
+                            <th><%=ad.getAdminNo() %></th>
+                            <td><%=ad.getAdminName() %></td>
+                            <td><%=ad.getAdminId() %></td>
+                            <td><%=ad.getTel() %></td>
+                            <td><%=ad.getPhone() %></td>
+                            <td><%=ad.getEmail() %></td>
                         </tr>
-                        <tr>
-                            <th>관리자 이름</th>
-                            <td>김지은</td>
-                        </tr>
-                        <tr>
-                            <th>관리자 이메일</th>
-                            <td>test123@kh.com</td>
-                        </tr>
-                        <tr>
-                            <th>관리자 전화번호</th>
-                            <td>02-2222-2222</td>
-                        </tr>
-                        <tr>
-                            <th>관리자 휴대폰 번호</th>
-                            <td>010-2222-2222</td>
-                        </tr>
-                  
                     </tbody>
-                    </table></div>
+                    <%} %>
+                </table>
+                <%} %>
+                </div>
                     
-                    <!--사업자 정보-->
-                    <div id= "memberlistsub">
-                    <p>사업자 정보</p>
-                </div>
-                <div id="change"> 
-              <button id="btn2" style="background-color: floralwhite; border-radius: 7px; color: #555">수정하기</button>
-               </div>
-                </div>
-                
-                <div id="table">
-                <table class="table table-text-center">
-                    <thead>
-                        <tr>
-                            <th style="width: 30%;"> </th>
-                            <th style="width: 70%;"> </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>사업자 등록번호</th>
-                            <td>585-86-00882</td>
-                        </tr>
-                        <tr>
-                            <th>대표자 명</th>
-                            <td>김승현</td>
-                        </tr>
-                        <tr>
-                            <th>상호 명</th>
-                            <td>클릭N클린(주)</td>
-                        </tr>
-                        <tr>
-                            <th>주소</th>
-                            <td>서울특별시 중구 세종대로 136 파이낸스빌딩 3층 저스트코 S3119 (태평로1가)</td>
-                        </tr>
-                        <tr>
-                            <th>업태</th>
-                            <td>통신판매업</td>
-                        </tr>
-                        <tr>
-                            <th>전화번호</th>
-                            <td>010-2222-2222</td>
-                        </tr>                   
-                    </tbody>
-                    </table></div>
+                    
                 
             
             <!--footer-->
@@ -185,7 +158,7 @@
                 </div>
             </div>
         </div>
-
+</div>
 </body>
 
 </html>

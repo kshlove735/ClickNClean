@@ -34,6 +34,7 @@ public class MemberChoiceServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		String userId = ((Member)request.getSession().getAttribute("member")).getUserId();
 		
 		int currentPage;

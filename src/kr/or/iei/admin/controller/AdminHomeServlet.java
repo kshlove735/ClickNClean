@@ -34,7 +34,7 @@ public class AdminHomeServlet extends HttpServlet {
 		if(ad==null) {
 			response.sendRedirect("/views/admin/loginAdmin.jsp");
 		}else {
-			response.sendRedirect("/views/admin/adminAccount.jsp");
+			response.sendRedirect("/views/admin/adminMain.jsp");
 		}
 	}
 

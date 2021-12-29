@@ -5,15 +5,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입</title>
-
-<!--JQuery CDM-->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+ <!--bootstap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!--JQuery CDM-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <!-- css -->
-<link href="/assets/css/memberJoin.css?afeter" rel="stylesheet" type="text/css" />
+<link href="/assets/css/memberJoin.css?afteer" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/assets/css/header.css?after">
+<link rel="stylesheet" href="/assets/css/footer.css?wq">
 </head>
 <body>
     <div id="wrap">
-        <div id="header"></div>
+        <!--헤더-->
+		<jsp:include page="/views/commons/header.jsp" />
         <div id="content">
             <div id="content_inner">
                 <div id="join_form">
@@ -450,7 +457,8 @@
                 </div>
             </div>
         </div>
-        <div id="footer"></div>
+        <!--푸터-->
+		<jsp:include page="/views/commons/footer.jsp" />
 
     </div>
 </body>

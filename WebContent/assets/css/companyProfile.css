@@ -1,14 +1,12 @@
 @charset "UTF-8";
-body {
-        font-family: "나눔스퀘어";
-        background-color: #fafafa;
-    }
+
     div {
         box-sizing: border-box;
     }
 
     #bodycss {
         font-family: "나눔스퀘어"
+        background-color: #fafafa;
     }
 
 

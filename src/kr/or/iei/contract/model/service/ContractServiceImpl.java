@@ -37,7 +37,7 @@ public class ContractServiceImpl implements ContractService{
 
 		Connection conn = JDBCTemplate.getConnection();
 		
-		int recordCountPerPage = 3;
+		int recordCountPerPage = 4;
 		
 		ArrayList<Contract> list = conDAO.memberChoice(currentPage, conn, recordCountPerPage, userId);
 		
@@ -72,5 +72,20 @@ public class ContractServiceImpl implements ContractService{
 		JDBCTemplate.close(conn);
 		return result;
 	}
+
+	 @Override
+	   public int updateContractYN(String userId, int contractNo) {
+
+	      Connection conn = JDBCTemplate.getConnection();
+	      int result = conDAO.updateContractYN(conn, userId, contractNo);
+	      
+	      if(result>0) JDBCTemplate.commit(conn);
+	      else JDBCTemplate.rollback(conn);
+	      
+	      JDBCTemplate.close(conn);
+	      
+	      return result;
+	      
+	   }
 
 }

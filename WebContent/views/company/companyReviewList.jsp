@@ -99,13 +99,15 @@
 		                   </div>
 		                   <br>
 		                   <div style="margin-left: 50px">
-		                       <form action="" method="post">
-		                           <textarea name="" cols="48" rows="6" style="float: left; resize: none" ></textarea>
-		                           <button type="submit" style="width: 55px; height: 90px; float: left" >댓글작성</button>
+		                       <form action="/review/reviewCommentWrite.do" method="post">
+		                           <input type="text" size="50" name="comment" id="comment" placeholder="댓글을 작성해보세요"/>
+									<input type="hidden" name="reviewNo" value="<%=list.get(i).getReviewNo()%>"/> 
+									<input type="hidden" name="currentPage" value="<%=currentPage %>"/> 
+									<input type="submit" onclick="return check();" value="작성"/>
 		                       </form>
 		                   
 		               				</div>
-		              			 <br><br><br><br><br><br>
+		              			 <br>
            			</div> 
                     	<%} %>
                     		<tr>

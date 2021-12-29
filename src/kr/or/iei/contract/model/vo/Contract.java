@@ -1,7 +1,6 @@
 package kr.or.iei.contract.model.vo;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 
 public class Contract {
 
@@ -26,6 +25,7 @@ public class Contract {
 	private String phone;
 	private String email;
 	private String userName;
+	private String coName;
 	
 	public Contract() {
 		super();
@@ -63,6 +63,14 @@ public class Contract {
 		this.reqDate = reqDate;
 	}
 
+	
+	public String getCoName() {
+		return coName;
+	}
+
+	public void setCoName(String coName) {
+		this.coName = coName;
+	}
 
 	public int getContractNo() {
 		return contractNo;
