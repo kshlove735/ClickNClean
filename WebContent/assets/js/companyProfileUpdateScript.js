@@ -126,9 +126,6 @@
             		   });
             	
             	
-                $('#buyBtn').click(function () {
-                  /*결제정보를 느어보자*/
-                  return false;
-                });
+                
               });
 	

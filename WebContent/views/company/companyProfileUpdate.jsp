@@ -27,7 +27,6 @@
 		Company co = (Company)session.getAttribute("company");
 		Company com = (Company)request.getAttribute("company");
 		
-	 
 		String a = com.getMeetHour();
 		String[] str1 = a.split("-");
 		String t1 = str1[0];
@@ -88,27 +87,27 @@
                                 <td>
                                 
                                     <div class="area1" style="margin:10px;">
-                                        <select id="area1" name="area1"  onchange="categoryChange(this)" >
+                                        <select  name="area1"  onchange="categoryChange(this)" >
                                             <option value >시/도 선택</option>
-                                            <option class="a1" value="서울">서울</option>
-                                            <option class="a1" value="경기">경기</option>
-                                            <option class="a1" value="인천">인천</option>
-                                            <option class="a1" value="강원" >강원</option>
-                                            <option class="a1" value="대전">대전</option>
-                                            <option class="a1" value="세종">세종</option>
-                                            <option class="a1" value="충남">충남</option>
-                                            <option class="a1" value="충북">충북</option>
-                                            <option class="a1" value="부산">부산</option>
-                                            <option class="a1" value="울산">울산</option>
-                                            <option class="a1" value="경남">경남</option>
-                                            <option class="a1" value="경북">경북</option>
-                                            <option class="a1" value="대구">대구</option>
-                                            <option class="a1" value="광주">광주</option>
-                                            <option class="a1" value="전남">전남</option>
-                                            <option class="a1" value="전북">전북</option>
-                                            <option class="a1" value="제주">제주</option>
+                                            <option  value="서울">서울</option>
+                                            <option  value="경기">경기</option>
+                                            <option  value="인천">인천</option>
+                                            <option  value="강원" >강원</option>
+                                            <option  value="대전">대전</option>
+                                            <option  value="세종">세종</option>
+                                            <option  value="충남">충남</option>
+                                            <option  value="충북">충북</option>
+                                            <option  value="부산">부산</option>
+                                            <option  value="울산">울산</option>
+                                            <option  value="경남">경남</option>
+                                            <option  value="경북">경북</option>
+                                            <option  value="대구">대구</option>
+                                            <option  value="광주">광주</option>
+                                            <option  value="전남">전남</option>
+                                            <option  value="전북">전북</option>
+                                            <option  value="제주">제주</option>
                                         </select>
-                                        <select id="area2" name="area2" id="state">
+                                        <select  name="area2" id="state">
                                             <option>군/구 선택</option>
                                         </select>
 
@@ -228,7 +227,7 @@
 	
        <script src="/assets/js/companyProfileUpdateScript.js"></script>
        
-<script>
+ <script>
 
 				   
    
@@ -260,5 +259,5 @@
 
 
 		
-	</script> 
-	
+	</script>  
+</body></html>
