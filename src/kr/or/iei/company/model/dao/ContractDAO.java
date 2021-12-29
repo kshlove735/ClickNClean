@@ -345,4 +345,34 @@ public class ContractDAO {
 		return list;
 	}
 
+	 public int coCheckYNChange(Connection conn, int contractNo, char coCheckYN, String coId) {
+	      PreparedStatement pstmt = null;
+	      int result = 0;
+	      
+	      String query = "update contract set coCheck_YN=? where coId=? and contractNo=?";
+	      
+	      try {
+	         pstmt = conn.prepareStatement(query);
+	         
+	         pstmt.setString(1,String.valueOf(coCheckYN));
+	         pstmt.setString(2, coId);
+	         pstmt.setInt(3, contractNo);
+	         
+	         result = pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }finally {
+	         JDBCTemplate.close(pstmt);
+	      }
+	      
+	      System.out.println(contractNo);
+	      System.out.println(coCheckYN);
+	      System.out.println(coId);
+	      return result;
+	      
+	      
+	   }
+
+
 }

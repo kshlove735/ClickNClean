@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import kr.or.iei.common.JDBCTemplate;
 import kr.or.iei.company.model.vo.Company;
+import kr.or.iei.review.model.vo.Review;
 
 public class CompanyDAO {
 

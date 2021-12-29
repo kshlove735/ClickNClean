@@ -70,5 +70,14 @@ public class CoMemberServiceImpl implements CoMemberService {
 		JDBCTemplate.close(conn);
 		return list;
 	}
+	@Override
+	   public int coCheckYNChange(int contractNo, char coCheckYN, String coId) {
+	      Connection conn = JDBCTemplate.getConnection();
+	      int result = cDAO.coCheckYNChange(conn, contractNo, coCheckYN, coId);
+	      if(result >0) JDBCTemplate.commit(conn);
+	      else JDBCTemplate.rollback(conn);
+	      JDBCTemplate.close(conn);
+	      return result;
+	   }
 
 }

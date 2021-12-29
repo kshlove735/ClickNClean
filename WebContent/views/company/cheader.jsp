@@ -50,10 +50,10 @@
 												
 												
 												<c:when test="${sessionScope.company != null }">
-														<a href="/views/company/companyMyPage.jsp"><c:out value="${sessionScope.company.coName}"></c:out> 님</a>
+														<a href="/co/coMemberAllList.do"><c:out value="${sessionScope.company.coName}"></c:out> 님</a>
 														
 													<ul id="login_success">
-		                                        <li><a href="/views/company/companyMyPage.jsp">마이페이지</a></li>												
+		                                        <li><a href="/co/coMemberAllList.do">마이페이지</a></li>												
 												</c:when>
 												<c:otherwise>
 														<a href="/admin/adminHome.do"><c:out value="${sessionScope.admin.adminName}"></c:out> 님</a>
@@ -112,7 +112,7 @@
 						
 						<%-- 사업자 회원 로그인 시 --%>
 						<c:if test="${sessionScope.company != null }">
-							<li><a href='/admin/adminHome.do'>마이페이지(업체)</a></li>
+							<li><a href='/co/coMemberAllList.do'>마이페이지(업체)</a></li>
 							<li><a href='/board/companyNotice.do'>공지사항 및 FAQ(업체)</a></li>
 						</c:if>
 						

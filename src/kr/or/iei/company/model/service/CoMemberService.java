@@ -13,4 +13,6 @@ public interface CoMemberService {
 
 	public ArrayList<Contract> selectReservationDay(String coId);
 
+	int coCheckYNChange(int contractNo, char coCheckYN, String coId);
+
 }

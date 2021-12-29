@@ -43,7 +43,7 @@
 					<table>
 						<tr>
 							<td><select class="option"
-								aria-label="Default select example" name="area">
+								aria-label="Default select example" id="area">
 									<option selected>지역</option>
 									<option>서울</option>
 									<option>인천</option>
@@ -62,14 +62,14 @@
 									<option>경상남도</option>
 							</select></td>
 							<td><select class="option"
-								aria-label="Default select example" name="cleanType">
+								aria-label="Default select example" id="cleanType">
 									<option selected>분야</option>
 									<option>입주청소</option>
 									<option>이사청소</option>
 									<option>부분청소</option>
 							</select></td>
 							<td><select class="option"
-								aria-label="Default select example" name="etc">
+								aria-label="Default select example" id="etc">
 									<option selected>순</option>
 									<option>평점순</option>
 									<option>리뷰순</option>
@@ -79,7 +79,24 @@
 					</table>
 				</form>
 			<script>
-				
+				$('.option').change(function(){
+					var area=$('#area').val();
+					var cleanType=$('#cleanType').val();
+					var etc=$('#etc').val();
+					
+					$.ajax({
+						url:"/company/selectCompanyCategory.do",
+						data:{area:area,cleanType:cleanType,etc:etc},
+						type:"get",
+						dataType:"json",
+						success:function(){
+							
+						},
+						error:function(){
+							
+						}
+					})
+				})
 			</script>
 
 			</div>

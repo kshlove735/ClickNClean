@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <title>Document</title>
     
-  <link rel="stylesheet" href="/assets/css/cheader.css">
-  <link rel="stylesheet" href="/assets/css/companyProfileUpdate.css">
+  <link rel="stylesheet" href="/assets/css/cheader.css?after">
+  <link rel="stylesheet" href="/assets/css/companyProfileUpdate.css?after">
   <link rel="stylesheet" href="/assets/css/footer.css">
    <!-- jQuery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -79,7 +79,7 @@
                                             <option value="인천">인천</option>
                                             <option value="강원">강원</option>
                                             <option value="대전">대전</option>
-                                            <option value="세종">세종</option>
+                                            <option value="세종" checked>세종</option>
                                             <option value="충남">충남</option>
                                             <option value="충북">충북</option>
                                             <option value="부산">부산</option>

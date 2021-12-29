@@ -3,6 +3,7 @@ package kr.or.iei.company.model.service;
 import java.util.ArrayList;
 
 import kr.or.iei.company.model.vo.Company;
+import kr.or.iei.review.model.vo.Review;
 
 public interface CompanyService {
 	ArrayList<Company> selectAllCompany();

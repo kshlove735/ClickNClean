@@ -1,15 +1,17 @@
 <%@page import="kr.or.iei.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>개인정보수정</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
      <!-- jQuery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="/assets/css/header.css">
      <style>
           * {
         box-sizing: border-box;
@@ -236,7 +238,7 @@
         #btnPart{
            text-align: center;
         }
-         #withdraw{
+         .withdraw{
             display: inline-block;
              position: relative;
              height: 45px;
@@ -244,7 +246,7 @@
              left: 20px;
             top: 24px;
         }
-        #mypageReset{
+        .mypageReset{
          display: inline-block;
             position: relative;
             height: 45px;
@@ -252,7 +254,7 @@
             left: 30px;
             top: 24px;
         }
-        #cancle{
+        .cancle{
            display: inline-block;
             position: relative;
             left: 40px;
@@ -378,29 +380,7 @@
 
 
             <div id="wrap">
-        <div id="header">
-            <div id="header">
-            <div id="headerFixed">
-                <div id="headerInner">
-                    <div id="logo">
-                        <a href=""><img src="image/%ED%81%B4%EB%A6%ADN%ED%81%B4%EB%A6%B0_3nor.png" class="logoImg"></a>
-                    </div>
-
-                    <div id="estimate">
-                       
-                    </div>
-
-                    <div id="menu">
-                        <div id="login">
-                            <ul>
-                                <li><a href="/member/logout.do">로그아웃</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-                  </div>
-        </div>
+           <jsp:include page="/views/commons/header.jsp" />
          <!-- 로그인로고 -->
           <div id="mypage">
             <span id="mypageFont">마이페이지</span>
@@ -409,8 +389,8 @@
                     <div id="navigator">
                         <ul id="gnb">
                             <li><a href="/views/member/memberPwdCheck.jsp">개인정보수정</a></li>
-                            <li><a href="/member/myEstimate.do">나의 견적서</a></li>
-                            <li><a href="/reiview/reviewList.do">이용내역</a></li>
+                            <li><a href="/member/memberCheck.do">나의 견적서</a></li>
+                            <li><a href="/review/reviewList.do">이용내역</a></li>
                             <li><a href="">설정</a></li>
                         </ul>
             </div>
@@ -421,24 +401,24 @@
          <div id="content">
              <div id="content1">
                <div id="content-1">
-                <form action="/member/memberUpdate.do" method="post">
+                <form name="frmUpdate" method="post" onsubmit="return false;">
                    <table id="table">
                     <tr>
                         <td class="mypage-td"><span>아이디</span></td>
                         <td>
-                            <input type="text" name="userId" size="35" class="input rounded border border-primary"  value="<%=m.getUserId() %>" style="background-color: #72CCFF; text-align: center;"/>
+                            <input type="text" name="userId" size="35" class="input rounded border border-#CCC"  value="<%=m.getUserId() %>" style="text-align: center;"/>
                         </td>
                     </tr> 
                     <tr>
                         <td class="mypage-td ico srcreen_out"><span>현재 비밀번호</span></td>
                         <td>
-                            <input type="password" name="userPwd" size="35" height="50px" class="input border border-primary rounded" style="text-align: center"/>
+                            <input type="password" name="userPwd" size="35" height="50px" class="input border border-#CCC rounded" value="<%=m.getUserPwd() %>" style="text-align: center"/>
                         </td>
                     </tr>
                     <tr>
                         <td class="mypage-td"><span>새 비밀번호</span></td>
                         <td>
-                            <input type="password" name="newPwd" size="35" onclick="guideCheck()" class="input border border-primary rounded" style="text-align: center"/>
+                            <input type="password" name="newPwd" size="35" onclick="guideCheck()" class="input border border-#CCC rounded" style="text-align: center"/>
                         </td>
                     </tr>
                     <tr>
@@ -453,7 +433,7 @@
                     <tr>
                         <td class="mypage-td" style="text-align: center"><span>새 비밀번호 확인</span></td>
                         <td>
-                            <input type="password" name="newPwd_re" size="35" onclick="guideCheckRE()" class="input border border-primary rounded" style="text-align: center" />
+                            <input type="password" name="newPwd_re" size="35" onclick="guideCheckRE()" class="input border border-#CCC rounded" style="text-align: center" />
                         </td>
                     </tr>
                     <tr>
@@ -466,28 +446,29 @@
                     <tr>
                   	  <td class="mypage-td" style="text-align: center"><span>이름</span></td>
                         <td>
-                            <input type="text" name="userName" value="<%=m.getUserName() %>" size="35" class="input border border-primary rounded" style="text-align:center; font-size:15px;"/>
+                            <input type="text" name="userName" value="<%=m.getUserName() %>" size="35" class="input border border-#CCC rounded" style="text-align:center; font-size:15px;"/>
                         </td>
                     </tr>
                     <tr>
                         <td class="mypage-td"><span>이메일</span></td>
                          <td>
-                            <input type="text" name="email" value="<%=m.getEmail() %>" size="35" class="input border border-primary rounded" style="text-align:center; font-size:15px;"/>
+                            <input type="text" name="email" value="<%=m.getEmail() %>" size="35" class="input border border-#CCC rounded" style="text-align:center; font-size:15px;"/>
                         </td>
                     </tr>
                     <tr>
                         <td class="mypage-td"><span>휴대폰 번호</span></td>
                         <td>
-                            <input type="text" name="phone" value="<%=m.getPhone() %>" size="35" class="input border border-primary rounded" style="text-align:center; font-size:15px;"/>
+                            <input type="text" name="phone" value="<%=m.getPhone() %>" size="35" class="input border border-#CCC rounded" style="text-align:center; font-size:15px;"/>
                         </td>
                         <td id="phone">
                             <input type="button" value="다른 번호 인증" class="btn btn-outline-primary" />
                         </td>
                     </tr>
                     <tr id="btnPart">
-                        <td id="withBtn" colspan="4"> <input type="button" id="withdraw" class="btn rounded " style="border: 1px solid #0E76B3; color: #0E76B3;" value="계정탈퇴">
-                       <input type="submit" id="mypageReset" class="btn rounded " style="background-color:#0E76B3; color: white" value="회원정보수정">
-                        <input type="button" id="cancle" class="btn rounded " style="border: 1px solid #0E76B3; color: #0E76B3;" value="취소"></td>
+                        <td id="withBtn" colspan="4"> 
+                       <input type="button" name="withdraw" onclick="return withDraw();"  class="btn rounded withdraw" style="border: 1px solid #0E76B3; color: #0E76B3;" value="계정탈퇴">
+                       <input type="button" name="mypageReset" onclick="return myPageReset();"class="btn rounded mypageReset" style="background-color:#0E76B3; color: white" value="회원정보수정">
+                       <input type="button" name="cancle" onclick="return cancleBtn();" class="btn rounded cancle" style="border: 1px solid #0E76B3; color: #0E76B3;" value="취소"></td>
                     </tr>
                 </table>
                  </form>
@@ -542,7 +523,7 @@
                     </div>
                 </div>
           </div>
-        </div>
+      
     </div>
     
     
@@ -563,7 +544,39 @@
             
             $('.re_txt_guide').css('display','block');
         };
+        
+        function withDraw() {
+            
+            if(confirm("탈퇴를 진행하시겠습니까?")&& confirm("탈퇴를 하시게 되면, 데이터는 절대 복구 불가능합니다.")) {
+                var frm = document.frmUpdate;
+                    frm.action = "/member/memberWithDraw.do";
+                    
+                    frm.submit();
+                    return true;
+            }
+        };
+        
+        function myPageReset(){
+        	 
+
+        	var frm = document.frmUpdate;
+        		frm.action = "/member/memberUpdate.do";
+        		frm.submit();
+        		return true;
+        	
+        };
+        
+        function cancleBtn(){
+        	
+        	var frm = document.frmUpdate;
+    		frm.action = "/views/member/memberPwdCheck.jsp";
+    		frm.submit();
+    		return true;
+        }
+        
     </script>
     
+   
+     
 </body>
 </html>

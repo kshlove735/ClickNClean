@@ -23,11 +23,11 @@ public class ContractDAO {
 		int end =  currentPage * recordCountPerPage;
 		
 		String query = "select * " + 
-					   "from(select row_number()over(order by conditionNo desc)as num, condition.*" + 
-					   "from condition" + 
-					   "left join contract on(condition.conditionNo=contract.conditionNo) " + 
-					   "where contract.userId=?) " + 
-					   "where num between ? and ?";
+						" from(select row_number()over(order by condition.conditionNo desc)as num, condition.* " + 
+						" from condition " + 
+						" left join contract on(condition.userId=contract.userId) " + 
+						" where contract.userId=? ) " + 
+						" where num between ? and ?";
 		
 		
 		
@@ -36,7 +36,7 @@ public class ContractDAO {
 				
 				pstmt.setString(1, userId);
 				pstmt.setInt(2, start);
-				pstmt.setInt(2, end);
+				pstmt.setInt(3, end);
 
 				
 				rset = pstmt.executeQuery();
@@ -71,75 +71,77 @@ public class ContractDAO {
 	}	
 			
 			
-		public String getPageNavi(int naviCountPerPage, Connection conn, int currentPage, int recordCountPerPage, String userId) {
+	   public String getPageNavi(int naviCountPerPage, Connection conn, int currentPage, int recordCountPerPage, String userId) {
 
-				
-			int recordtotalCount = totalCount(conn, userId); //전체 글 개수
-				
-			int pageTotalCount = 0; //전체 페이지 개수
-				
-			pageTotalCount = (int)Math.ceil(recordtotalCount / (double)recordCountPerPage);
-				
-			int startNavi = (((currentPage - 1) / naviCountPerPage) * naviCountPerPage) +1;
-			int endNavi = startNavi + (naviCountPerPage - 1);
-				
-				
-			if(endNavi > pageTotalCount) {
-				
-				endNavi = pageTotalCount;
-			}
-			
-				StringBuilder sb = new StringBuilder();
-				
-				if(startNavi!=1) {
-					sb.append("<a href='/reiview/reservationList.do?currentPage="+(startNavi-1)+"'>< Prev </a> ");
-				}
-				
-				for(int i=startNavi; i<=endNavi;i++ ) {
-					
-					if(i==currentPage) {
-						sb.append("<a href='/reiview/reservationList.do?currentPage="+i+"'><B style='font-size:1.2em'>"+i+"</B></a> ");
-				
-					}else {
-						sb.append("<a href='/reiview/reservationList.do?currentPage="+i+"'>"+i+"</a> ");
-					}
-				}
-				
-				if(endNavi!=pageTotalCount) {
-					sb.append("<a href='/reiview/reservationList.do?currentPage="+(endNavi+1)+"'>Next ></a> ");
-				}
-				
-				return sb.toString();
-			}
-			
-		public int totalCount(Connection conn, String userId) {
-				
-			PreparedStatement pstmt = null;
-			ResultSet rset = null;
-				
-			int count = 0;
-			String query = "select count(*) as count from condition where userId=?";
-				
-			
-			try {
-				pstmt = conn.prepareStatement(query);
-				
-				rset = pstmt.executeQuery();
-				
-				if(rset.next()) {
-						
-					count = rset.getInt("count");
-				}
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}finally {
-				JDBCTemplate.close(rset);
-				JDBCTemplate.close(pstmt);
-			}
-			return count;
-			}
+           
+	         int recordtotalCount = totalCount(conn, userId); //전체 글 개수
+	            
+	         int pageTotalCount = 0; //전체 페이지 개수
+	            
+	         pageTotalCount = (int)Math.ceil(recordtotalCount / (double)recordCountPerPage);
+	            
+	         int startNavi = (((currentPage - 1) / naviCountPerPage) * naviCountPerPage) +1;
+	         int endNavi = startNavi + (naviCountPerPage - 1);
+	            
+	            
+	         if(endNavi > pageTotalCount) {
+	            
+	            endNavi = pageTotalCount;
+	         }
+	         
+	            StringBuilder sb = new StringBuilder();
+	            
+	            if(startNavi!=1) {
+	               sb.append("<a href='/member/memberCheck.do?currentPage="+(startNavi-1)+"'> 이전  </a> ");
+	            }
+	            
+	            for(int i=startNavi; i<=endNavi;i++ ) {
+	               
+	               if(i==currentPage) {
+	                  sb.append("<a href='/member/memberCheck.do?currentPage="+i+"'><B style='font-size:1.2em'>"+i+"</B></a> ");
+	            
+	               }else {
+	                  sb.append("<a href='/member/memberCheck.do?currentPage="+i+"'>"+i+"</a> ");
+	               }
+	            }
+	            
+	            if(endNavi!=pageTotalCount) {
+	               sb.append("<a href='/member/memberCheck.do?currentPage="+(endNavi+1)+"'> 다음 </a> ");
+	            }
+	            
+	            return sb.toString();
+	         }
+	         
+	      public int totalCount(Connection conn, String userId) {
+	            
+	         PreparedStatement pstmt = null;
+	         ResultSet rset = null;
+	            
+	         int count = 0;
+	         String query = "select count(*) as count from condition where userId=?";
+	            
+	         
+	         try {
+	            pstmt = conn.prepareStatement(query);
+	            
+	            pstmt.setString(1, userId);
+	            
+	            rset = pstmt.executeQuery();
+	            
+	            if(rset.next()) {
+	                  
+	               count = rset.getInt("count");
+	            }
+	            
+	         } catch (SQLException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	         }finally {
+	            JDBCTemplate.close(rset);
+	            JDBCTemplate.close(pstmt);
+	         }
+	         return count;
+	         }
 			
 
 	public ArrayList<Company> selectConditionCompany(String area, String cleanType, Connection conn) {
@@ -275,6 +277,32 @@ public class ContractDAO {
 		
 		return result;
 	}
+
+
+	public int updateContractYN(Connection conn, String userId, int contractNo) {
+
+	      PreparedStatement pstmt = null;
+	      int result = 0;
+	      
+	      String query = "update contract set contract_YN='Y',contractFinDate=sysdate where userid=? and contractNo=? ";
+	      
+	      try {
+	         pstmt = conn.prepareStatement(query);
+	         
+	         pstmt.setString(1, userId);
+	         pstmt.setInt(2, contractNo);
+	         
+	         result = pstmt.executeUpdate();
+	         
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }finally {
+	         JDBCTemplate.close(pstmt);
+	      }
+	      return result;
+	      
+	   }
 
 
 

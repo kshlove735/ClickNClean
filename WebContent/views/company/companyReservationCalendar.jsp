@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/assets/css/cheader.css">
+<link rel="stylesheet" href="/assets/css/cheader.css?after">
 <link rel="stylesheet" href="/assets/css/companyReservationCalendar.css">
 <link rel="stylesheet" href="/assets/css/footer.css">
 <link rel="stylesheet">

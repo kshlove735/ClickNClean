@@ -1,12 +1,16 @@
 <%@page import="kr.or.iei.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>비밀번호 확인</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+     <!--JQuery CDM-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="/assets/css/header.css">
     
         <style>
           * {
@@ -331,42 +335,21 @@
 <body>
 
 <%
-		Member m = (Member)session.getAttribute("member");
+      Member m = (Member)session.getAttribute("member");
 %>
 
 <%if(m==null){ %>
 
 <script>
 
-	alert('로그인 후 이용해주세요.');
-	location.replace('/views/member/loginMemberCompany.jsp');
+   alert('로그인 후 이용해주세요.');
+   location.replace('/views/member/loginMemberCompany.jsp');
 </script>
 <%} %>
 
  <div id="wrap">
         
-           <div id="header">
-            <div id="headerFixed">
-                <div id="headerInner">
-                    <div id="logo">
-                        <a href=""><img src="" class="logoImg"></a>
-                    </div>
-
-                    <div id="estimate">
-                       
-                    </div>
-
-                    <div id="menu">
-                        <div id="login">
-                            <ul>
-                                <li><a href="/member/logout.do">로그아웃</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-                  </div>
-        </div>
+          <jsp:include page="/views/commons/header.jsp" />
   
         
          <!-- 로그인로고 -->
@@ -377,11 +360,11 @@
                  <div id="navigator">
                         <ul id="gnb">
                             <li><a href="/views/member/memberPwdCheck.jsp">개인정보수정</a></li>
-                            <li><a href="/member/myEstimate.do">나의 견적서</a></li>
-                            <li><a href="/reiview/reviewList.do">이용내역</a></li>
+                            <li><a href="/member/memberCheck.do">나의 견적서</a></li>
+                            <li><a href="/review/reviewList.do">이용내역</a></li>
                             <li><a href="">설정</a></li>
                         </ul>
-           		 </div>
+                  </div>
             </div> 
          <div class="line"></div>
          
@@ -397,13 +380,13 @@
                                 <tr>
                                     <td class="mypage-td">아이디</td>
                                     <td>
-                                        <input type="text"  size="35" class="input rounded border border-primary" style="background-color: #72CCFF; text-align: center;" disabled value="<%=m.getUserId() %>"/>
+                                        <input type="text"  size="35" class="input rounded border " style=" text-align: center;" disabled value="<%=m.getUserId() %>"/>
                                     </td>
                                 </tr> 
                                 <tr>
                                     <td class="mypage-td ico srcreen_out" id="pwd">비밀번호</td>
                                     <td>
-                                        <input type="password" name="userPwd"  size="35" height="50px" class="input border border-primary rounded" style="text-align: center;"/>
+                                        <input type="password" name="userPwd"  size="35" height="50px" class="input border border-#CCC rounded" style="text-align: center;"/>
                                     </td>
                                 </tr>
                            </table>

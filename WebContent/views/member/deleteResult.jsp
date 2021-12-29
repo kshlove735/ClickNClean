@@ -7,6 +7,25 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+	boolean result = (boolean)request.getAttribute("result");
+
+%>
+
+
+<script>
+<%
+if(result){ %>
+	
+	alert('삭제되었습니다.');
+
+<%	}else{ %>
+	
+	alert('삭제 실패하였습니다.\n 지속적인 문제 발생 시 관리자에게 문의바랍니다.');
+	
+<%	} %>
+	location.replace('/review/reviewList.do');
+</script>
 
 </body>
 </html>

@@ -12,20 +12,14 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="/assets/css/theme.min.css">
     <link rel="stylesheet" href="/assets/css/docs.min.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
 <!-- jQuery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     
 </head>
 <body>
 
-     <%
-        HashMap<String,Object> map = (HashMap<String,Object>)request.getAttribute("pageDataMap");
-        String pageNavi = (String) map.get("pageNavi");
-        ArrayList<Board> list = (ArrayList<Board>) map.get("list");
-        int currentPage =(int)request.getAttribute("currentPage");
-        
-        String keyword = (String)request.getAttribute("keyword");
-     %>
+   
 
 <style>
     * {
@@ -40,27 +34,7 @@
         margin: 0 auto;
         
     }
-        /*헤더 */
-        #header{
-            width: 100%;
-            height: 70px;
-        }
-         #logo{
-            width: 300px;
-            height: 100%;
-            border: 1px solid black;
-            display: inline-block;
-            float: left;
-            left: 100px;
-        }
-         
-        #menu{
-            width: 160px;
-            height: 100%;
-            display: inline-block;
-            float: left;
-            border: 1px solid black;
-        }
+       
         #adminpage{
              width: 1344px;
             height: 120px;
@@ -117,6 +91,12 @@
         }
     
     /*content*/
+    
+    #boardmenu{
+    text-align: left;
+     
+    }
+    
         #listsub{
         text-align: left;
         font-size: 30px;
@@ -243,23 +223,35 @@
         color: #666;
         font-weight: bold;
     }
+    .pagination li a{
+          
+       text-decoration-line: none;
+       color : #CCC;
+    }
 
 </style>
 <body>
+
+  <%
+        HashMap<String,Object> map = (HashMap<String,Object>)request.getAttribute("pageDataMap");
+        String pageNavi = (String)map.get("pageNavi");
+        ArrayList<Board> list = (ArrayList<Board>) map.get("list");
+        int currentPage =(int)request.getAttribute("currentPage");
+        
+        String keyword = (String)request.getAttribute("keyword");
+     %>
+
+<jsp:include page="/views/commons/header.jsp" />
     
     <div id="wrap">
-<div id="header">
-            <div id="logo">
-          </div>
-        </div>
-         
+
           <div id="adminpage">
             <span id="adminpageFont">관리자 페이지</span>
             </div>    
                <div id="submenu">
                     <div id="navigator">
                         <ul id="gnb">
-                            <li><a href="">Home</a></li>
+                            <li><a href="/admin/adminHome.do">Home</a></li>
                             <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
                             <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
                             <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
@@ -271,14 +263,20 @@
          <div class="line"></div>
 
             <div style=" width: 100%;">
+           
 
                 <!--공지사항 및 FAQ (회원)-->
                  <div id= "listsub">
                   <p>공지사항 및 FAQ (회원)</p>
                 </div>
+           <div id="boardmenu">
+           <br><br>
+           <a href="/board/memberNotice.do">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;공지사항 및 FAQ (회원)</a><br>
+           <a href="/board/companyNotice.do">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;공지사항 및 FAQ (업체)</a>
+           </div>
                 
             <div id = "search">
-            <form action="/board/boardPostSearch.do" method="get"> 
+            
             <select style="height: 30px">
              <option value = "username" selected>글제목</option>
              <option value = "userid">작성일</option>
@@ -303,30 +301,28 @@
                     <tbody>
                         <tr>
                             <th><%=board.getBoardNo() %></th>
-                            <td id="subject"><%=board.getSubject() %></td>
-                            <p><%=board.getContent() %></p>
+                            <td><details>
+                                <summary><%=board.getSubject() %></summary>
+                                <p style="text-align:left;"><%=board.getContent() %></p>
+                            </details></td>
                             <td><%=board.getRegDate() %></td>
+                          
+                           
                             <td><button class="btn">수정</button></td>
-                            <td><button class="btn">삭제</button></td>
+                            
+                            <form name="frmUpdate" method="post" action="/board/boardDelete.do" onsubmit="return deleteBtn();"> 
+                            <td>
+                           
+                             <input type="hidden" name="boardNo" value="<%=board.getBoardNo()%>"/>
+                            <input type="submit" name="boardDelete" class="btn" value="삭제"/>
+                           
+                           </td>
+                           </form>
                         </tr>
-                        <tr>
-                            <th colspan="5"></th>
-                        </tr>
+
                     </tbody>
                     <%} %>
                 </table>
-                <script>
-                    
-                    $(function(){
-                    	$('#subject').click(function(){
-                    		$(this).next('p').slideToggle();
-                    	});
-                    });
-                
-                
-                
-                </script>
-                
                 
                 <%}else{ %>
                   <!-- 게시글 목록이 없다면 -->
@@ -335,8 +331,10 @@
      
                    <%} %>
                 <!-- 페이징 처리 -->
-                   <div id="paging">
-                    <ul class="pagination justify-content-center">
+                <!--     <div id="paging">
+                  <%--  <%=pageNavi %> --%>
+                  
+                   <ul class="pagination justify-content-center">
                         <li class="page-item disabled">
                             <a class="page-link" href="#" tabindex="-1">Prev</a>
                         </li>
@@ -346,7 +344,18 @@
                         <li class="page-item">
                             <a class="page-link" href="#">Next</a>
                         </li>
-                    </ul>
+                    </ul> 
+                    </div> -->
+                    
+                    
+                      <div id="paging">
+                  <%--  <%=pageNavi %> --%>
+                  
+                   <ul class="pagination justify-content-center">
+                      
+                        <li class="page-item page-link" href="#"><a class="page-link" href="#"><%=pageNavi %></a></li>
+                        
+                    </ul> 
                     </div>
                    
                    
@@ -396,5 +405,19 @@
                 </div>
             </div>
         </div>
+        
+        <script>
+           function deleteBtn(){
+              
+              if(window.confirm('삭제하시겠습니까?')){
+              
+              return true;
+           }
+              return false;
+              
+           };
+        
+        </script>
+        
 </body>
 </html>

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import kr.or.iei.common.JDBCTemplate;
 import kr.or.iei.company.model.dao.CompanyDAO;
 import kr.or.iei.company.model.vo.Company;
+import kr.or.iei.review.model.vo.Review;
 
 public class CompanyServiceImpl implements CompanyService{
 	private CompanyDAO comDAO = new CompanyDAO();

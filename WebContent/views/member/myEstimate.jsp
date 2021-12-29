@@ -2,17 +2,22 @@
 <%@page import="kr.or.iei.contract.model.vo.Contract"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>나의 견적서</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
      <!--JQuery CDM-->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+   
+   <link rel="stylesheet" href="/assets/css/header.css">
+   
     <style>
           * {
         box-sizing: border-box;
@@ -181,7 +186,7 @@
         /* 콘텐트 부분 */
           #content{
             width: 1344px;
-            height: 640px;
+            height: 620px;
             margin: 0 auto;
         }
            #content1{
@@ -191,11 +196,11 @@
         }
         #content-1{
             width: 100%;
-            height: 120px;
+            height: 100px;
         }
         #content-2{
             width: 100%;
-            height: 430px;
+            height : 430px;
         }
         #content2{
             width: 30%;
@@ -209,10 +214,10 @@
         }
          #detail{
             display: block;
-            font-size: 35px;
+            font-size: 30px;
             position: relative;
             top: 46px;
-            left: 60px;
+            left: 120px;
             color: #555;
         }
           #content3-1{
@@ -224,11 +229,17 @@
         border: 2px solid #0E76B3;
         width: 650px;
         height: 80px;
-        margin: 20px auto;
+        margin: 25px auto;
     }
         table{
             margin: 22px auto;
         }
+        
+      #cleanType>{
+      		width : 70px;
+      		height : 100%;
+      		font-size:20px;
+      }
         #list{
             width: 100px;
             height: 40px;
@@ -240,8 +251,11 @@
             width: 37%;
             height: 70px;
             margin: 0 auto;
-
+            text-align : center;
         }
+    #pageNavi>span{
+    		text-decoration: none;
+    }
      
         .line{
             width: 800px;
@@ -249,6 +263,22 @@
             background-color: #0E76B3;
             margin : 0 auto;
         }
+        
+         #noneList{
+        	display : block;
+        	position: relative;
+        	top : 190px;
+        	left : 230px;
+        }
+        #td1{
+      		table-layout:fixed;
+        	
+        }
+         table{
+      		table-layout:fixed;
+        	
+        }
+        
         /*footer 부분 */
          #footer-1{
             width: 100%;
@@ -368,29 +398,9 @@
 
 
  <div id="wrap">
-        <div id="header">
-              <div id="header">
-            <div id="headerFixed">
-                <div id="headerInner">
-                    <div id="logo">
-                        <a href=""><img src="image/%ED%81%B4%EB%A6%ADN%ED%81%B4%EB%A6%B0_3nor.png" class="logoImg"></a>
-                    </div>
-
-                    <div id="estimate">
-                       
-                    </div>
-
-                    <div id="menu">
-                        <div id="login">
-                            <ul>
-                                <li><a href="/member/logout.do">로그아웃</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-                  </div>
-        </div>
+       
+             <jsp:include page="/views/commons/header.jsp" />
+             
          <!-- 로그인로고 -->
           <div id="mypage">
             <span id="mypageFont">마이페이지</span>
@@ -399,8 +409,8 @@
                     <div id="navigator">
                         <ul id="gnb">
                             <li><a href="/views/member/memberPwdCheck.jsp">개인정보수정</a></li>
-                            <li><a href="/member/myEstimate.do">나의 견적서</a></li>
-                            <li><a href="/reiview/reviewList.do">이용내역</a></li>
+                            <li><a href="/member/memberCheck.do">나의 견적서</a></li>
+                            <li><a href="/review/reservationList.do">이용내역</a></li>
                             <li><a href="">설정</a></li>
                         </ul>
             </div>
@@ -415,36 +425,57 @@
                      <span id="detail">견적내역</span>
                 </div>
                 <div id="content3">
-                  <div id="content3-1">
-                     <form>
-                         <input type="date" name="pastDate" min="2000-01-01" value="2020-01-01" class="rounded" style="color:#555"/>  -  <input type="date" id="currentDate" name="sysdate" class="rounded " style="color:#555"/>   <input type="button" value="조회" class="btn rounded " style="background-color:#0E76B3; color: white; height:33px" />
-                         
-                      </form>
-                    </div>
+                 
                 </div>
                 </div>
                 <div id="content-2">
+                
+                <%if(!list.isEmpty()){ %>
                     
                     <%for(Contract c : list){ %>
                     
                     <div  class="rounded estimate">
-                        <form>
+                      
                             <table>
                                 <tr>
-                                    <td class="part"><h5><%=c.getCleanType() %> /</h5></td>
+                                    <td id="td1"><h5><%=c.getCleanType() %> /</h5></td>
                                     <td class="part"><h5><%=c.getHouseType() %> <%=c.getHouseSize() %> / </h5></td>
                                     <td class="part"><h5><%=c.getArea() %> / </h5></td>
                                     <td class="part"><h5><%=c.getReqDate() %></h5></td>
-                                    <td style="color: white">sssss</td>
+                                    <td style="color: white">ssssssss</td>
                                     <!-- 견적 리스트 페이지 연결 로직-->
-                                    <td> <input type="button" id="list" onclick="location.replace('/views/contract/conditionCompany.jsp');" class="btn rounded " style="background-color:#0E76B3; color: white" value="견적리스트"></td>
+                                    
+                             <form action="/contract/selectConditionCompany.do" method="post">
+                            		
+                            		<%
+                            		    String [] str = c.getArea().split(" ");
+                            			String area1 = str[0];
+                            			String area2 = str[1];
+                            		%>
+                            		
+                            		<input type="hidden" name="area1" value="<%=area1%>"/>
+                            		<input type="hidden" name="area2" value="<%=area2%>"/>
+                            		<input type="hidden" name="cleanType" value="<%=c.getCleanType() %>"/>
+                            		<input type="hidden" name="houseType" value="<%=c.getHouseType() %>"/>
+                            		<input type="hidden" name="reqDate" value="<%=c.getReqDate() %>"/>
+                            		<input type="hidden" name="conditionNo" value="<%=c.getConditionNo() %>"/>
+                            		<input type="hidden" name="houseSize" value="<%=c.getHouseSize() %>"/>
+                            		
+                                    <td id="td2"><input type="submit" value="견적리스트" class="btn btn-outline-primary" style="background-color:#0E76B3; color: white;"></td>
+                            
+                             </form>
                                 </tr>
                                 
-                            </table>
-                        </form>
+                            </table> 
+                      
                     </div>
                     <%} %>
                     
+                    <%}else{ %>
+                    	
+                  			<h5 id="noneList">견적 내역이 존재하지 않습니다.</h5>
+                  		
+                    <%} %>
                 </div>
                 <!--페이지 네비 로직-->
                 <div id="pageNavi"><%=pageNavi %></div>
@@ -495,8 +526,14 @@
                     </div>
                 </div>
           </div>
-        </div>
+        
     </div>
     
+    
+    <script>
+
+   		 document.getElementByClassName('sysdate').value = new Date().toISOString().substring(0, 10);
+
+    </script>
 </body>
 </html>

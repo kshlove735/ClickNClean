@@ -55,7 +55,7 @@ public class CompanyInfoDAO {
 		PreparedStatement pstmt = null;
 		int result =0;
 		
-		String query = "insert into COMPANYINFO values(?,'사진',?,?,?,?,'10000',?,?,?')";
+		String query = "insert into COMPANYINFO values(?,'사진',?,?,?,?,10000,?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(query);

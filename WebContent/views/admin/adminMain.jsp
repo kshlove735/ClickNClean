@@ -11,6 +11,7 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="/assets/css/theme.min.css">
     <link rel="stylesheet" href="/assets/css/docs.min.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
     <!-- jQuery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     
@@ -31,27 +32,7 @@
         margin: 0 auto;
         
     }
-        /*헤더 부분 */
-        #header{
-            width: 100%;
-            height: 70px;
-        }
-         #logo{
-            width: 300px;
-            height: 100%;
-            border: 1px solid black;
-            display: inline-block;
-            float: left;
-            left: 100px;
-        }
-         
-        #menu{
-            width: 160px;
-            height: 100%;
-            display: inline-block;
-            float: left;
-            border: 1px solid black;
-        }
+        
         #adminpage{
              width: 1344px;
             height: 120px;
@@ -286,11 +267,8 @@
 
 </style>
 
+<jsp:include page="/views/commons/header.jsp" />
     <div id="wrap">
-<div id="header">
-            <div id="logo">
-          </div>
-        </div>
          
           <div id="adminpage">
             <span id="adminpageFont">관리자 페이지</span>

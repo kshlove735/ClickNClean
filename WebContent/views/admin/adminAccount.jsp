@@ -15,6 +15,7 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="/assets/css/theme.min.css">
     <link rel="stylesheet" href="/assets/css/docs.min.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
 </head>
 <body>
      <%
@@ -29,31 +30,14 @@
     
     #wrap {
 
-        width: 1344px;
+        width: 100%;
         margin: 0 auto;
         
     }
             /*헤더 부분 */
-        #header{
-            width: 100%;
-            height: 70px;
-        }
-         #logo{
-            width: 300px;
-            height: 100%;
-            border: 1px solid black;
-            display: inline-block;
-            float: left;
-            left: 100px;
-        }
+        
          
-        #menu{
-            width: 160px;
-            height: 100%;
-            display: inline-block;
-            float: left;
-            border: 1px solid black;
-        }
+        
         #adminpage{
              width: 1344px;
             height: 120px;
@@ -243,13 +227,9 @@
 </style>
 <body>
     
+    <jsp:include page="/views/commons/header.jsp" />
     
     <div id="wrap">
-    
-	<div id="header">
-            <div id="logo">
-          </div>
-        </div>
          
           <div id="adminpage">
             <span id="adminpageFont">관리자 페이지</span>
@@ -257,7 +237,7 @@
                <div id="submenu">
                     <div id="navigator">
                         <ul id="gnb">
-                            <li><a href="">Home</a></li>
+                            <li><a href="/admin/adminHome.do">Home</a></li>
                             <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
                             <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
                             <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>

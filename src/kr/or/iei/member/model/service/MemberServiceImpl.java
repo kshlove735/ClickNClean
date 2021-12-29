@@ -18,7 +18,7 @@ public class MemberServiceImpl implements MemberService {
 		return m;
 
 	}
-
+	
 	@Override
 	public int updateOneMember(Member m, String newPwd) {
 
@@ -109,5 +109,18 @@ public class MemberServiceImpl implements MemberService {
 
 		return result;
 	}
+	
+
+	   @Override
+	   public int deleteOneMember(int userNo) {
+
+	      Connection conn = JDBCTemplate.getConnection();
+	      
+	      int result = mDAO.deleteOneMember(conn, userNo);
+	      
+	      JDBCTemplate.close(conn);
+	      
+	      return result;
+	   }
 
 }
