@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+   * {
+        box-sizing: border-box;
+        font-family: 'NanumSquare';
+        /* color: #555;
+        font-size: 16px;
+        background-color: #fafafa; */
+    }
+
+    #wrap {
+        width: 100%;
+        height: 1058px;
+        margin: 0 auto;
+
+    }
+    /*비밀번호 폰트 변경 */
+    input[type=password]{
+    	  font-family: fantasy;
+    }
+    
+    /*콘텐츠*/
+    #content {
+        /*border: 1px solid red;*/
+        width: 100%;
+        height: 686px;
+
+    }
+
+    #content_inner {
+        /*border: 1px solid purple;*/
+        width: 1344px;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    #login_form {
+        /*border: 1px solid purple;*/
+        width: 400px;
+        height: 581px;
+        margin: 60px auto;
+
+    }
+
+    #login_form h2 {
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+
+    }
+
+    #login_form ul {
+        /* border: 1px solid purple;*/
+        width: 100%;
+        height: 40px;
+        padding: 0px;
+        display: block;
+        /*margin: 0 auto;*/
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    #login_form ul li {
+
+        /*border: 1px solid purple;*/
+        list-style: none;
+        float: left;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 600;
+        width: 50%;
+        height: 100%;
+        padding: 0 40px;
+        margin: 0px;
+        line-height: 40px;
+    }
+
+    .ur {
+        border-top: 1px solid #555;
+        border-right: 1px solid #555;
+        border-left: 1px solid #555;
+        border-bottom: ;
+        color: #555;
+    }
+
+    .co {
+        border-top: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        color: #ccc;
+    }
+
+    #input_form {
+        /*border: 1px solid red;*/ 
+        height: 550px;
+        margin-top: 20px;
+    }
+
+    #checkbox_search {
+        margin-top: 5px;
+    }
+
+    .input {
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        color: #555;
+        border: 1px solid #ccc;
+        padding: 0 19px;
+
+    }
+
+    :root {
+        --form-color: #0E76B3;
+    }
+
+    input[type="checkbox"] {
+        transform: scale(1.2);
+        accent-color: var(--form-color);
+    }
+
+    input[type="submit"] {
+        background-color: #0E76B3;
+        border-color: #0E76B3;
+        color: #fafafa;
+        margin-top: 15px;
+        box-shadow: 0px 3px 6px rgb(0 0 0/ 16%);
+    }
+
+    input[type="button"] {
+        background-color: #fafafa;
+        border-color: #0E76B3;
+        color: #0E76B3;
+        box-shadow: 0px 3px 6px rgb(0 0 0/ 16%);
+    }
+
+    #checkbox {
+        float: left;
+    }
+
+    #login_search {
+        float: right;
+    }
+
+    #login_search * {
+        color: #555;
+        text-decoration: none;
+    }

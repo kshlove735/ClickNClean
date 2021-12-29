@@ -1,0 +1,494 @@
+@charset "UTF-8";
+
+* {
+   box-sizing: border-box;
+   font-family: 'NanumSquare';
+}
+
+#wrap {
+   width: 100%;
+   height: 2226px;
+   margin: 0 auto;
+   background-color: #fafafa;
+}
+
+
+   /*컨테이너*/
+    #container {
+   width: 100%;
+   /*height: 1696px;*/
+   height: 1718px;
+   margin: 0 auto;
+}
+
+/*케로셀*/
+#topBanner {
+   width: 100%;
+   height: 500px;
+}
+
+#carousel {
+   width: 100%;
+   height: 100%;
+}
+
+.carousel-caption {
+   /* border: 1px solid white; */
+   height: 500px;
+   text-align: left;
+   position: absolute;
+   top: 100px;
+   left: 300x;
+   color: #0E76B3;
+   display: inline-block;
+   padding-left: 100px;
+}
+
+.carousel-caption h3:first-child {
+   font-size: 40px;
+   font-weight: 600;
+}
+
+.carousel-caption h3:nth-child(2) {
+   font-size: 40px;
+   font-weight: 600;
+}
+
+.carousel-caption p {
+   font-size: 20px;
+   color: black;
+   font-weight: 600;
+}
+
+/*컨텐츠*/
+#content {
+   width: 1344px;
+   height: 1218px;
+   margin: 0 auto;
+}
+
+#processguide {
+   /* border: 1px solid red;*/
+   width: 1344px;
+   height: 417px;
+}
+
+#processguide_text {
+   width: 100%;
+   height: 168px;
+   text-align: center;
+}
+
+#processguide_text>h2 {
+   font-size: 40px;
+   color: #0E76B3;
+   font-weight: bold;
+}
+
+#processguide_text>p {
+   font-size: 17px;
+   color: #555;
+}
+
+#processguide_img {
+   width: 1344px;
+   height: 228px;
+}
+
+#processguide_img>ul {
+   list-style: none;
+   padding: 0px;
+   margin: 0px;
+   text-align: center;
+   margin: 0 auto;
+}
+
+#processguide_img>ul li {
+   text-align: center;
+   display: inline-block;
+   width: 180px;
+   margin: 0px 50px;
+}
+
+#processguide_img ul li:nth-child(1) .processguide_img {
+   background-image: url(/assets/img/processicon01.png);
+}
+
+#processguide_img ul li:nth-child(2) .processguide_img {
+   background-image: url(/assets/img/processicon02.png);
+}
+
+#processguide_img ul li:nth-child(3) .processguide_img {
+   background-image: url(/assets/img/processicon03.png);
+}
+
+#processguide_img ul li .processguide_img {
+   width: 120px;
+   height: 120px;
+   margin: 0 auto;
+   margin-bottom: 15px;
+   background-color: #fafafa;
+   border-radius: 50%;
+   box-shadow: 0px 3px 6px rgb(0 0 0/ 16%);
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 60px auto;
+}
+
+#processguide_img ul li dl dt {
+   font-size: 25px;
+   font-weight: bold;
+   color: #555;
+   margin-bottom: 10px;
+}
+
+#processguide_img ul li dl dd {
+   font-size: 15px;
+   color: #555;
+}
+
+#company_clean_info {
+   /* border: 1px solid red;*/
+   width: 1344px;
+   height: 344px;
+   padding-top: 50px;
+}
+
+.inner_title h2 {
+   /*border: 1px solid red;*/
+   color: #555;
+   font-size: 25px;
+   font-weight: bolder;
+   margin: 50px 0 0 90px;
+   display: inline-block;
+}
+
+#company_clean_info ul {
+   list-style: none;
+   margin: 0 auto;
+   padding: 0;
+   width: 100%;
+   text-align: center;
+   margin-top: 30px;
+}
+
+#company_clean_info ul li {
+   display: inline-block;
+   width: 400px;
+   height: 100px;
+   text-align: left;
+   border-radius: 20px;
+   margin: 0 60px;
+   box-shadow: 0px 3px 6px rgb(0 0 0/ 16%);
+}
+
+#company_clean_info ul li a {
+   text-decoration: none;
+   color: #fafafa;
+   font-size: 20px;
+   font-weight: 600;
+   display: inline-block;
+   width: 100%;
+   height: 100%;
+   line-height: 100px;
+   padding-left: 50px;
+   background-position: right 70px center;
+   background-repeat: no-repeat;
+   background-size: 70px;
+}
+
+#company_clean_info ul li:nth-child(1) a {
+   background-image: url(/assets/img/search_icon.png);
+   background-color: #72CCFF;
+   border-radius: 20px;
+}
+
+#company_clean_info ul li:nth-child(2) a {
+   background-image: url(/assets/img/cleaning_icon.png);
+   background-color: #0E76B3;
+   border-radius: 20px;
+}
+
+#review {
+   /* border: 1px solid yellow;*/
+   width: 1344px;
+   height: 457px;
+}
+
+#review_inner {
+   /* border: 1px solid red;*/
+   width: 880px;
+   height: 340px;
+   margin: 0 auto;
+}
+
+.inner_title a {
+   position: relative;
+   left: 820px;
+   text-decoration: none;
+   color: #555;
+   font-weight: 600;
+}
+
+#review_center {
+   /*  border: 1px solid red;*/
+   width: 100%;
+   height: 350px;
+   margin: 0 auto;
+   padding: 0;
+}
+
+#review_inner {
+   /* border: 1px solid blue;*/
+   width: 100%;
+   height: 100%;
+}
+
+#myCarousel {
+   margin: 30px auto 60px;
+   padding: 0 80px;
+}
+
+#myCarousel .carousel-item {
+   text-align: center;
+   overflow: hidden;
+}
+
+#myCarousel .carousel-item h4 {
+   font-size: 20px;
+   font-weight: 600;
+}
+
+.title {
+   /* border: 1px solid red; */
+   height: 175px;
+   overflow: hidden;
+}
+
+.title p {
+   margin-bottom: 10px;
+}
+
+.title p:nth-last-child(2) {
+   color: #0E76B3;
+   font-weight: 600;
+}
+
+
+#myCarousel .carousel-item .btn:hover {
+   background: #8c5bff;
+}
+
+#myCarousel .carousel-item .btn i {
+   font-size: 14px;
+   font-weight: bold;
+   margin-left: 5px;
+}
+
+#myCarousel .thumb-wrapper {
+   border: 1px solid #ccc;
+   border-radius: 10px;
+   width: 360px;
+   height: 200px;
+   margin: 5px;
+   padding: 10px;
+   text-align: left;
+   background: #fff;
+   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+#myCarousel .thumb-content {
+   /* border: 1px solid red;*/
+   height: 84px;
+   font-size: 13px;
+   overflow: hidden;
+}
+
+#carousel-control-prev, #carousel-control-next {
+   height: 45px;
+   width: 45px;
+   background: none;
+   margin: auto 0;
+   /*border-radius: 50%;*/
+   border: 3px solid #0E76B3;
+}
+
+#carousel-control-prev i, #carousel-control-next i {
+   border: 1px solid none;
+   font-size: 20px;
+   position: absolute;
+   top: 75%;
+   display: inline-block;
+   margin: -19px 0 0 0;
+   z-index: 5;
+   left: 0;
+   right: 0;
+   color: #0E76B3;
+   text-shadow: none;
+   font-weight: bold;
+   background-color: none;
+}
+
+#carousel-indicators {
+   bottom: -50px;
+}
+
+#carousel-indicators li, #carousel-indicators li.active {
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   margin: 4px;
+   border: none;
+}
+
+#carousel-indicators li {
+   background: #ababab;
+}
+
+#carousel-indicators li.active {
+   background: #555;
+}
+
+/*입점 신청*/
+#withClean {
+   width: 100%;
+   height: 138.46px;
+   text-align: center;
+   background-color: #0E76B3;
+}
+
+#withClean_inner {
+   width: 100%;
+   height: 100%;
+}
+
+#withClean a {
+   text-decoration: none;
+   color: #fafafa;
+}
+
+#withClean_inner_center {
+   width: 1344px;
+   height: 100%;
+   margin: 0 auto;
+   display: inline-block;
+   background-image: url(/assets/img/arrow_icon.png);
+   background-position: right 210px center;
+   background-repeat: no-repeat;
+   background-size: 65px;
+}
+
+#withClean_inner_center span {
+   font-size: 25px;
+   line-height: 138.46px;
+   font-weight: bold;
+}
+
+#withClean_inner_center span:nth-child(1) {
+   margin: 0 20px 0 160.73px;
+}
+
+#withClean_inner_center span:nth-child(2) {
+   font-size: 20px;
+   margin: 0 250.73px 0 20px;
+}
+
+/*   풋터
+    #footer {
+
+        width: 100%;
+        height: 302px;
+        background-color: #E6E6E6;
+    }
+
+    #caution {
+        border-top: 1px solid #D9D9D9;
+        border-bottom: 1px solid #D9D9D9;
+        width: 100%;
+        height: 70px;
+        color: #666;
+
+
+    }
+
+    #caution>p {
+        text-align: center;
+        line-height: 70px;
+        font-weight: 600;
+    }
+
+    #footer_inner {
+        padding-top: 20px;
+
+        width: 100%;
+        height: 232px;
+    }
+
+    #footer_inner_center {
+
+        width: 1344px;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    #footer_inner_left {
+        font-weight: bold;
+        width: 26%;
+        height: 100%;
+        padding-left: 83.52px;
+        float: left;
+    }
+
+    #footer_inner_left span {
+        font-size: 20px;
+        color: #666;
+    }
+
+    #footer_inner_left a {
+
+        font-size: 25px;
+        color: black;
+        text-decoration: none;
+        display: block;
+        height: 30px;
+        padding: 10px 0;
+    }
+
+    #footer_inner_right {
+
+        width: 74%;
+        height: 100%;
+        float: left;
+    }
+
+    #busyInfo {
+        color: #666;
+        font-weight: bold;
+        font-size: 13px;
+        float: left;
+        padding-left: 83.52px;
+    }
+
+    #busyInfo>p:first-child {
+        font-size: 20px;
+        color: #666;
+    }
+
+    #footer_inner_right ul {
+        float: right;
+        display: inline-block;
+        width: 250px;
+        padding-left: 50px;
+        list-style: none;
+    }
+
+    #footer_inner_right ul li {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    #footer_inner_right ul li a {
+        text-decoration: none;
+        color: #666;
+        font-weight: bold;
+    } */
