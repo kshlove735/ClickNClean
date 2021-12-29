@@ -14,13 +14,19 @@
     <link rel="stylesheet" href="/assets/css/header.css">
     <!-- jQuery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+     <link rel="stylesheet" href="/assets/css/header.css">
+     <link rel="stylesheet" href="/assets/css/footer.css">
+     <link rel="stylesheet" href="/assets/css/adminAccount.css">
 </head>
 <body>
-
-
 <style>
-    * {
+
+  * {
         box-sizing: border-box;
         font-family: 'NanumSquare';
         
@@ -254,21 +260,14 @@
         list-style: none;
     }
 
-    #footer_inner_right ul li {
-        margin-bottom: 20px;
-        width: 100%;
-    }
 
-    #footer_inner_right ul li a {
-        text-decoration: none;
-        color: #666;
-        font-weight: bold;
-    }
 
 </style>
 
+
 <jsp:include page="/views/commons/header.jsp" />
     <div id="wrap">
+
          
           <div id="adminpage">
             <span id="adminpageFont">관리자 페이지</span>
@@ -276,7 +275,16 @@
                <div id="submenu">
                     <div id="navigator">
                         <ul id="gnb">
-                            <li><a href="">Home</a></li>
+                            <li><a href="/admin/adminHome.do">Home</a></li>
+                            <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
+                            <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
+                            <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
+                            <li><a href="/board/memberNotice.do">게시판 관리</a>
+                            <ul class="sub">
+                                <li><a href="">sub</a></li>
+                                <li><a href="">sub</a></li>
+                                <li><a href="">sub</a></li>
+                            </ul></li>
                             <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
                             <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
                             <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
@@ -396,122 +404,7 @@
                     </tbody>
                 </table>
                 
-            <div class="table2">       
-            <div id="content1">
-            <div style=" width: 100%;">
-                <div id= "listsub">
-                <p>1:1 문의(회원)</p>
-                </div>
 
-                <table class="table table-text-center ">
-                    <thead style="">
-                        <tr>
-                            <th style="width: 10%;">번호</th>
-                            <th style="width: 15%;">이름</th>
-                            <th style="width: 15%;">아이디</th>
-                            <th style="width: 45%;">글제목</th>
-                            <th style="width: 15%;">확인하기</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>김승현</td>
-                            <td>user11</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>김승현</td>
-                            <td>user22</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>김지은</td>
-                            <td>user33</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>이현아</td>
-                            <td>user44</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>정두식</td>
-                            <td>user55</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="table2">       
-            <div id="content2">
-             <div id= "listsub">
-              <p>리뷰(회원)</p>
-             </div>
-                <table class="table table-text-center ">
-                    <thead style="">
-                        <tr>
-                            <th style="width: 10%;">번호</th>
-                            <th style="width: 15%;">이름</th>
-                            <th style="width: 15%;">아이디</th>
-                            <th style="width: 45%;">글제목</th>
-                            <th style="width: 15%;">확인하기</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                         <tr>
-                            <th>1</th>
-                            <td>김승현</td>
-                            <td>user11</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>김승현</td>
-                            <td>user22</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>김지은</td>
-                            <td>user33</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>이현아</td>
-                            <td>user44</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>정두식</td>
-                            <td>user55</td>
-                            <td>제목 어쩌고 청소 좋아요</td>
-                            <td><button class="btn">확인</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-            </div> </div>                     
-            </div>        
-    </div>
            </div>     
             
     <!-- End Table -->

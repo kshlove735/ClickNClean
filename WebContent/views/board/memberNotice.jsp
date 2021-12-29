@@ -12,10 +12,51 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="/assets/css/theme.min.css">
     <link rel="stylesheet" href="/assets/css/docs.min.css">
-    <link rel="stylesheet" href="/assets/css/header.css">
+         <link rel="stylesheet" href="/assets/css/header.css">
+     <link rel="stylesheet" href="/assets/css/footer.css">
+     <link rel="stylesheet" href="/assets/css/adminAccount.css">
+
 <!-- jQuery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+    <style>
+        #boardmenu{
+    text-align: left;
+     
+    }
     
+        #listsub{
+        text-align: left;
+        font-size: 30px;
+        height: 25px;
+        width: 400px;
+        padding: 25px;
+    }
+    
+    #search{
+        text-align: right;
+        padding: 15px;
+    }
+    
+    .btn{
+        background-color: #0E76B3;
+        height: 35px;
+        color: #fafafa;
+        text-align: center;
+        text-decoration: none;
+        padding: 0px 15px;
+    }
+    
+     .btn:hover {
+     background: white; 
+     color: black;
+    }
+    
+    </style>
 </head>
 <body>
 
@@ -34,6 +75,7 @@
         margin: 0 auto;
         
     }
+
        
         #adminpage{
              width: 1344px;
@@ -83,13 +125,7 @@
             color: white;
         }
 
-        .line{
-            width: 1344px;
-            height: 6px;
-            background-color: #0E76B3;
-            margin : 0 auto;
-        }
-    
+
     /*content*/
     
     #boardmenu{
@@ -123,6 +159,7 @@
      background: white; 
      color: black;
     }
+
     /*footer*/
     #footer {
       
@@ -245,6 +282,7 @@
     
     <div id="wrap">
 
+
           <div id="adminpage">
             <span id="adminpageFont">관리자 페이지</span>
             </div>    
@@ -252,6 +290,7 @@
                     <div id="navigator">
                         <ul id="gnb">
                             <li><a href="/admin/adminHome.do">Home</a></li>
+
                             <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
                             <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
                             <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
@@ -265,7 +304,7 @@
             <div style=" width: 100%;">
            
 
-                <!--공지사항 및 FAQ (회원)-->
+                 <!--공지사항 및 FAQ (회원)-->
                  <div id= "listsub">
                   <p>공지사항 및 FAQ (회원)</p>
                 </div>
@@ -362,6 +401,7 @@
 
     </div>
     </div>
+
             <!--푸터-->
         <div id="footer">
             <div id="caution">

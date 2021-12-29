@@ -33,6 +33,12 @@ public interface BoardService {
 		 * @subscription : 게시물을 키워드별 검색할 때 사용 하는 메소드
 		 */
 	HashMap<String, Object> selectSearchPost(int currentPage, String keyword, String type);
+	 /**
+     * @Author : jieun Kim
+     * @Date : 2021-12-29
+     * @subscription : 게시물 삭제할 때 사용하는 메소드
+     */
+ int boardDelete(int boardNo);
 
 			/**
 			 * @Author : jieun Kim

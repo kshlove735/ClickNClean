@@ -7,7 +7,8 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>관리자 로그인</title>
-
+   <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
 <!--bootstap-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -55,12 +56,6 @@ input[type=password] {
 	font-family: fantasy;
 }
 
-/*헤더*/
-#header {
-	border: 1px solid red;
-	width: 100%;
-	height: 70px;
-}
 
 /*콘텐츠*/
 #content {
@@ -141,10 +136,7 @@ input[type="submit"] {
 
 /*풋터*/
 #footer {
-	border: 1px solid red;
-	width: 100%;
-	height: 302px;
-	/* background-color: #E6E6E6;*/
+	background-color: #E6E6E6;
 }
 </style>
 
@@ -153,7 +145,7 @@ input[type="submit"] {
 <body>
 
 	<div id="wrap">
-		<div id="header"></div>
+		<jsp:include page="/views/commons/header.jsp" />
 
 		<div id="content">
 			<div id="content_inner">
@@ -188,7 +180,48 @@ input[type="submit"] {
 			</div>
 		</div>
 
-		<div id="footer"></div>
+		<div id="footer">
+            <div id="caution">
+                <p>클릭N클린은 통신판매중개자로서 청소서비스의 주거래 당사자가 아니며, 청소서비스의 분쟁과 계약사항은 회원사와 당사자간에 있습니다.</p>
+            </div>
+            <div id="footer_inner">
+                <div id="footer_inner_center">
+                    <div id="footer_inner_left">
+                        <span>클릭N클린 고객센터</span>
+                        <br>
+                        <a href="tel:010-3306-6303">010-3306-6303</a>
+                        <br>
+                        영업시간 : 09:00 ~ 18:00
+                        <br>
+                        (공휴일 휴무)
+                    </div>
+                    <div id="footer_inner_right">
+                        <div id="busyInfo">
+                            <p>클릭N클린(주)</p>
+                            <address>
+                                대표: 김승현
+                                <br>
+                                주소 : 서울특별시 중구 세종대로 136 파이낸스빌딩 3층 저스트코 S3119 (태평로1가)
+                                <br>
+                                사업자등록번호 : 585-86-00882
+                                <br>
+                                통신판매업번호 : 2017-인천계양-0583호
+                                <br>
+                                E-mail : help@clickNclean.co.kr
+                                <br>
+                                FAX : 070-5165-8603
+                            </address>
+                            <p>Copyright © 클릭N클린</p>
+                        </div>
+                        <ul>
+                            <li><a href="">개인정보취급방침</a></li>
+                            <li><a href="">이용약관</a></li>
+                            <li><a href="">관리자 페이지</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 	</div>
 </body>

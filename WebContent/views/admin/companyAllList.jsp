@@ -12,9 +12,17 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="/assets/css/theme.min.css">
     <link rel="stylesheet" href="/assets/css/docs.min.css">
-    <link rel="stylesheet" href="/assets/css/header.css">
+     <link rel="stylesheet" href="/assets/css/header.css">
+     <link rel="stylesheet" href="/assets/css/footer.css">
+     <link rel="stylesheet" href="/assets/css/adminAccount.css">
+
     <!-- jQuery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
     
 </head>
 <body>
@@ -36,6 +44,7 @@
         margin: 0 auto;
         
     }
+
         /*헤더 */
         
         #adminpage{
@@ -86,12 +95,7 @@
             color: white;
         }
 
-        .line{
-            width: 1344px;
-            height: 6px;
-            background-color: #0E76B3;
-            margin : 0 auto;
-        }
+
     
     /*content*/
     #companylistsub{
@@ -107,114 +111,17 @@
         text-align: right;
         padding: 15px;
     }
-    
-    /*footer*/
-    #footer {
-      
-        width: 100%;
-        height: 302px;
-        background-color: #E6E6E6;
-    }
 
-    #caution {
-        border-top: 1px solid #D9D9D9;
-        border-bottom: 1px solid #D9D9D9;
-        width: 100%;
-        height: 70px;
-        color: #666;
-
-
-    }
-
-    #caution>p {
-        text-align: center;
-        line-height: 70px;
-        font-weight: 600;
-    }
-
-    #footer_inner {
-        padding-top: 20px;
-
-        width: 100%;
-        height: 232px;
-    }
-
-    #footer_inner_center {
-        
-        width: 1344px;
-        height: 100%;
-        margin: 0 auto;
-    }
-
-    #footer_inner_left {
-      ;
-        font-weight: bold;
-        width: 26%;
-        height: 100%;
-        padding-left: 83.52px;
-        float: left;
-    }
-
-    #footer_inner_left span {
-        font-size: 20px;
-        color: #666;
-    }
-
-    #footer_inner_left a {
-
-        font-size: 25px;
-        color: black;
-        text-decoration: none;
-        display: block;
-        height: 30px;
-        padding: 10px 0;
-    }
-
-    #footer_inner_right {
-        
-        width: 74%;
-        height: 100%;
-        float: left;
-    }
-
-    #busyInfo {
-        color: #666;
-        font-weight: bold;
-        font-size: 13px;
-        float: left;
-        padding-left: 83.52px;
-    }
-
-    #busyInfo>p:first-child {
-        font-size: 20px;
-        color: #666;
-    }
-
-    #footer_inner_right ul {
-        float: right;
-        display: inline-block;
-        width: 250px;
-        padding-left: 50px;
-        list-style: none;
-    }
-
-    #footer_inner_right ul li {
-        margin-bottom: 20px;
-        width: 100%;
-    }
-
-    #footer_inner_right ul li a {
-        text-decoration: none;
-        color: #666;
-        font-weight: bold;
-    }
 
 </style>
 <body>
-    
+
     <jsp:include page="/views/commons/header.jsp" />
     <!-- Table -->
     <div id="wrap">
+            <!-- navi 페이지별 로직 연결 -->
+		
+
          
           <div id="adminpage">
             <span id="adminpageFont">관리자 페이지</span>
@@ -223,6 +130,7 @@
                     <div id="navigator">
                         <ul id="gnb">
                             <li><a href="/admin/adminHome.do">Home</a></li>
+
                             <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
                             <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
                             <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>

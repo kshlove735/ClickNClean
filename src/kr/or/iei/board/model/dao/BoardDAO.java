@@ -350,6 +350,7 @@ private int totalSearchCount(Connection conn, String keyword, String type) {
 
    }
 
+
    public int deletePost(Connection conn, int boardNo) {
       PreparedStatement pstmt = null;
       int result = 0;

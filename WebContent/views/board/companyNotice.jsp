@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/assets/css/theme.min.css">
     <link rel="stylesheet" href="/assets/css/docs.min.css">
     <link rel="stylesheet" href="/assets/css/header.css">
+
 <!-- jQuery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     
@@ -38,6 +39,7 @@
         
     }
         
+
         #adminpage{
              width: 1344px;
             height: 120px;
@@ -51,6 +53,7 @@
             left: 580px;
             color: #555;
         }
+
         /* 메뉴 바 */
            #navigator {
             height: 67px;
@@ -227,9 +230,11 @@
 
 </style>
 <body>
+
     
     <jsp:include page="/views/commons/header.jsp" />
     <div id="wrap">
+
          
           <div id="adminpage">
             <span id="adminpageFont">관리자 페이지</span>

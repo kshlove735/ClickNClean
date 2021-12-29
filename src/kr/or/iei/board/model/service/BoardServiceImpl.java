@@ -124,6 +124,16 @@ public class BoardServiceImpl implements BoardService{
 		
 		return map;
 	}
+	@Override
+	   public int boardDelete(int boardNo) {
+	      Connection conn = JDBCTemplate.getConnection();
+	      int result = bDAO.deletePost(conn,boardNo);
+	      if(result>0) JDBCTemplate.commit(conn);
+	      else JDBCTemplate.rollback(conn);
+	      JDBCTemplate.close(conn);
+	      return result;
+	   }
+
 
 	@Override
 	public int boardDelete(int boardNo) {
