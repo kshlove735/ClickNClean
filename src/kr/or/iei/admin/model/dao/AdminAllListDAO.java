@@ -51,6 +51,35 @@ public class AdminAllListDAO {
 		}
 		return list;
 	}
+	
+	public int totalCount(Connection conn)
+	{
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		int count = 0;
+		
+		String query = "SELECT COUNT(*) as count FROM MEMBER";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next())
+			{
+				count = rset.getInt("count");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		
+		}
+		
+		return count;
+	}
 
 	public ArrayList<Company> companyAllList(Connection conn) {
 
