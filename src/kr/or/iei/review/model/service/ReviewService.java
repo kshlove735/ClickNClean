@@ -1,5 +1,6 @@
 package kr.or.iei.review.model.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import kr.or.iei.review.model.vo.Comments;
@@ -63,6 +64,14 @@ public interface ReviewService {
    HashMap<String, Object> ReviewAllList(String coId, int currentPage);
    
    int insertReviewComment(Comments c);
+
+/**
+ * @Author : SeungHyun Kim(kshlove735)
+ * @Date : 2021. 12. 29.
+ * @return : ArrayList<Review>
+ * @subscription : 메인 페이지 리뷰
+ */
+ArrayList<Review> selectReviewForMain();
 
 
 }
