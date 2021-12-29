@@ -20,9 +20,11 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="/assets/css/theme.min.css">
     <link rel="stylesheet" href="/assets/css/docs.min.css">
-         <link rel="stylesheet" href="/assets/css/header.css">
+
+     <link rel="stylesheet" href="/assets/css/header.css">
      <link rel="stylesheet" href="/assets/css/footer.css">
      <link rel="stylesheet" href="/assets/css/adminAccount.css">
+
 </head>
 <body>
      <%
@@ -37,33 +39,221 @@
     
     #wrap {
 
-        width: 1344px;
+        width: 100%;
         margin: 0 auto;
         
     }
-   
+
+            /*헤더 부분 */
+        
+         
+        
+        #adminpage{
+             width: 1344px;
+            height: 120px;
+             margin: 0 auto;
+           
+        }
+         #adminpageFont{
+            position: relative;
+            font-size : 35px;
+            top : 38px;
+            left: 580px;
+            color: #555;
+        }
+        /* 메뉴 바 */
+           #navigator {
+            height: 67px;
+            width : 1344px;
+            margin: 0 auto;
+        }
+        #gnb {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #gnb a {
+            text-decoration: none;
+            color: #555;
+            width: 100%;
+            display: block;
+            font-size: 20px;
+        }
+        #gnb li {
+            float: left;
+            width: 20%;
+            height: 100%;
+            list-style-type: none;
+            text-align: center;
+            line-height: 70px;
+            
+        }
+        #gnb li:hover {
+            background-color: #0E76B3;
+        }
+        #gnb a:hover {
+            color: white;
+        }
+
+        .line{
+            width: 1344px;
+            height: 6px;
+            background-color: #0E76B3;
+            margin : 0 auto;
+        }
+    
+    #memberlistsub{
+        text-align: center;
+        font-size: 30px;
+        height: 50px;
+        padding: 60px;
+ 
+    }
+    
+    #change{
+        text-align: right;
+        padding: 15px;
+    }
+    #btn1{
+        position: absolute;
+        top: 344px;
+        left: 1220px;
+    }
+    
+    #btn2{
+        position: absolute;
+        top: 720px;
+        left: 1220px;
+    }
+    
+    #table{
+        width: 900px;
+        margin:auto;
+        padding :30px;
+    }
+    
+    /*footer*/
+    #footer {
+      
+        width: 100%;
+        height: 302px;
+        background-color: #E6E6E6;
+    }
+
+    #caution {
+        border-top: 1px solid #D9D9D9;
+        border-bottom: 1px solid #D9D9D9;
+        width: 100%;
+        height: 70px;
+        color: #666;
+
+
+    }
+
+    #caution>p {
+        text-align: center;
+        line-height: 70px;
+        font-weight: 600;
+    }
+
+    #footer_inner {
+        padding-top: 20px;
+
+        width: 100%;
+        height: 232px;
+    }
+
+    #footer_inner_center {
+        
+        width: 1344px;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    #footer_inner_left {
+        
+        font-weight: bold;
+        width: 26%;
+        height: 100%;
+        padding-left: 83.52px;
+        float: left;
+    }
+
+    #footer_inner_left span {
+        font-size: 20px;
+        color: #666;
+    }
+
+    #footer_inner_left a {
+
+        font-size: 25px;
+        color: black;
+        text-decoration: none;
+        display: block;
+        height: 30px;
+        padding: 10px 0;
+    }
+
+    #footer_inner_right {
+        
+        width: 74%;
+        height: 100%;
+        float: left;
+    }
+
+    #busyInfo {
+        color: #666;
+        font-weight: bold;
+        font-size: 13px;
+        float: left;
+        padding-left: 83.52px;
+    }
+
+    #busyInfo>p:first-child {
+        font-size: 20px;
+        color: #666;
+    }
+
+    #footer_inner_right ul {
+        float: right;
+        display: inline-block;
+        width: 250px;
+        padding-left: 50px;
+        list-style: none;
+    }
+
+    #footer_inner_right ul li {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    #footer_inner_right ul li a {
+        text-decoration: none;
+        color: #666;
+        font-weight: bold;
+    }
+
 </style>
 <body>
-	<jsp:include page="/views/commons/header.jsp" />
-	
-    <div id="wrap">
     
+    <jsp:include page="/views/commons/header.jsp" />
+    
+    <div id="wrap">
+         
+
+   
+
           <div id="adminpage">
             <span id="adminpageFont">관리자 페이지</span>
             </div>    
                <div id="submenu">
                     <div id="navigator">
                         <ul id="gnb">
-                           <li><a href="/admin/adminHome.do">Home</a></li>
-                            <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
-                            <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
-                            <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
-                            <li><a href="/board/memberNotice.do">게시판 관리</a>
-                            <ul class="sub">
-                                <li><a href="">sub</a></li>
-                                <li><a href="">sub</a></li>
-                                <li><a href="">sub</a></li>
-                            </ul></li>
+
+                            <li><a href="/admin/adminHome.do">Home</a></li>
+
+                          
                             <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
                             <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
                             <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>

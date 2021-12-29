@@ -17,9 +17,11 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="/assets/css/theme.min.css">
     <link rel="stylesheet" href="/assets/css/docs.min.css">
+
      <link rel="stylesheet" href="/assets/css/header.css">
      <link rel="stylesheet" href="/assets/css/footer.css">
      <link rel="stylesheet" href="/assets/css/adminAccount.css">
+
 </head>
 <body>
 
@@ -41,6 +43,63 @@
         
     }
         
+
+        #adminpage{
+             width: 1344px;
+            height: 120px;
+             margin: 0 auto;
+           
+        }
+         #adminpageFont{
+            position: relative;
+            font-size : 35px;
+            top : 38px;
+            left: 580px;
+            color: #555;
+        }
+        /* 메뉴*/
+           #navigator {
+            height: 67px;
+            width : 1344px;
+            margin: 0 auto;
+        }
+        #gnb {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #gnb a {
+            text-decoration: none;
+            color: #555;
+            width: 100%;
+            display: block;
+            font-size: 20px;
+        }
+        #gnb li {
+            float: left;
+            width: 20%;
+            height: 100%;
+            list-style-type: none;
+            text-align: center;
+            line-height: 70px;
+            
+        }
+        #gnb li:hover {
+            background-color: #0E76B3;
+        }
+        #gnb a:hover {
+            color: white;
+        }
+
+        .line{
+            width: 1344px;
+            height: 6px;
+            background-color: #0E76B3;
+            margin : 0 auto;
+        }
+    
+
     /*content*/
     #memberlistsub{
         text-align: center;
@@ -58,7 +117,7 @@
 </style>
      <jsp:include page="/views/commons/header.jsp" />
     <div id="wrap">
-		
+
          
           <div id="adminpage">
             <span id="adminpageFont">관리자 페이지</span>
@@ -67,15 +126,7 @@
                     <div id="navigator">
                         <ul id="gnb">
                             <li><a href="/admin/adminHome.do">Home</a></li>
-                            <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
-                            <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
-                            <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
-                            <li><a href="/board/memberNotice.do">게시판 관리</a>
-                            <ul class="sub">
-                                <li><a href="">sub</a></li>
-                                <li><a href="">sub</a></li>
-                                <li><a href="">sub</a></li>
-                            </ul></li>
+
                             <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
                             <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
                             <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
@@ -135,6 +186,7 @@
                     <%} %>
                 </table>
                 <%} %>
+
                 <!-- 페이징 처리 -->
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">
@@ -146,8 +198,10 @@
                         <li class="page-item">
                             <a class="page-link" href="#">Next</a>
                         </li>
-                    </ul>
+                    </ul> 
                 
+                
+                          
             </div>
 
     </div>

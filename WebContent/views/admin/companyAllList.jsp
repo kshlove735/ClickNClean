@@ -15,6 +15,7 @@
      <link rel="stylesheet" href="/assets/css/header.css">
      <link rel="stylesheet" href="/assets/css/footer.css">
      <link rel="stylesheet" href="/assets/css/adminAccount.css">
+
     <!-- jQuery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <link
@@ -44,6 +45,57 @@
         
     }
 
+        /*헤더 */
+        
+        #adminpage{
+             width: 1344px;
+            height: 120px;
+             margin: 0 auto;
+           
+        }
+         #adminpageFont{
+            position: relative;
+            font-size : 35px;
+            top : 38px;
+            left: 580px;
+            color: #555;
+        }
+        /* 메뉴*/
+           #navigator {
+            height: 67px;
+            width : 1344px;
+            margin: 0 auto;
+        }
+        #gnb {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #gnb a {
+            text-decoration: none;
+            color: #555;
+            width: 100%;
+            display: block;
+            font-size: 20px;
+        }
+        #gnb li {
+            float: left;
+            width: 20%;
+            height: 100%;
+            list-style-type: none;
+            text-align: center;
+            line-height: 70px;
+            
+        }
+        #gnb li:hover {
+            background-color: #0E76B3;
+        }
+        #gnb a:hover {
+            color: white;
+        }
+
+
     
     /*content*/
     #companylistsub{
@@ -63,11 +115,13 @@
 
 </style>
 <body>
+
     <jsp:include page="/views/commons/header.jsp" />
     <!-- Table -->
     <div id="wrap">
             <!-- navi 페이지별 로직 연결 -->
 		
+
          
           <div id="adminpage">
             <span id="adminpageFont">관리자 페이지</span>
@@ -76,15 +130,7 @@
                     <div id="navigator">
                         <ul id="gnb">
                             <li><a href="/admin/adminHome.do">Home</a></li>
-                            <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
-                            <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
-                            <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
-                            <li><a href="/board/memberNotice.do">게시판 관리</a>
-                            <ul class="sub">
-                                <li><a href="">sub</a></li>
-                                <li><a href="">sub</a></li>
-                                <li><a href="">sub</a></li>
-                            </ul></li>
+
                             <li><a href="/admin/adminAccount.do">관리자 계정</a></li>
                             <li><a href="/admin/companyAllList.do">전체 업체 LIST</a></li>
                             <li><a href="/admin/memberAllList.do">전체 회원 LIST</a></li>
@@ -196,5 +242,7 @@
                 </div>
             </div>
         </div>
+        </div>
+        
 </body>
 </html>
